@@ -1,0 +1,359 @@
+﻿<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+
+<head>	
+<style type="text/css">
+	.broward-color-blue{
+		color:#0277BD;
+	}
+	#CategoryNav select{
+		display: none!important;
+	}
+	
+	@media (max-width: 767px) {
+		#CategoryNav{
+			text-align:center;
+		}
+		#CategoryNav ul {
+			display: none;
+		}
+		#CategoryNav select {
+			display: inline-block!important;
+		}
+		.grid-sizer,.grid-item {
+		  width: 100%;
+		  margin-bottom:10px;
+		}
+		.smPost{
+			font-size:1.25rem;
+			text-align:center;
+		}
+
+	}
+	::placeholder { /* Firefox, Chrome, Opera */ 
+    	color: #ababab!important; 
+	} 
+	  
+	:-ms-input-placeholder { /* Internet Explorer 10-11 */ 
+	    color: #ababab!important; 
+	} 
+	  
+	::-ms-input-placeholder { /* Microsoft Edge */ 
+	    color: #ababab!important; 
+	}
+	.swapSearch{
+		box-sizing: content-box!important;
+	}
+	
+	* { box-sizing: border-box; }
+
+	.grid:after {
+	  content: '';
+	  display: block;
+	  clear: both;
+	}
+	
+	.grid-sizer,.grid-item {
+	  width: 30%;
+	  margin-bottom:20px;
+	}
+	.card-img-top {
+		width: 100%;
+	}
+	.card {
+    	display: block;
+	}
+	</style>
+</head>
+<body>
+	<section aria-label="Main Page Content" id="heading">
+	<div class="container-fluid" id="swapHeader" style="margin-top:4.65rem">
+		<div class="row justify-content-center my-2 py-5" style="background-color:#4FC3F7;">
+			<div class="col-md-5 col-10 pr-1">
+				<div style="border-radius:4px;">
+					<input class="form-control pl-3 mr-2 bg-white swapSearch" id="faqSearch" style="border-radius:0px; border:none; padding-top:.5rem; padding-bottom:.5rem;" type="text" placeholder="Search" aria-label="Search" data-search/>
+				</div>
+			</div>
+			<div class="col-1 pl-1">
+				<button class="btn btn-sm px-5 mt-0 float-right z-depth-0 hoverable" style="border-radius:0px; padding-top:1rem; padding-bottom:.85rem; background-color:#039BE5; margin-top:4px; margin-bottom:16px" type="button" data-search-button><i class="fal fa-search text-white" style="font-size:24px"></i></button>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row px-0 py-3">
+			<div class="col px-0">
+				<h2 class="text-dark text-md-left text-center"><span style="font-weight:700">Welcome to</span> the Swap Meet</h2>
+			</div>
+		</div>
+		
+
+		<div class="row justify-content-center">
+			<div class="col-12 px-0">
+				<div class="card brown lighten-5 z-depth-0">
+				  <div class="card-body">
+				  <div class="row d-flex justify-content-center">
+				  <div class="col-md-9 col-12 d-flex justify-content-center">
+				  	<h4 class="my-auto smPost">Simple way to buy or exchange goods among Broward County Employees</h4>
+				  </div>
+				  <div class="col-md-3 col-12 d-flex justify-content-center">
+				    <a href="/swapmeet/Pages/SwapMeetPost.aspx" target="_blank"><button type="button" class="btn btn-info"><i class="fal fa-plus"></i> Post to Swap Meet</button></a>
+					</div>
+				  </div>
+				  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container py-3 px-0">
+	        <div class="row justify-content-between">
+		        <div class="col-md-3 col-12 pr-4">
+		        	<h4 class="pb-md-3 font-weight-bold text-dark text-center text-md-left">CATEGORIES</h4>
+		        	<div id="CategoryNav" class="pb-md-3 py-md-0">
+			        	<ul class="px-0" id="CategoryOptions" style="list-style-type:none; border-left:solid medium #eaeaea;">
+			        		<li class="py-1 pl-3"><a href="#" class="text-dark">All</a></li>
+			        		<!--Options injected here-->
+			        	</ul>
+		        	</div>
+		        </div>
+		        <div class="col-md-9 col-12" id="cardColumn">
+		        	<h2 id="faqCategoryTitle" class="pb-3 font-weight-bold text-center text-md-left">All</h2>
+		       		<!-- Grid row -->
+		        
+					<!-- Grid row -->
+		        </div>
+	        </div>    
+        </div>
+    </section>	
+<script type="text/javascript" src="/Style%20Library/V7/js/vendor/mdb_update/js/jquery-3.4.0.min.js"></script>
+
+<script type="text/javascript">
+
+
+var accID = 'All',
+searchVal = '',
+mainNav = '#CategoryNav', 
+mainNavSelect = '#CategoryNav select',
+catNavTitle = $('#faqCategoryTitle'),
+resultsArea = $('#cardColumn'),
+gridName = '.grid'
+
+$(document).ready(function () {
+
+    $.ajax({
+        url: "/swapmeet/_api/web/lists/GetByTitle('Swap Meet Images')/items?$orderby=Created desc",
+        method: "GET",
+        headers: {
+            "Accept": "application/json; odata=verbose"
+        },
+        success: function (data) {
+            var thisSwapResults = data.d.results;
+
+            function onlyUnique(value, index, self) {
+                return self.indexOf(value) === index;
+            }
+            
+            var faqItems = $.each(thisSwapResults, function (ind, faqItems) {
+                return faqItems;
+            });
+    
+            var allCategories = [];
+            for (i = 0; i < faqItems.length; i++) {
+                var filterCategories = faqItems[i];
+                allCategories.push(filterCategories.Category);
+            };
+            allCategories.sort();
+    
+            var CategoryList = allCategories.filter(onlyUnique);
+            for (i = 0; i < CategoryList.length; i++) {
+                var CategoryName = CategoryList[i]
+                $('#CategoryOptions').append('<li class="py-1 pl-3"><a href="#" class="text-dark">' + CategoryName + '</a></li>');
+            }
+            var effectIn = function () {
+                $(catNavTitle).html(accID).fadeTo(600, 1);
+                $(resultsArea).fadeTo(600, 1);
+            };
+
+            var effectOut = function () {
+                //$(resultsArea).fadeTo(600,0);
+                $(gridName).masonry('destroy');
+               	$(gridName).remove();
+            };
+            //includes Polyfill
+            if (!String.prototype.includes) {
+              Object.defineProperty(String.prototype, 'includes', {
+                value: function(search, start) {
+                  if (typeof start !== 'number') {
+                    start = 0
+                  }
+                  
+                  if (start + search.length > this.length) {
+                    return false
+                  } else {
+                    return this.indexOf(search, start) !== -1
+                  }
+                }
+              })
+            }
+           	
+            function createCardColumns() {
+                var faqItems = $.each(thisSwapResults, function (ind, faqItems) {
+                    return faqItems;
+                });
+                
+                if(accID === 'Search Results'){
+                    var filterCategory = faqItems.filter(function (e) {
+                        var source = e.ItemTitle.toLowerCase();
+                        return source.includes(searchVal)
+                    });
+                }else if(accID === 'All'){
+                    var filterCategory = faqItems.filter(function (e) {
+                        return faqItems
+                  	});
+                }else {
+                    var filterCategory = faqItems.filter(function (e) {
+                        return e.Category == accID
+                    });
+                }
+                
+                var buildCards = function () {
+                    var cardGroupBuild = '<div class="grid" ><div class="grid-sizer"></div></div>'
+                    $("#cardColumn").append(cardGroupBuild);
+                    
+                    if(filterCategory.length !== 0){
+			            $.each(filterCategory, function(ind, swapItems){
+			            	var itemPageUrl = '/swapmeet/Pages/SwapMeetItem.aspx?=' + swapItems.ID 
+			            
+			            	var cardBuild = '<div class="grid-item"><div class="card align-items-center white">'+
+			      			'<img src="/swapmeet/Swap%20Meet%20Images/'+ swapItems.Title +'" class="card-img-top">'+
+			      			'<div class="card-body text-center white"><a href="'+ itemPageUrl +'" style="color:#1C2A48"><h5><strong>'+ swapItems.ItemTitle +'</strong></h5></a><h5 class="broward-color-blue"><strong> $'+ swapItems.Price +'</strong></h5><a href="'+ itemPageUrl +'" type="button" class="btn btn-sm btn-info text-white">View Details</a></div>'
+			
+			 				//var cardBuild = '<div class="card-wrapper"><div id="flipCard'+ swapItems.ID +'" class="card card-rotating text-center"><div class="face front"><div class="card-up"><img class="card-img-top" src="'+ swapItems.Image.Url +'" alt="'+ swapItems.Image.Description +'"></div><div class="card-body"><h4 class="font-weight-bold mb-3">'+ swapItems.Title +'</h4><p class="font-weight-bold blue-text">'+ swapItems.Price +'</p><a class="rotate-btn" data-card="flipCard'+ swapItems.ID +'"><i class="fas fa-redo-alt"></i> Click here to rotate</a></div></div><div class="face back"><div class="card-body"><h4 class="font-weight-bold mb-0">'+ swapItems.Title +'</h4><hr><p>'+ swapItems.Description +'</p><h4 class="font-weight-bold broward-color-blue mb-0">'+ swapItems.Price +'</h4></div></div></div></div>'	           	
+			            	
+			            	$(gridName).append(cardBuild);
+			            });                          
+			            }else{
+                            var cardBuild = '<div id="srchResultsNone"><h4>There are no results matching your search.</h4></div>'
+                            $("#cardColumn").append(cardBuild);
+                        }	
+
+                };
+                buildCards();
+            };
+            var gridify = function(){
+							var gridFunction = $(gridName).masonry({itemSelector: '.grid-item', columnWidth: '.grid-sizer', gutter:20});
+			 				gridFunction.masonry('layout');
+			 				$(catNavTitle).html(accID).fadeTo(300, 1);
+							};
+			
+			var resultBuild = function(){
+								$.when(createCardColumns()).done(function (){
+									$(gridName).imagesLoaded(function(){
+										gridify();
+									})
+								});	
+							};				
+			resultBuild();
+			                        
+            $("#CategoryOptions > li:first-child > a").parent().css({
+                borderLeft: "solid medium #039BE5",
+                marginLeft: "-3px"
+            });
+    
+            $("#CategoryOptions > li > a").on("click", function () {
+                event.returnValue = false;
+                accID = this.innerHTML
+                $("#srchResultsNone").remove();
+                
+                $("[data-search]")[0].value = '';
+                $("#CategoryOptions > li").css({
+                    borderLeft: "none",
+                    marginLeft: "0px"
+                });
+                $(this).parent().css({
+                    borderLeft: "solid medium #039BE5",
+                    marginLeft: "-3px"
+                });
+                effectOut();
+                resultBuild();
+            });
+    
+            function CategoryNav() {
+			    // Create the dropdown base
+			    $("<select style=\"border:none; height:50px;\" class=\"browser-default custom-select w-100 z-depth-1\" />").appendTo(mainNav);
+			    // Create default option "Go to..."
+			    $("<option />", {
+			        "selected": "",
+			        "value": "Choose a Category",
+			        "text": "Choose a Category"
+			    }).appendTo(mainNavSelect);
+			
+			    // Populate dropdown with menu items
+			    $("#CategoryNav > ul > li > a").each(function () {
+			        var CategoriesSelect = $(this);
+			        $("<option />", {
+			            "value": CategoriesSelect.text(),
+			            "text": CategoriesSelect.text()
+			        }).appendTo(mainNavSelect);
+			    });
+			
+			    // To make dropdown actually work
+			    $(mainNavSelect).change(function () {
+			        accID = $(this).find("option:selected").val()
+			        $.when(effectOut()).done(function () {
+						resultBuild();			           
+			        });
+			    });
+			};
+			CategoryNav();
+            
+            //Search Function
+            $('[data-search]').keypress(function(event) {
+                if (event.which == 13){
+                event.preventDefault();
+                event.returnValue = false;
+                accID = 'Search Results';
+    			$("#srchResultsNone").remove();
+    
+                searchVal = $(this).val().toLowerCase();
+                    $.when(effectOut()).done(function () {
+                        $("#CategoryOptions > li").css({
+                            borderLeft: "none",
+                            marginLeft: "0px"
+                        });
+                       resultBuild();
+                    });
+                }
+            });
+            
+            $('[data-search-button]').on('click', function(event) {
+                event.preventDefault();
+                event.returnValue = false;
+                accID = 'Search Results';
+                $("#srchResultsNone").remove();
+                $("#CategoryOptions > li").css({
+                    borderLeft: "none",
+                    marginLeft: "0px"
+                });
+    
+                searchVal = $('#faqSearch').val().toLowerCase();
+                $.when(effectOut()).done(function () {
+                    $("#CategoryOptions > li").css({
+                        borderLeft: "none",
+                        marginLeft: "0px"
+                    });
+                    resultBuild();
+            	});
+            });
+        }        
+    })
+    webpartMove = $("#swapHeader")
+    webpartMove.detach();
+    webpartMove.prependTo("#DeltaPlaceHolderMain");
+    $('#layout1Container').css('margin-top','0');
+   	$('#layout1Container > section.magazine-section.my-3 > div > hr').hide();
+   	$('#agencyInfo').hide();  
+
+});
+
+</script>
+</body>
+</html>

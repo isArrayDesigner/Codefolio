@@ -1,0 +1,254 @@
+﻿<script type="text/javascript" src="/Style%20Library/V7/js/vendor/mdb_update/js/jquery-3.4.0.min.js"></script>
+
+<!-- Default form register -->
+<div class="container mt-5">
+	<div class="row px-0 pt-5 pb-">
+		<div class="col px-0">
+			<h2 class="text-dark"><a href="/swapmeet" class="text-dark"><span style="font-weight:700">Post to</span> the Swap Meet</a></h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col px-0">
+			<h5 class="float-left"><p>Please review the<a href="/swapmeet/Pages/Swap-Meet-Guidelines.aspx" target="_blank" style="font-weight:500;color:#0277BD"> Swap Meet Guidelines</a> before submitting a post.</p></h5>
+			<h5 class="float-right"><a style="color:#2196f3; font-weight:500; color:#0277BD" href="/Documents/How%20to%20Post%20to%20Swap%20Meet.pdf"><i class="far fa-question-circle"></i> How to Post to Swap Meet</a></h5>
+		</div>		
+	</div>
+</div>
+<div class="border border-light p-5 needs-validation grey lighten-4" id="swapMeetForm">
+    <div id="formFields">
+        <div class="text-danger text-right">*Required Fields</div>
+        <!-- Title -->
+        <label for="fileTitle" class="text-left align-left">Title<span class="text-danger">*</span></label>
+        <input type="text" id="fileTitle" class="form-control mb-4" placeholder="Title" required>
+
+        <!-- Description -->
+        <label for="fileDesc" class="text-left align-left">Description</label>
+        <input type="text" id="fileDesc" class="form-control mb-4" placeholder="Description">
+
+        <!-- Price -->
+        <label for="filePrice" class="text-left align-left">Price<span class="text-danger">*</span> <span id="numError" class="d-none"
+                style="color:red;">**Numbers Only**</span></label>
+        <input type="text" id="filePrice" class="form-control mb-4" placeholder="Price"
+            onkeypress="javascript:return isNumber(event)">
+
+        <!-- Category -->
+        <label for="fileCat" class="text-left align-left">Category<span class="text-danger">*</span></label>
+        <select id="fileCat" class="browser-default custom-select mb-4" required>
+            <option value="" disabled selected>Choose a Category</option>
+            <option value="Appliances">Appliances</option>
+            <option value="Arts and Crafts">Arts and Crafts</option>
+            <option value="Audio Equipment">Audio Equipment</option>
+            <option value="Baby and Kids">Baby and Kids</option>
+            <option value="Beauty and Health">Beauty and Health</option>
+            <option value="Bicycles">Bicycles</option>
+            <option value="Boats and Marine">Boats and Marine</option>
+            <option value="Books and Magazines">Books and Magazines</option>
+            <option value="Business Equipment">Business Equipment</option>
+            <option value="Cell Phones">Cell Phones</option>
+            <option value="Clothing and Shoes">Clothing and Shoes</option>
+            <option value="County Office Furniture/Supplies">County Office Furniture/Supplies</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Free">Free</option>
+            <option value="Furniture">Furniture</option>
+            <option value="Game and Toys">Game and Toys</option>
+            <option value="General">General</option>
+            <option value="Household">Household</option>
+            <option value="Jewelry and Accessories">Jewelry and Accessories</option>
+            <option value="Lost and Found">Lost and Found</option>
+            <option value="Pet Supplies">Pet Supplies</option>
+            <option value="Rentals">Rentals</option>
+            <option value="Tickets">Tickets</option>
+            <option value="Tools and Machinery">Tools and Machinery</option>
+            <option value="Vehicles">Vehicles</option>
+        </select>
+
+        <!-- Contact -->
+        <label for="fileContact" class="text-left align-left">Contact Email or Phone<span
+                class="text-danger">*</span></label>
+        <input type="text" id="fileContact" class="form-control mb-4" placeholder="Contact Email or Phone" required>
+
+        <!-- Expiration Date -->
+        <label for="fileDate" class="text-left align-left"><i class="fal fa-question-circle" data-toggle="tooltip"
+                title="This is the date your post will be removed from Swap Meet"></i> Choose Expiration date<span
+                class="text-danger">*</span> (mm/dd/yyyy)</label>
+        <input type="date" id="fileDate" class="form-control mb-4" required>
+
+        <label for="filePicker" class="text-left align-left">Upload Image<span class="text-danger">*</span> (**JPEG and PNG only**) </label>
+        <div class="input-group">
+            <input type="file" class="custom-file-input" id="filePicker" aria-describedby="inputGroupFileAddon01">
+            <label id="filePickerLabel" class="custom-file-label" for="filePicker">Choose file</label>
+            <!-- Submit button -->
+            <button id="uploadFileBtn" class="btn btn-info my-4 btn-block" onclick="spjs.upload.submitFile();"
+                value="Submit" type="button">Submit</button>
+            <span id="uploadError" style="display:none;color:red;"></span>
+        </div>
+    </div>
+    <div class="alert alert-danger d-none w-100" role="alert">
+        One or more required fields are empty.
+    </div>
+    <div id="newSwapPost" class="d-none">
+	    <div class="card brown lighten-5 z-depth-0">
+		  <div class="card-body d-flex justify-content-between">
+		  	<h5 class="my-auto">Simple way to buy or exchange goods among Broward County Employees</h5>
+		    <a href="/swapmeet/Pages/SwapMeetPost.aspx" type="button" class="btn btn-info text-white"><i class="fal fa-plus"></i> Post to Swap Meet</a>
+		  </div>
+		</div>
+    </div>
+    <div class="alert alert-success d-none w-100" role="alert">
+        Post to Swap Meet was Successful!
+    </div>
+    <div class="row">
+    	<div class="col-12 text-center">Having trouble with the form? Please email any issues or questions to <a href="mailto:webteam@broward.org"> webteam@broward.org</a></div>
+    </div>
+    <span id="browserSupport" style="display:none;color:red;font-size:12px;">Your browser is not supported!<br>Use
+        Internet Explorer
+        10 or another modern browser.</span>
+</div>
+
+<script type="text/javascript">
+/******************************************************
+ Do not change anything below this line
+*******************************************************/
+    var ID = function () {
+	  return Math.random().toString(36).substr(2, 9) + '_';
+	};
+	
+	var uniqueID = ID();
+    
+    $(document).ready(function(){
+	  $('[data-toggle="tooltip"]').tooltip(); 
+	});
+	    
+    var spjs = spjs || {};
+    
+	$('#filePicker').on('change', function(){
+	    var filePath = $("#filePicker").val();
+	    var fileName = filePath.substring(filePath.lastIndexOf("\\") + 1);
+	    $('#filePickerLabel').html(fileName);
+	});
+	
+	function isNumber(evt) {
+        var iKeyCode = (evt.which) ? evt.which : evt.keyCode
+        if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57)){
+        	$('#numError').removeClass('d-none');
+            return false;
+		}
+		$('#numError').addClass('d-none');
+        return true;
+    }    
+	
+		
+    spjs.upload = {
+        "version": "1.1",
+        "versionDate": "August 04, 2016",
+        "data": {
+            "fileDataStr": ""
+        },
+        "handleFileSelect": function (evt) {
+            // Modified from http://jsfiddle.net/eliseosoto/JHQnk/
+            var files = evt.target.files,
+                file = files[0],
+                reader;
+            if (files && file) {
+                reader = new FileReader();
+                reader.onload = function (readerEvt) {
+                    var binaryString = readerEvt.target.result;
+                    spjs.upload.data.fileDataStr = binaryString.substring(binaryString.indexOf(",") + 1);
+                    $("#uploadFileBtn").show();
+                };
+                reader.readAsDataURL(file);
+            }
+        },
+        "submitFile": function () {
+            var filePath, fileName, destination, b, fileTitle ,fileDesc, fileCat, fileContact, fileDate, filePrice;
+            
+            fileTitle = $('#fileTitle').val();
+            fileDesc =  $('#fileDesc').val();
+            fileCat = $('#fileCat').val();
+            fileContact = $('#fileContact').val();
+            dateVal = $('#fileDate').val();
+            fileDate = (dateVal == "") ? dateVal = 0 : (new Date(dateVal)).toISOString();
+            filePrice = $('#filePrice').val();
+            filePath = $("#filePicker").val();
+            fileName = uniqueID + filePath.substring(filePath.lastIndexOf("\\") + 1);
+            destination = location.protocol + "//" + location.host + "/swapmeet/Swap%20Meet%20Images/" + fileName;
+            b = [];
+            if (fileTitle <= 0 || fileCat <= 0 || fileDate <=0 || fileContact <= 0){
+            	$('.alert-danger').removeClass('d-none');
+            }else{
+            	if(!$('.alert-danger').hasClass('d-none')){$('.alert-danger').addClass('d-none');}
+	            b.push(
+	                "<soap:Envelope xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'>");
+	            b.push("<soap:Body>");
+	            b.push("<CopyIntoItems xmlns='http://schemas.microsoft.com/sharepoint/soap/'>");
+	            b.push("<SourceUrl>" + fileName + "</SourceUrl>");
+	            b.push("<DestinationUrls>");
+	            b.push("<string>" + destination + "</string>");
+	            b.push("</DestinationUrls>");
+	            b.push("<Fields>");
+	            b.push("<FieldInformation Type='Text' DisplayName='Title' InternalName='Title' Value='" + fileName +"' />");
+	            b.push("<FieldInformation Type='Text' DisplayName='ItemTitle' InternalName='ItemTitle' Value='" + fileTitle +"' />");
+	            b.push("<FieldInformation Type='Text' DisplayName='Description' InternalName='Description' Value='" + fileDesc +"' />");
+				b.push("<FieldInformation Type='Choice' DisplayName='Category' InternalName='Category' Value='" + fileCat +"' />");
+				b.push("<FieldInformation Type='Text' DisplayName='Contact' InternalName='Contact' Value='" + fileContact +"' />");
+				b.push("<FieldInformation Type='DateTime' DisplayName='ExpirationDate' InternalName='ExpirationDate' Value='" + fileDate +"' />");
+				b.push("<FieldInformation Type='Number' DisplayName='Price' InternalName='Price' Value='" + filePrice +"' />");
+	            b.push("</Fields>");
+	            b.push("<Stream>" + spjs.upload.data.fileDataStr + "</Stream>");
+	            b.push("</CopyIntoItems>");
+	            b.push("</soap:Body>");
+	            b.push("</soap:Envelope>");
+	            $.ajax({
+	                url: "/_vti_bin/copy.asmx",
+	                beforeSend: function (xhr) {
+	                    xhr.setRequestHeader("SOAPAction",
+	                        "http://schemas.microsoft.com/sharepoint/soap/CopyIntoItems");
+	                },
+	                type: "POST",
+	                dataType: "xml",
+	                data: b.join(""),
+	                complete: spjs.upload.processResult,
+	                contentType: "text/xml; charset=\"utf-8\""
+	            });
+            }
+        },
+        "processResult": function (data, status) {
+            var errorCode, errorMessage;
+            errorCode = $(data.responseText).find("CopyResult").attr("ErrorCode");
+            errorMessage = $(data.responseText).find("CopyResult").attr("ErrorMessage");
+            if (errorCode !== "Success") {
+                $("#uploadFileBtn").fadeOut(400, function () {
+                    $("#uploadError").html(
+                        "The server isn't responding. Please wait several minutes, refresh the page and resubmit your Post<br><br>Error message: " +
+                        errorMessage).show();
+                    setTimeout(function () {
+                        $("#uploadError").fadeOut();
+                        $("#uploadFileBtn").fadeIn();
+                    }, 10000);
+                });
+            } else {
+                $("#uploadFileBtn").html('<i class="fal fa-sync fa-spin fa-2x"></i');
+                setTimeout(function () {
+                        $('#formFields').hide();
+                        $('.alert-success').removeClass('d-none');
+                        setTimeout(function () {
+                        	$('#newSwapPost').css('opacity','0')
+                        	$('.alert-success').addClass('d-none');
+                        	$('#newSwapPost').removeClass('d-none');
+                        	$('#newSwapPost').fadeTo(400, 1);
+                		}, 2000);
+                }, 2000);
+                $("#filePicker").val("");
+            }
+        }
+     };
+
+    if (window.File && window.FileReader && window.FileList && window.Blob) {
+        document.getElementById('filePicker').addEventListener('change', spjs.upload.handleFileSelect, false);
+    } else {
+    	$('#swapMeetForm').hide();
+        $("#browserSupport").show();
+    }
+   	$('#agencyInfo').hide();  
+
+</script>
