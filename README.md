@@ -9,6 +9,10 @@
 
 :bowtie: [Inspector General Publications](https://www.broward.org/InspectorGeneral/PublicationsPress/Pages/PublicationsPress.aspx)
 
+:crab: [Custom 404 Error Page | SVG Animation](https://www.broward.org/techproto/SitePages/404.html)
+
+:crocodile: [Custom 500 Error Page | SVG Animation](https://www.broward.org/techproto/SitePages/500.html)
+
 
 
 
