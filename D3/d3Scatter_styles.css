@@ -1,0 +1,18 @@
+﻿svg text{
+	font-weight:600;
+}
+@media only screen and (max-width: 900px){
+	svg text{
+		font-weight:600;
+		font-size:.7rem
+	}
+}
+#title{
+	font-weight:700
+}
+#subtitle{
+	font-weight:500
+}
+#notes{
+line-height:1rem	
+}

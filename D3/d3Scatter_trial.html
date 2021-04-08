@@ -1,0 +1,32 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="/Style%20Library/V7/WebParts/D3/Bar%20Chart/d3Bar_styles.css">
+</head>
+
+<body>
+	<div class="container" id="svgContainer">
+		<div class="row h-100 justify-content-center">
+			<div class="col-12">
+				<h3 class="text-center mt-md-4" id="title">Pageviews by Broward.org Page</h3>
+				<h4 class="text-center mb-md-4" id="subtitle">January 1st - August 31st 2019</h4>
+			</div>
+			<!--<div class="label my-md-4 my-2 d-flex justify-content-center col-12">
+			</div>-->
+			<!-- Initialize a select button -->
+			<select id="selectButton" class="browser-default custom-select col-md-4 col-8"></select>
+			<div id="body" class="d-flex justify-content-center col-12 my-md-4">
+			</div>
+			<div class="text-center col-12" id="notes"><sup>*Note: Morning data from 05:00 - 11:00, Afternoon data from 12:00 - 17:00 & Evening data from 18:00 - 04:00 </sup></div>
+		</div>
+	</div>
+	<script type="text/javascript" src="/Style%20Library/V7/js/vendor/mdb/jquery-3.3.1.min.js"></script>
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<script src="/Style%20Library/V7/webparts/D3/Connected%20Scatter%20Plot/d3Scatter_scripts.js"></script>
+	<script>
+	$('#fullPageContent > div:nth-child(4), #fullPageContent > div:nth-child(5)').hide()
+	
+	</script>
+</body>
+</html>
