@@ -1,0 +1,578 @@
+﻿<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+
+	<head>
+		<script type="text/javascript" src="/Style%20Library/V7/js/vendor/mdb/jquery-3.3.1.min.js"></script>
+		<style type="text/css">
+	
+#tableHeadings tr {
+    background: #1C2A48;
+}
+#hotelTable.table > tbody > tr > td {
+     vertical-align: middle;
+}
+table#hotelTable {
+    width: 100%;
+    border-collapse: collapse !important;
+}
+
+/*#hotelTableBody tr > tr{
+    clear: both;
+    /*border-collapse:collapse;*/
+    border-bottom: 1px silver solid;
+}*/
+
+#hotelTableBody td {
+    padding: 10px 10px !important;
+
+}
+
+.sheltIcon {
+    font-size: 1.5rem;
+}
+
+#hotelTable,
+.ms-WPBody td {
+    font-family: Arquette;
+    font-size: 1rem;
+}
+
+#hotelTable_wrapper {
+    padding-left: 0px;
+}
+
+h2#cityTitle,
+#hurricaneHotels h4 {
+    font-weight: 700 !important;
+    text-transform: uppercase;
+}
+
+.dataTables_length label {
+    margin-right: 1rem;
+    padding-top: 1rem;
+}
+
+.dataTables_filter.md-form {
+    margin-top: .55rem;
+}
+
+.dataTables_filter.md-form input {
+    font-weight: 300;
+}
+
+.dataTables_wrapper .row {
+    margin-bottom: 1.5rem;
+}
+
+div.dataTables_wrapper div.dataTables_info {
+    padding-top: 0;
+    padding-bottom: 1rem;
+}
+
+.dataTables_paginate {
+    float: right;
+}
+
+.dataTables_filter {
+    float: right;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:active,
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button:focus {
+    outline: none !important;
+    border: none;
+    background-color: white !important;
+    background: none !important;
+    box-shadow: 0 0 0 0 !important;
+}
+
+.select-wrapper input.select-dropdown {
+    margin-bottom: 0px;
+    padding-top: 15px;
+}
+
+div.dataTables_wrapper div.dataTables_length label {
+    margin-bottom: 0px;
+    padding-top: 25px;
+}
+
+.select-dropdown {
+    margin-top: 27px;
+}
+
+.select-wrapper span.caret {
+    margin-top: 15px;
+}
+
+#hotelTable_wrapper>.row {
+    margin-bottom: 0px;
+}
+
+#hotelTable #headerRow {
+    background: #1C2A48;
+    color: white
+}
+
+.pagination .page-link:focus {
+    background-color: #007bff;
+}
+
+#cityNav select {
+    display: none !important;
+}
+
+@media (max-width: 767px) {
+.container{
+	max-width:767px;
+}
+    .lineHeight{
+        line-height: 1rem;
+    }
+
+    #hotelTable_filter {
+        width: 100%
+    }
+
+    #hotelTable_filter input {
+        width: 100%
+    }
+
+    .dataTables_wrapper .row {
+        margin-bottom: .5rem;
+    }
+
+    #cityNav {
+        text-align: center;
+    }
+
+    #cityNav ul {
+        display: none;
+    }
+
+    #cityNav select {
+        display: inline-block !important;
+    }
+}
+
+#letterNav {
+    text-align: center;
+}
+
+#letterNav select {
+    display: inline-block !important;
+}
+
+#hotelsEx .hotels .card {
+    border-bottom: 1px #81D4FA solid !important;
+}
+
+#hotelsColumn span {
+    position: relative;
+    float: right;
+    margin-bottom: 2.5rem;
+
+}
+
+#benefitDetail {
+    font-weight: 300 !important;
+}
+
+#faqSearch {
+    border: none !important;
+}
+
+#tableHeadings>tr>th {
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    padding: 5px 10px;
+    color: white;
+}
+
+#tableHeadings>tr>th:not(:first-child) {
+    border-left: 2px white solid
+}
+
+@media only screen and (min-width:768px) {
+    .lineHeight{
+        line-height: 2rem;
+    }
+
+    #hotelsColumn .lastOne:after {
+        content: "\f0fe";
+        font-family: 'Font Awesome 5 Pro';
+        position: absolute;
+        right: 0;
+        top: -4px;
+        left: 75%;
+        color: #0277BD;
+        display: block;
+        width: 32px;
+        height: 32px;
+        line-height: 32px;
+        vertical-align: top;
+        text-align: center;
+        -webkit-transition: all .35s;
+        -o-transition: all .35s;
+        transition: all .35s;
+    }
+}
+	</style>
+	</head>
+	<body>
+		<section aria-label="Main Page Content" id="hurricaneHotels">
+			<div class="text-center fa-3x"><i class="fas fa-spinner fa-pulse broward-color-blue"></i></div>
+	        <div class="container py-3" id="fadeIn" style="opacity:0">
+		        <div class="row justify-content-center justify-content-md-end my-2">
+					<div class="col-md-4 col-10 pr-1">
+						<div class="z-depth-1 mt-1" style="border-radius:4px;">
+							<input class="form-control pl-3" id="faqSearch" style="border-radius:4px; height:50px" type="text" placeholder="Search City" aria-label="Search" data-search/>
+						</div>
+					</div>
+					<div class="col-2 col-md-1 d-flex pl-1 justify-content-end">
+						<button class="btn btn-sm px-4 d-flex justify-content-center" style="height:50px; background-color:#039BE5; margin-top:4px; margin-bottom:16px" type="button" data-search-button><i class="fal fa-search" style="font-size:24px"></i></button>
+					</div>
+				</div>
+		        <div class="row justify-content-between">
+			        <div class="col-lg-2 col-md-3 col-12 pr-4">
+			        	<h4 class="pb-md-3 font-weight-bold text-center text-md-left text-dark pt-0 d-none d-md-block">CITIES</h4>
+			        	<div id="cityNav" class="pb-md-3 py-md-0">
+				        	<ul class="px-0" id="cityOptions" style="list-style-type:none; border-left:solid medium #eaeaea;">
+				        		<!--Options injected here-->
+				        	</ul>
+			        	</div>
+			        </div>
+			        <div class="col-lg-10 col-md-9 col-12">
+			        	<h2 id="cityTitle" class="pb-3 text-center text-md-left mt-md-0 mt-3">All</h2>
+			        	<div class="legend"><i class="fas fa-paw sheltIcon"></i> = Pet Friendly</div>
+			        <!-- Grid row -->
+						<div class="row d-flex justify-content-center">
+						
+						    <!-- Grid column -->
+						    <div class="col-md-12 pb-5 mr-1 table-responsive" id="hotelsColumn">
+											
+						    </div>
+						    <!-- Grid column -->
+						
+						</div>
+						<!-- Grid row -->
+			        </div>
+			        <!-- Modal -->
+					<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+					  aria-hidden="true">
+					
+					  <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+					  <div class="modal-dialog modal-dialog-centered modal-notify modal-info" role="document">
+					
+					
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <h5 class="modal-title mx-0 text-white" id="exampleModalLongTitle">Modal title</h5>
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					          <span aria-hidden="true">&times;</span>
+					        </button>
+					      </div>
+					      <div class="modal-body">
+					        
+					      </div>
+					      <div class="modal-footer">
+					        <button type="button" class="btn btn-warning text-dark" data-dismiss="modal">Close</button>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+					<!--/end modal-->
+		        </div>    
+	        </div>
+	    </section>	
+		<script type="text/javascript" src="/Style%20Library/V7/js/vendor/mdb/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="/Style%20Library/V7/js/vendor/moment/moment.min.js"></script>
+		<script type="text/javascript">
+		//Webpart Scripts
+		
+		var accID = 'All';
+		var searchVal = '';
+		
+		// Title case things - for use when delightful writers type things in all caps when they shouldn't ;)
+        String.prototype.toTitleCase = function () {
+            var i, j, str, lowers, uppers;
+            str = this.replace(/([^\W_]+[^\s-]*) */g, function (txt) {
+                return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+            });
+
+            // Certain minor words should be left lowercase unless
+            // they are the first or last words in the string
+            lowers = ['A', 'An', 'The', 'And', 'But', 'Or', 'For', 'Nor', 'As', 'At',
+                'By', 'For', 'From', 'In', 'Into', 'Near', 'Of', 'On', 'Onto', 'To', 'With'
+            ];
+            for (i = 0, j = lowers.length; i < j; i++) str = str.replace(new RegExp('\\s' + lowers[i] + '\\s',
+                'g'), function (txt) {
+                return txt.toLowerCase();
+            }); // Certain words such as initialisms or acronyms should be left uppercase
+            uppers = ['Id', 'Tv'];
+            for (i = 0, j = uppers.length; i < j; i++) str = str.replace(new RegExp('\\b' + uppers[i] + '\\b',
+                'g'), uppers[i].toUpperCase());
+            return str;
+        }
+		
+		$(document).ready(function () {
+		    $.ajax({
+		        url: "/hurricane/_api/web/lists/GetByTitle('hotels')/items?$orderby=Status desc",
+		        method: "GET",
+		        headers: {
+		            "Accept": "application/json; odata=verbose"
+		        },
+		        success: function (data) {
+		            var hotelResults = data.d.results;
+		
+		            console.log(hotelResults);
+		
+		            function onlyUnique(value, index, self) {
+		                return self.indexOf(value) === index;
+		            }
+		
+		            var hotelItems = $.each(hotelResults, function (ind, hotelItems) {
+		                return hotelItems;
+		            });
+		
+		            var allCities = [];
+		
+		            for (i = 0; i < hotelItems.length; i++) {
+		                var filterCities = hotelItems[i];
+		                allCities.push(filterCities.City);
+		            };
+		            allCities.sort();
+		
+		            var cityList = allCities.filter(onlyUnique);
+		
+		            for (i = 0; i < cityList.length; i++) {
+		                var cityName = cityList[i]
+		                $('#cityOptions').append('<li class="py-1 pl-3"><a href="#" class="text-dark">' + cityName + '</a></li>');
+		            }
+					$('#cityOptions').prepend('<li class="py-1 pl-3"><a href="#" class="text-dark">All</a></li>');
+
+		            var effectIn = function () {
+		            	$('.fa-pulse').hide();
+		            	$('#fadeIn').fadeTo(800,1);
+		                $('#cityTitle').html(accID).fadeTo(500, 1);
+		                $('.legend').fadeTo(500,1);
+		                return $("#hotelsColumn").fadeTo(500, 1);
+		            };
+		
+		            var effectOut = function () {		            	
+		                $('#cityTitle').fadeTo(500, 0);
+		                $('.legend').fadeTo(500,0);
+		                return $("#hotelsColumn").fadeTo(500, 0);
+		            };
+		            //includes Polyfill
+		            if (!String.prototype.includes) {
+		                Object.defineProperty(String.prototype, 'includes', {
+		                    value: function (search, start) {
+		                        if (typeof start !== 'number') {
+		                            start = 0
+		                        }
+		
+		                        if (start + search.length > this.length) {
+		                            return false
+		                        } else {
+		                            return this.indexOf(search, start) !== -1
+		                        }
+		                    }
+		                })
+		            }
+		         	var buildAcc = function () {
+		                var accID2 = accID.replace(/\s/g, '');
+		                var bodyBuild = '<table id="hotelTable" class="table"><thead id="tableHeadings"><tr><th scope="col" class="text-center">Status</th><th scope="col">Hotel</th><th scope="col" class="text-center">More Info</th></tr></thead><tbody id="hotelTableBody"></tbody></table>'			
+		                $("#hotelsColumn").append(bodyBuild);
+		            };
+		            buildAcc();
+		
+		
+		            function createHotels() {
+		                var hotelItems = $.each(hotelResults, function (ind, hotelItems) {
+		                    return hotelItems;
+		                });
+		
+						console.log(accID);
+		                if (accID != 'Search Results' && accID != 'All'){
+		                    var filterCity = hotelItems.filter(function (e) {
+		                        return e.City == accID;
+		                    });
+		                } else if(accID == 'All'){
+			                var filterCity = hotelItems.filter(function (e) {
+			                        return hotelItems
+			                    });
+		                }else{
+		                    var filterCity = hotelItems.filter(function (e) {
+		                        var address = e.Address.toLowerCase();
+		                        return address.includes(searchVal);
+		                    });
+		                }
+		
+		
+		                var buildCards = function () {
+		                    if (filterCity.length !== 0) {
+		                        for (i = 0; i < filterCity.length; i++) {
+		                            var accID2 = accID.replace(/\s/g, ''),
+		                            	hotelItems = filterCity[i],
+		                            	lastUpdated = moment(hotelItems.Modified).format('MM/DD/YY, h:mm a'),
+		                            	status = hotelItems.Status ? '<i class="fas fa-check-circle green-text sheltIcon"></i>' : '<i class="fas fa-times-circle red-text sheltIcon"></i>',
+		                            	status2 = hotelItems.Status ? '<sup>open</sup>' : '<sup>closed</sup>',
+		                            	petFriendly = hotelItems.PetFriendly ? '<i class="fas fa-paw sheltIcon"></i>' : '';
+		                             
+		                            
+		                            $('#hotelTableBody').append($('<tr class="align-middle">')
+		                            
+		                            .append($('<td class="text-center py-2">'+ status +'<br/>'+ status2 +'</td>'))
+		                            .append($('<td class="py-2">'+ hotelItems.Title.toTitleCase() +' '+ petFriendly +'</td>'))
+		                          	.append($('<td class="py-2 text-center"><button type="button" data-id="'+ hotelItems.ID +'"class="btn btn-sm  waves-effect waves-light hotelBtn" style="background-color:#039BE5;" data-toggle="modal" data-target="#exampleModalCenter"><i class="far fa-info-circle sheltIcon"></i></button></td>')))
+		                            //.append($('<td class="text-center py-2"><a href="'+ hotelItems.ViewMap.Url +'" target="_blank"><i class="fas fa-map-marker-alt blue-text sheltIcon"></i></a></td>'))
+		                            //.append($('<td class="py-2"><a href="https://maps.google.com/maps?daddr='+ hotelItems.Address +'"><i class="fas fa-map-marker-alt blue-text sheltIcon"></i> '+ hotelItems.Address +'</a></td>'))
+		                            //.append($('<td class="text-center py-2">'+ petFriendly +'</td>')))
+		                            .append($('<tr style="border-bottom: 1px silver solid; background-color:#f4f4f4"><td class="pl-3 pt-2 pb-0 text-left" colspan="5"><sup>Last Updated: '+ lastUpdated +'</sup></td></tr>'));
+		
+		                        };
+		                    } else {
+		                        var cardBuild = '<h4>There are no results matching your search.</div>'
+		                        $(".hotels").append(cardBuild);
+		                    }
+		                    //hotels Icon Animation
+		                    $('.hotels > div > div > a').on('click', function () {
+		                        $(this).find(".rotate").toggleClass("down");
+		                    });
+		                    effectIn();
+		                };
+		                buildCards();
+		
+		            };
+		            createHotels();
+		            
+		             $('body').on('click', '.hotelBtn', function () {
+			            var id = $(this).attr('data-id');
+			            var filterCity = hotelItems.filter(function (e) {
+		                        return e.ID == id;
+		                    });
+		                var hotelTitle = filterCity[0].Title.toTitleCase();        
+		                var hotelDetails = '<p><i class="fal fa-map-marker-alt sheltIcon"></i>  Address:<a href="https://maps.google.com/maps?daddr='+ filterCity[0].Address + ', ' + filterCity[0].City +'"> '+ filterCity[0].Address + ', ' + filterCity[0].City + ', ' + filterCity[0].zip +'</a></p>'
+		                					+'<p><i class="fal fa-phone sheltIcon"></i>  Phone: <a href="tel:'+ filterCity[0].Phone +'">'+ filterCity[0].Phone +'</a></p>'
+		                					+'<p><i class="fal fa-phone sheltIcon"></i>  Toll-free Phone: <a href="tel:'+ filterCity[0].Phone +'">'+ filterCity[0].Phone + '</a></p>' 
+		                					+'<p><i class="fal fa-globe sheltIcon"></i>  <a href="http://'+ filterCity[0].URL +'" target="_blank">Visit Website</a></p>'    
+			            $(".modal-title").html(hotelTitle);
+			            $(".modal-body").html(hotelDetails);
+			           // $("#subscribeHere").attr("href", pubItems.Subscribe);
+			        });
+
+		            $("#cityOptions > li:first-child > a").parent().css({
+		                borderLeft: "solid medium #039BE5",
+		                marginLeft: "-3px"
+		            });
+		
+		            $("#cityOptions > li > a").on("click", function () {
+		                event.returnValue = false;
+		                accID = this.innerHTML
+		                $("[data-search]")[0].value = '';
+		                $("#cityOptions > li").css({
+		                    borderLeft: "none",
+		                    marginLeft: "0px"
+		                });
+		                $(this).parent().css({
+		                    borderLeft: "solid medium #039BE5",
+		                    marginLeft: "-3px"
+		                });
+		                $.when(effectOut()).done(function () {
+		                    $("#hotelTableBody tr").remove();
+		                    createHotels();
+		                    effectIn();
+		                });
+		            });
+		
+		            function cityNav() {
+		                // Create the dropdown base
+		                $("<select style=\"padding-left: 10px; padding-right: 10px; font-family: Arquette;border-radius:3px; border:none; height:50px;\" class=\"browser-default custom-select w-100 z-depth-1\" />").appendTo("#cityNav");
+		                // Create default option "Go to..."
+		                $("<option />", {
+		                    "selected": "",
+		                    "value": "Choose a City",
+		                    "text": "Choose a City"
+		                }).appendTo("#cityNav select");
+		
+		                // Populate dropdown with menu items
+		                $("#cityNav > ul > li > a").each(function () {
+		                    var citySelect = $(this);
+		                    $("<option />", {
+		                        "value": citySelect.text(),
+		                        "text": citySelect.text()
+		                    }).appendTo("#cityNav select");
+		                });
+		                
+						
+		                // To make dropdown actually work
+		                // To make more unobtrusive: https://css-tricks.com/4064-unobtrusive-page-changer/
+		                $("#cityNav select").change(function () {
+		                    accID = $(this).find("option:selected").val()
+		                    $.when(effectOut()).done(function () {
+		                        $("#hotelTableBody tr").remove();
+		                        createHotels();
+		                        effectIn();
+		                    });
+		                });
+		
+		
+		            };
+		            cityNav();
+		
+		            //Search Function
+		            $('[data-search]').keypress(function (event) {
+		                if (event.which == 13) {
+		                    event.preventDefault();
+		                    event.returnValue = false;
+		                    accID = 'Search Results';
+		                    console.log($(this));
+		
+		                    searchVal = $(this).val().toLowerCase();
+		                    $.when(effectOut()).done(function () {
+		                        $("#cityOptions > li").css({
+		                            borderLeft: "none",
+		                            marginLeft: "0px"
+		                        });
+		
+		                        $("#hotelTableBody tr").remove();
+		                        createHotels();
+		                        effectIn();
+		                    });
+		                    console.log(searchVal);
+		                }
+		            });
+		
+		            $('[data-search-button]').on('click', function (event) {
+		                event.preventDefault();
+		                event.returnValue = false;
+		                accID = 'Search Results';
+		
+		                $("#cityOptions > li").css({
+		                    borderLeft: "none",
+		                    marginLeft: "0px"
+		                });
+		
+		                searchVal = $('#faqSearch').val().toLowerCase();
+		                $.when(effectOut()).done(function () {
+		                    $("#cityOptions > li").css({
+		                        borderLeft: "none",
+		                        marginLeft: "0px"
+		                    });
+		
+		                    $("#hotelTableBody tr").remove();
+		                    createHotels();
+		                    effectIn();
+		                });
+		                console.log(searchVal);
+		            });
+		        }
+		
+		    });
+		    $('#hurricaneHotels').detach().appendTo('#fullPageContent');
+		    //$('#fullPageContent > div > div.row.pt-3 > div').hide();
+		  
+		});
+		</script>
+	</body>
+</html>
