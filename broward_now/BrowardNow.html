@@ -1,0 +1,866 @@
+{* '$Jurisdiction' and '$Domain control the autocompletion of table accessibility information and '*.granicus.com' URL data *}
+{assign var='Jurisdiction' value="Broward Now"}
+{assign var='Domain' value="broward"}
+{* --- PODCASTING --- *}
+{* toggles audio podcast client - set value to 'on' or 'off' *}
+{assign var=mp3cast value="on"}
+
+{* ------------------- BEGIN TEMPLATE ------------------- *}
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>{$Jurisdiction}Broward NOW</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no" />
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <meta http-equiv=Expires content=0>
+  <meta content=NOHTMLINDEX name=ROBOTS>
+
+	<link rel="stylesheet" type="text/css" href="https://www.broward.org/Style%20Library/V6/css/broward/browardStyles.css"/>
+	<link rel="stylesheet" type="text/css" href="https://www.broward.org/Style%20Library/V6/css/broward/layout.css"/>
+	<link rel="stylesheet" type="text/css" href="https://www.broward.org/Style%20Library/V6/css/vendor/mdb/mdb.min.css"/>
+	<link rel="stylesheet" type="text/css" href="https://www.broward.org/Style%20Library/V6/css/vendor/mdb/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="https://www.broward.org/Style%20Library/V6/plugins/SocialShare/css/social-share-kit.css"/>
+
+<!-- Font CSS Calls -->
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+
+<!-- BrowardNOW Styles-->
+	<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+	<link rel="stylesheet" href="http://www.broward.org/Style%20Library/V6/VideoNOW/css/BrowardNowFlickity.css">
+	<link href="https://vjs.zencdn.net/6.4.0/video-js.css" rel="stylesheet">	
+	
+<!-- Java script Calls -->
+    <!-- Font Awesome -->
+	<script defer type="text/javascript" src="http://www.broward.org/Style%20Library/V6/fonts/fontawesome-5.0.0/js/fontawesome.min.js"></script>
+	<script defer type="text/javascript" src="http://www.broward.org/Style%20Library/V6/fonts/fontawesome-5.0.0/js/packs/light.min.js"></script>
+	<script defer type="text/javascript" src="http://www.broward.org/Style%20Library/V6/fonts/fontawesome-5.0.0/js/packs/brands.min.js"></script>
+	<script defer type="text/javascript" src="http://www.broward.org/Style%20Library/V6/fonts/fontawesome-5.0.0/js/v4-shims.min.js"></script>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="http://www.broward.org/Style%20Library/BCImages/sun.ico">
+  <script type="text/javascript" src="http://www.broward.org/Style%20Library/bc.js"></script>
+ 	
+  	
+<!--<script  type="text/javascript" src="https://vjs.zencdn.net/6.4.0/video.js"></script>-->
+{literal}
+
+<style>
+
+html {
+  font-size: 100%;
+}
+body {
+  -webkit-transition: background 1s ease, font-size 0.7s linear;
+  transition: background 1s ease, font-size 0.7s linear;
+}
+input,
+textarea,
+keygen,
+select,
+button {
+  -webkit-transition: all 0.6s linear;
+  transition: all 0.6s linear;
+}
+.accessibility-font {
+/* First font-size fallback to older browsers*/
+  font-size: 1.25em;
+  font-size: 1.25rem;
+}
+.accessibility-font input,
+.accessibility-font textarea,
+.accessibility-font keygen,
+.accessibility-font select,
+.accessibility-font button {
+/* The default font-size of these elements is approximately 20% less than the body */
+  font-size: 1.041625em;
+  font-size: 1.04163rem;
+}
+.accessibility-contrast {
+  color: #fff;
+  background: #000;
+  background-color:#000 !important;
+}
+	/**translate**/
+	
+	#WidgetFloaterPanels {
+	    display: none!important;
+	}
+	#WidgetFloater {
+	    display: none!important;
+	}
+	#FloaterSharePanel {
+	    display: none!important;
+	}
+	#FloaterEmbed {
+	    display: none!important;
+	}
+	.no-hover:hover {
+		color: #fff !important;
+	}
+	.tr-dd-link:link, .tr-dd-link:visited {
+	    color: #fff;
+	}
+	.tr-dd--loaded .tr-dd-link {display: block;}
+	.tr-dd-link {
+	    text-align: left;
+	    margin-left: 0;
+	    line-height: 1;
+	    padding: 1em 1.4em;
+	    color: #fff;
+	    display: none;
+	    font-size: 12px;
+	    font-size: .75rem;
+	    font-range: 480px 1440px;
+	}
+	.tr-dd-link, .tr-link {
+	    text-transform: uppercase;
+	    letter-spacing: 1.5px;
+	    display: block;
+	    min-width: 45px;
+	    text-align: center;
+	    margin-left: 1.4em;
+	    color: #288be4;
+	}
+	.tr-dd {
+	    display: none;
+	    position: absolute;
+	    margin: 20px 0 0;
+	    list-style: none;
+	    padding: 0;
+	    background-color: #1d2b48;
+	    right: 0;
+	    width: 208px;
+	    z-index: 0;}
+	.tr-dd li {
+	    padding: 0;
+	    margin: 0;
+	}
+	.showtr{display:block !important;}
+
+
+/***Video JS styles***/
+
+/*
+  Player Skin Designer for Video.js
+  http://videojs.com
+
+  To customize the player skin edit 
+  the CSS below. Click "details" 
+  below to add comments or questions.
+  This file uses some SCSS. Learn more  
+  at http://sass-lang.com/guide)
+
+  This designer can be linked to at:
+  https://codepen.io/heff/pen/EarCt/left/?editors=010
+*/
+.video-js {
+	/* The base font size controls the size of everything, not just text.
+	 All dimensions use em-based sizes so that the scale along with the font size.
+	 Try increasing it to 15px and see what happens. */
+	font-size: 10px;
+	/* The main font color changes the ICON COLORS as well as the text */
+	color: #fbc02d;
+}
+
+	/* The "Big Play Button" is the play button that shows before the video plays.
+	   To center it set the align values to center and middle. The typical location
+	   of the button is the center, but there is trend towards moving it to a corner
+	   where it gets out of the way of valuable content in the poster image.*/
+.vjs-default-skin .vjs-big-play-button {
+	/* The font size is what makes the big play button...big. 
+	 All width/height values use ems, which are a multiple of the font size.
+	 If the .video-js font-size is 10px, then 3em equals 30px.*/
+	font-size: 3em;
+	/* We're using SCSS vars here because the values are used in multiple places.
+	 Now that font size is set, the following em values will be a multiple of the
+	 new font size. If the font-size is 3em (30px), then setting any of
+	 the following values to 3em would equal 30px. 3 * font-size. */
+	/* 1.5em = 45px default */
+	line-height: 2em;
+	height: 2em;
+	width: 2em;
+	/* 0.06666em = 2px default */
+	border: 0.05em solid #fbc02d;
+	/* 0.3em = 9px default */
+	border-radius: 50%;
+	/* Align center */
+	left: 50%;
+	top: 50%;
+	margin-left: -1em;
+	margin-top: -1em;
+}
+.vjs-icon-play:before, .video-js .vjs-big-play-button .vjs-icon-placeholder:before{
+	color: #fff!important;
+}
+	/* The default color of control backgrounds is mostly black but with a little
+	bit of blue so it can still be seen on all-black video frames, which are common. */
+	.video-js .vjs-control-bar,
+	.video-js .vjs-menu-button .vjs-menu-content {
+	/* IE8 - has no alpha support */
+	background-color: #1C2A48;
+	/* Opacity: 1.0 = 100%, 0.0 = 0% */
+	background-color: rgba(28, 42, 72, 0.7);
+}
+.video-js .vjs-big-play-button, .video-js .vjs-play-control .vjs-icon-placeholder{
+	background-color: #fbc02d;
+
+}
+
+/* Slider - used for Volume bar and Progress bar */
+.video-js .vjs-slider {
+	background-color: #5173bb;
+	background-color: rgba(81, 115, 187, 0.5);
+}
+
+/* The slider bar color is used for the progress bar and the volume bar
+   (the first two can be removed after a fix that's coming) */
+.video-js .vjs-volume-level,
+.video-js .vjs-play-progress,
+.video-js .vjs-slider-bar {
+	background: #fbc02d;
+}
+
+/* The main progress bar also has a bar that shows how much has been loaded. */
+.video-js .vjs-load-progress {
+	/* For IE8 we'll lighten the color */
+	background: #adbddf;
+	/* Otherwise we'll rely on stacked opacities */
+	background: rgba(81, 115, 187, 0.5);
+}
+
+/* The load progress bar also has internal divs that represent
+   smaller disconnected loaded time ranges */
+.video-js .vjs-load-progress div {
+	/* For IE8 we'll lighten the color */
+	background: white;
+	/* Otherwise we'll rely on stacked opacities */
+	background: rgba(81, 115, 187, 0.75);
+}
+.style1 {
+	text-align: right;
+}
+
+.slick-track {
+	border-top:none!important;
+	}
+</style> 
+
+ {/literal}
+
+</head>
+<body class="hidden-sn">
+
+
+    <header>
+<!-- Sidebar navigation -->
+<a href="#accessibleVideos" class="sr-only sr-only-focusable">Skip to Access to Closed Caption Video Link</a>
+<a href="#videoPlayer" class="sr-only sr-only-focusable">Skip to main video</a>
+
+	<ul id="slide-out" class="side-nav sn-bg-1 custom-scrollbar list-unstyled ps ps--theme_default">
+          <!--Side Logo -->
+          <li>
+              <div class="logo-wrapper waves-light">
+                  <a href="#" title="Return to Homepage"><img src="http://www.broward.org/Style%20Library/V6/img/B-org-logo.png" class="img-fluid flex-center" alt="Broward.org Logo"></a>
+              </div>
+          </li>
+          <!--/. Logo -->
+          <!--Social-->
+          <li>
+              <ul class="social">
+                  <li><a href="https://www.facebook.com/BrowardCountyGovernment/" target="_blank" title="Follow us on Facebook"><i class="fab fa-facebook fa-2x fa-inverse" aria-hidden="true"></i></a></li>
+                  <li><a href="https://twitter.com/BrowardCounty" target="_blank" title="Follow us on Twitter"><i class="fab fa-twitter fa-2x fa-inverse" aria-hidden="true"></i></a></li>
+                  <li><a href="https://www.youtube.com/channel/UCkFUpAuNegNExxOKo_5KJ6w/videos" target="_blank" title="Follow us on YouTube"><i class="fab fa-youtube fa-2x fa-inverse" aria-hidden="true"></i></a></li>
+                  <li><a href="mailto:publicinfo@broward.org" title="Contact Broward County"><i class="fal fa-envelope fa-2x fa-inverse"></i></a></li>
+              </ul>
+          </li>
+          <!--/Social-->
+			<li id="GlobalNavInclude"> 
+                <ul class="collapsible collapsible-accordion">
+                	<li><a class="collapsible-header waves-effect arrow-r"> Government<i class="fal fa-angle-down rotate-icon"></i></a>
+                	  <div class="collapsible-body">
+                	      <ul>
+                	      	  <li><a href="http://www.broward.org/opengovernment" class="waves-effect" title="Open Government">Open Government</a>
+                	          </li>
+                	         <!-- <li><a href="/Commission/Pages/default.aspx" class="waves-effect" title="Commissioners">Commissioners</a>
+                	          </li>-->
+                	          <li><a href="http://www.broward.org/Commission/Meetings/Pages/AgendasAndMinutes.aspx" class="waves-effect" title="Government Meetings">Government Meetings</a>
+                	          </li>
+                	          <li><a href="http://www.broward.org/Administrator" class="waves-effect" title="County Administration">County Administration</a>
+                	          </li>	          
+                	          <li><a href="http://www.broward.org/Commission/District1/Pages/default.aspx" class="waves-effect" title="District 1 - Nan H. Rich">District 1 - Nan H. Rich</a>
+                	          </li>
+                	          <li><a href="http://www.broward.org/Commission/District2/Pages/default.aspx" class="waves-effect" title="District 2 - Mark D. Boge">District 2 - Mark D. Bogen</a>
+                	          </li>
+                	          <li><a href="http://www.broward.org/Commission/District3/Pages/default.aspx" class="waves-effect" title="District 3 - Michael Udine">District 3 - Michael Udine</a>
+                	          </li>
+                	          <li><a href="http://www.broward.org/Commission/District4/Pages/default.aspx" class="waves-effect" title="District 4 - Chip LaMarca">District 4 - Chip LaMarca</a>
+                	          </li>
+                	          <li><a href="http://www.broward.org/Commission/District5/Pages/default.aspx" class="waves-effect" title="District 5 - Steve Geller">District 5 - Steve Geller</a>
+                	          </li>
+                	          <li><a href="http://www.broward.org/Commission/District6/Pages/default.aspx" class="waves-effect" title="District 6 - Beam Furr">District 6 - Beam Furr</a>
+                	          </li>
+                	          <li><a href="http://www.broward.org/Commission/District7/Pages/default.aspx" class="waves-effect" title="District 7 - Tim Ryan">District 7 - Tim Ryan</a>
+                	          </li>
+                	          <li><a href="http://www.broward.org/Commission/District8/Pages/default.aspx" class="waves-effect" title="District 8 - Barbara Sharie">District 8 - Barbara Sharief</a>
+                	          </li>
+                	          <li><a href="http://www.broward.org/Commission/District9/Pages/default.aspx" class="waves-effect" title="District 9 - Dale V.C. Holness">District 9 - Dale V.C. Holness</a>
+                	          </li>
+                	      </ul>
+                	  </div>
+                	</li>
+                	<li><a class="collapsible-header waves-effect arrow-r"> Residents<i class="fal fa-angle-down rotate-icon"></i></a>
+                	  <div class="collapsible-body">
+                	      <ul>
+                	          <li><a href="http://www.broward.org/Calendar/Pages/Default.aspx" class="waves-effect" title="Calendars of Events">Calendars of Events</a>
+                	           </li>
+                	          <li><a href="http://www.broward.org/AgenciesAndServices/Pages/Default.aspx" class="waves-effect" title="Find an Agency">Find an Agency</a>
+                	           </li>
+                	          <li><a href="http://www.broward.org/AgenciesAndServices/Services/Pages/A-C.aspx" class="waves-effect" title="Find a Service">Find a Service</a>
+                	           </li>
+                	          <li><a href="http://bcgis.maps.arcgis.com/apps/OnePane/basicviewer/index.html?appid=c7f7450dc0b147d4b4b9526d9b1f93e7" class="waves-effect" title="Find Your Commission District">Find Your Commission District</a>
+                	           </li>
+                	          <li><a href="http://www.broward.org/Parking/Pages/Default.aspx" class="waves-effect" title="Find Parking">Find Parking</a>
+                	           </li>
+                	          <li><a href="http://www.broward.org/Publications/Pages/Default.aspx" class="waves-effect" title="Helpful References">Helpful References</a>
+                	           </li>
+                	          <li><a href="http://www.broward.org/Volunteer/Pages/Default.aspx" class="waves-effect" title="Volunteer">Volunteer</a>
+                	           </li>
+                	          <li><a href="http://www.broward.org/Pages/PhoneA.aspx" class="waves-effect" title="Contact">Contact</a>
+                	          </li>
+                	      </ul>
+                	  </div>
+                	</li>
+                	<li><a class="collapsible-header waves-effect arrow-r"> Business<i class="fal fa-angle-down rotate-icon"></i></a>
+                	  <div class="collapsible-body">
+                	      <ul>
+                	          <li><a href="http://www.broward.org/AgenciesAndServices/Pages/Default.aspx" class="waves-effect" title="Find an Agency">Find an Agency</a>
+                	           </li>
+                	          <li><a href="http://www.broward.org/AgenciesAndServices/Services/Pages/A-C.aspx" class="waves-effect" title="Find a Service">Find a Service</a>
+                	           </li>
+                	          <li><a href="http://bcgis.maps.arcgis.com/apps/OnePane/basicviewer/index.html?appid=c7f7450dc0b147d4b4b9526d9b1f93e7" class="waves-effect" title="Find Your Commission District">Find Your Commission District</a>
+                	           </li>
+                	          <li><a href="http://www.broward.org/Parking/Pages/Default.aspx" class="waves-effect" title="Find Parking">Find Parking</a>
+                	           </li>
+                	          <li><a href="http://www.broward.org/Publications/Pages/Default.aspx" class="waves-effect" title="Helpful References">Helpful References</a>
+                	           </li>
+                	          <li><a href="http://www.broward.org/Pages/PhoneA.aspx" class="waves-effect" title="Contact">Contact</a>
+                	          </li>
+                	      </ul>
+                	  </div>
+                	</li>
+                	<li><a class="collapsible-header waves-effect arrow-r"> Visitors<i class="fal fa-angle-down rotate-icon"></i></a>
+                	  <div class="collapsible-body">
+                	      <ul>
+                	          <li><a href="https://www.sunny.org/" class="waves-effect" title="Sights and information">Sights and information</a>
+                	          </li>
+                	      </ul>
+                	  </div>
+                	</li>
+                	<li><a class="collapsible-header waves-effect arrow-r"> Employees<i class="fal fa-angle-down rotate-icon"></i></a>
+                	  <div class="collapsible-body">
+                	      <ul>
+                	          <li><a href="http://www.broward.org/Employees/Pages/Default.aspx" class="waves-effect" title="Broward Employee Home Edition">Broward Employee Home Edition</a>
+                	          </li>
+                	          <li><a href="http://browardemployee.org/employees/Pages/Tiles.aspx" class="waves-effect" title="Access.BrowardEmployee.org">Access BrowardEmployee</a>
+                	          </li>
+                	          <li><a href="http://www.broward.org/Careers/Pages/Default.aspx" class="waves-effect" title="Career Opportunities">Career Opportunities</a>
+                	          </li>
+                	          <li><a href="http://www.broward.org/HumanResources/Pages/CompensationRecords.aspx" class="waves-effect" title="Compensation and Records">Compensation and Records</a>
+                	          </li>
+                	          <li><a href="http://www.broward.org/HumanResources/EAP/Pages/Default.aspx" class="waves-effect" title="Employee Assistance Program">Employee Assistance</a>
+                	          </li>
+                	          <li><a href="http://www.broward.org/Benefits/Pages/Default.aspx" class="waves-effect" title="Employee Benefits">Employee Benefits</a>
+                	          </li>
+                	          <li><a href="http://www.broward.org/HumanResources/Pages/EmployeeRelations.aspx" class="waves-effect" title="Labor Relations">Labor Relations</a>
+                	          </li>
+                	          <li><a href="http://www.broward.org/HumanResources/LearningOrganizationalDevelopment/Pages/Default.aspx" class="waves-effect" title="Learning and Organizational Development">Learning</a>
+                	          </li>
+                	      </ul>
+                	  </div>
+                	</li>
+                	<li><a class="collapsible-header waves-effect arrow-r"> Resources<i class="fal fa-angle-down rotate-icon"></i></a>
+                	  <div class="collapsible-body">
+                	      <ul>
+                	          <li><a href="http://www.broward.org/Publications/Pages/Default.aspx" class="waves-effect" title="Helpful References">Helpful References</a>
+                	          </li>
+                	          <li><a href="http://www.broward.org/Publications/ResidentsGuide/Pages/BrowardCountyMunicipalities.aspx" class="waves-effect" title="Cities">Cities</a>
+                	          </li>
+                	          <li><a href="http://www.broward.org/Publications/ResidentsGuide/Pages/ConstitutionalOfficers.aspx" class="waves-effect" title="Constitutional Officers">Constitutional Officers</a>
+                	          </li>
+                	          <li><a href="http://www.broward.org/Publications/ResidentsGuide/Pages/StateAgencies.aspx" class="waves-effect" title="Florida Agencies">Florida Agencies</a>
+                	          </li>
+                	          <li><a href="http://www.broward.org/Publications/ResidentsGuide/Pages/Counties.aspx" class="waves-effect" title="Florida Counties">Florida Counties</a>
+                	          </li>
+                	          <li><a href="https://webapps.broward.org/Lobbyist/LobbyistSearch.aspx" class="waves-effect" title="Lobbyist List">Lobbyist List</a>
+                	          </li>
+                	          <li><a href="http://www.broward.org/PublicInfo/Pages/SpeakersTopicList.aspx" class="waves-effect" title="Speakers Bureau">Speakers Bureau</a>
+                	          </li>
+                	          <li><a href="http://www.broward.org/Pages/Tips.aspx" class="waves-effect" title="Tips">Tips</a>
+                	          </li>
+                	      </ul>
+                	  </div>
+                	</li>
+                	<li><a class="collapsible-header waves-effect arrow-r"> Careers<i class="fal fa-angle-down rotate-icon"></i></a>
+                	  <div class="collapsible-body">
+                	      <ul>
+                	          <li><a href="http://www.broward.org/Careers/Pages/FAQ.aspx" class="waves-effect" title="Frequently Asked Questions">Frequently Asked Questions</a>
+                	          </li>
+                	          <li><a href="http://www.broward.org/HumanResources/Pages/Default.aspx" class="waves-effect" title="Human Resources Division">Human Resources Division</a>
+                	          </li>
+                	          <li><a href="http://www.broward.org/Careers/OnlineApplicantGuide/Pages/default.aspx" class="waves-effect" title="Online Applicant Guide">Online Applicant Guide</a>
+                	          </li>
+                	          <li><a href="http://www.broward.org/Careers/Pages/Default.aspx" class="waves-effect" title="Welcome to Broward County Careers">Broward County Careers</a>
+                	          </li>
+                	      </ul>
+                	  </div>
+                	</li>
+                </ul>
+			</li>
+          <!--/. Side navigation links -->
+          <div class="ps__scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps__scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div>
+          <div class="ps__scrollbar-y-rail" style="top: 0px; right: 0px;"><div class="ps__scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div>
+      </ul>
+<!--/. Sidebar navigation -->
+      <nav class="navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar double-nav no-print" style="background-color:#1C2A48">
+          <!-- SideNav slide-out button -->
+          <div class="float-left" id="hamburger">
+              <a href="#" title="Broward County Website Navigation" data-activates="slide-out" class="button-collapse"><i class="fal fa-bars broward-color-lightblue fa-2x"></i></a>
+          </div>
+			<!--Site logo-->
+          <div class="mr-auto">
+                    <a id="ctl00_onetidProjectPropertyTitleGraphic" href="http://www.broward.org">
+                        <img id="ctl00_onetidHeadbnnr2" src="http://www.broward.org/Style%20Library/V6/img/B-org-logo.png" alt="Broward County - Celebrating 100 Years (1915-2015)" style="border-width:0px;">
+                    </a>         
+          </div>        
+<!--Search Bar-->
+<div class="nav navbar-nav nav-flex-icons ml-auto no-print">
+    <div class="my-auto">
+        <a href="http://broward.org/Commission/Meetings/Pages/AgendasAndMinutes.aspx" target="_blank" title="Watch Live Meetings" class="nav-link"><i class="fal fa-tv fa-3x px-2" aria-hidden="true"></i></a>
+        <a href="http://broward.org/Commission/Meetings/Pages/AgendasAndMinutes.aspx" target="_blank" title="Watch Live Meetings" class="nav-link mb-2 d-none d-md-inline-block">Meeting Webcasts</a>
+        <a href="#search" title="Search" class="nav-link"><i class="fal fa-search fa-3x px-2" aria-hidden="true"></i></a>
+    </div>
+<!--End Search-->
+<!--Site options-->
+    <div id="optionout" class="menu-options my-auto">
+        <div class="options-list pl-3">
+            <div class="options-list-item px-1">
+              <div class="text-size d-inline">
+                <div  aria-label="Increase Font" id="accessibility-font" class="js-acessibility btn btn-sm p-0 notranslate" style="font-size:13px;box-shadow:0 0 0 0">+A</div>
+                </div>
+            </div>
+            <div class="options-list-item px-1">
+              <div class="contrast d-inline">
+                    <div aria-label="Add Contrast" id="accessibility-contrast" class="js-acessibility btn btn-sm p-0 notranslate " style="font-size:13px; box-shadow:0 0 0 0">Add Contrast</div>
+              </div>
+            </div>
+            <div aria-label="Translate Text" id="translate" class="btn btn-sm p-0 notranslate" type="button" style="font-size:13px;box-shadow:0 0 0 0" >Translate</div>
+                <ul class="tr-dd">
+                   <li><a href="#" title="Translate to Español" class="notranslate tr-dd-link no-hover" data-ln="es" id="lang-es" style="font-size:13px;line-height:0">Español</a></li>
+                    <li><a href="#" title="Translate to Française" class="notranslate tr-dd-link no-hover" data-ln="fr" id="lang-fr" style="font-size:13px;line-height:0">Française</a></li>
+                    <li><a href="#" title="Translate to Kreyòl Ayisyen" class="notranslate tr-dd-link no-hover" data-ln="ht" id="lang-ht" style="font-size:13px;line-height:0">Kreyòl Ayisyen</a></li>
+                    <li><a href="#" title="Translate to Português" class="notranslate tr-dd-link no-hover" data-ln="pt" id="lang-pt" style="font-size:13px;line-height:0">Português</a></li>
+                    <li><a href="#" title="Translate to English" class="notranslate tr-dd-link no-hover" data-ln="en" id="lang-en" style="font-size:13px;line-height:0">English</a></li>
+                </ul>
+        </div>
+    </div>
+    <div id="options-menu" data-toggle="toggle" data-target="#optionout" class="my-auto">
+        <a href="#" title="Additional Accessibility Options Menu" class="nav-link"><i id="site-options" class="fal fa-cog fa-2x " aria-hidden="true"></i></a>
+    </div>
+<!--End Site options--> 
+			</div>			
+		</nav>		
+      <!-- /.Navbar -->
+      <div id="stickyNav"></div>
+		<!--Search Overlay-->
+		<div id="search" class="mt-2">
+		  <!--  <button type="button" class="close">Ã—</button>-->
+             <form method="GET" name="search" action="http://broward.granicus.com/ViewSearchResults.php" style="display:inline;">
+                <input name="view_id" type="hidden" value="13">
+                <input type="search" name="keywords" id="searchfield" onfocus="if(this.value == 'Let's search for...) this.value = ''" onblur="if(this.value=='')this.value='Let's Search for..." onkeypress="if (event.keyCode == 13 || ev.which == 13){sfield = document.getElementById('searchfield'); document.location.href = 'http://broward.granicus.com/ViewSearchResults.php?view_id=13&keywords=' + sfield.value}" placeholder="Let's search for..." style="">
+	        </form>
+		</div>
+		<!--End Search Overlay-->
+<!--/.Double navigation-->
+
+      </header>
+<main class="pagelayoutWrapper" style="margin-top:-20px">
+
+<!-- INJECTED MODAL INFO HERE -->
+<div class="modal fade right " id="videoModal" tabindex="-1" role="dialog" aria-labelledby="bcVideoModal" aria-hidden="true">
+<div class="modal-dialog modal-side modal-full-height modal-right" role="document">
+    <div class="modal-content" style="background-color:black">
+    <div class="modal-header">
+        <h5 class="modal-title" id="videoModalTitle"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div id="vidModalInfo">
+        <!--Injected-->
+        <img class="img-fluid my-4" src="">
+        <p class="modalVidDesc">VideoDesc</p>
+        </div>
+        <!-- Central Modal Medium Info-->
+        <div class=" d-flex justify-content-center">
+        <button type="button" class="btn btn-outline-warning w-50" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger w-50" id="videoPlay"><i class="far fa-2x fa-play-circle"></i></button>
+      </div>
+      <div class="text-white mt-5" style="font-weight: 200;">
+          <p><em>For the convenience of those visiting Broward County's website that are using a screen reader for ADA accessibility, all videos are also posted on Broward County Government's <a href="https://www.youtube.com/channel/UCkFUpAuNegNExxOKo_5KJ6w" style="color: yellow" target="_blank">YouTube channel</a>, with closed captioning.</em></p>
+      </div>
+    </div>
+            
+    </div>
+</div>
+</div>
+
+<section aria-label="Main Page Content" id="videoPlayer">
+    	<div>
+    	<div class="col-12 browardNowMobile"><img src="http://www.broward.org/Style%20Library/V6/VideoNOW/img/broward-now-logo-300.png" alt="Broward Now Logo" class="BrowardNowLogo py-3"/></div>
+			<div class="container-fluid bg-black py-5">
+				<div class="container">
+					<div class="row">
+						<div class="col-12 col-md-5 stackTo3" id="vidMainInfo">
+						<!--Injected-->
+					    	<h2 class="section-title text-white">TEXT TO 911 PUBLIC SERVICE ANNOUNCEMENT - OPEN CAPTION</h2>
+					    	<p class="text-white">Text to 911 is now available in Broward County when calling is not an option. Always Call if you can, Text only if you can't - such as during home invasions or active shooter situations or if you're hearing or speech impaired. Watch this PSA to learn more about Text to 911..</p>
+						</div>
+						<div class="col-md-7 stackTo2" id="videoMain">
+						<video id="bc_video" class="video-js vjs-default-skin vjs-fluid" width="650px" height="375px" poster="http://www.broward.org/PublishingImages/text_to_911.png" controls preload="auto" data-setup='{ "aspectRatio":"16:9", "playbackRates": [1, 1.5, 2] }' style="box-shadow: 0px 0px 5px rgba(128, 128, 128, 0.34)">'
+						<source src="http://archive-media.granicus.com:443/OnDemand/broward/broward_a3a83557-1781-48bb-b2c6-f1edd4b82341.mp4" type="video/mp4" />
+						</video>					
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row d-flex justify-content-center mx-0">				
+				<div class="col-12 browardNowDesktop"><img src="http://www.broward.org/Style%20Library/V6/VideoNOW/img/broward-now-logo-300.png" alt="Broward Now Logo" class="BrowardNowLogo pt-4"/></div>
+			</div> 
+			<div class=" container py-4">
+				<div class="row d-flex justify-content-center">
+					<div class="col-12 col-md-4" id="videoFilter">
+						<select class="mdb-select colorful-select dropdown-primary videoFilter" searchable="Search Categories here..">
+						    <option value="" disabled selected>FILTER BY CATEGORY</option>
+						    <option value="1">All</option>
+						    <option value="2">Featured</option>
+							<option value="3">Community</option>
+							<option value="4">Education and History</option>
+						    <option value="6">Environment</option>
+						    <option value="7">Public Safety</option>
+							<option value="8">Tourism</option>
+							<option value="9">Transportation</option>
+						</select>
+					</div>
+				</div>
+			</div>		
+		</div>
+			<!-- Category 1-->
+			<section class="videoSec Featured"> 
+				  <div class="container pb-3">
+				  	<div class="divider-broward bNOW-FEATURED pt-3">
+				  		<div  class="broward-titles-bg-white">
+							<h1 class="browardNOW-titles">Featured</h1>
+						</div>
+					</div>
+
+                    <div class="row pt-sm-3">
+				      <div class="col-md-12">
+				        <div class="overlay">
+				      </div>
+
+				         <!-- Slider-->
+                        <div class="main-carousel" id="featured">
+                          	{foreach from=$Archives item=Clip}
+                                {if $Clip.Location == "Featured Videos"}
+                                {assign var=feat value=1}
+                          	<div class="sliderTile">
+                          	    <a href="{$Clip.MP4Link}" type="button" data-toggle="modal" data-target="#videoModal"><img src="{$Clip.Thumbnail}" /></a>
+                          	    <div class="slideTitle"><h3 class="clipTitle d-none">{$Clip.Name}</h3></div>
+                          	    <p class="clipDesc d-none">{$Clip.Description}</p>
+                             </div>
+                                {/if}
+                            {/foreach}							
+                        </div>
+				      </div>
+				    </div>
+				  </div> 
+			</section>
+				<!-- featured-->
+			<!-- Category 1-->
+				<!-- Community-->
+			<!-- Category 2-->
+			<section class="videoSec Community"> 
+				  <div class="container pb-3">
+				  	<div class="divider-broward pt-3">
+				  		<div  class="broward-titles-bg-white">
+							<h1 class="browardNOW-titles">Community</h1>
+						</div>
+					</div>
+
+                    <div class="row pt-sm-3">
+				      <div class="col-md-12">
+				        <div class="overlay">
+				      </div>
+
+				         <!-- Slider-->
+				         
+                        <div class="main-carousel" id="community">
+                          	{foreach from=$Archives item=Clip}
+                                {if $Clip.Location == "Community"}
+                                {assign var=feat value=1}
+                          	<div class="sliderTile">
+                          	    <a href="{$Clip.MP4Link}" type="button" data-toggle="modal" data-target="#videoModal"><img src="{$Clip.Thumbnail}" /></a>
+                          	    <div class="slideTitle"><h3 class="clipTitle d-none">{$Clip.Name}</h3></div>
+                          	    <p class="clipDesc d-none">{$Clip.Description}</p>
+                             </div>
+                                {/if}
+                            {/foreach}							
+                        </div>
+				      </div>
+				    </div>
+				  </div>
+				</section> 
+			<!-- Category 2-->				 
+			<!--Community ends -->
+			<!-- Environment-->
+				<!-- Category 4-->
+				<section class="videoSec Environment"> 
+					<div class="container pb-3">
+						<div class="divider-broward pt-3">
+							<div  class="broward-titles-bg-white">
+								<h1 class="browardNOW-titles">Environment</h1>
+							</div>
+						</div>
+
+						<div class="row pt-sm-3">
+						<div class="col-md-12">
+							<div class="overlay">
+						</div>
+
+							<!-- Slider-->
+							
+							<div class="main-carousel" id="environment">
+								{foreach from=$Archives item=Clip}
+									{if $Clip.Location == "Environment"}
+									{assign var=feat value=1}
+								<div class="sliderTile">
+									<a href="{$Clip.MP4Link}" type="button" data-toggle="modal" data-target="#videoModal"><img src="{$Clip.Thumbnail}" /></a>
+									<div class="slideTitle"><h3 class="clipTitle d-none">{$Clip.Name}</h3></div>
+									<p class="clipDesc d-none">{$Clip.Description}</p>
+								</div>
+									{/if}
+								{/foreach}							
+							</div>
+						</div>
+						</div>
+					</div>
+				</section> 
+				<!-- Category 4-->				 
+			<!--Environment ends -->
+			<!-- Public Safety-->
+				<!-- Category 5-->
+				<section class="videoSec PublicSafety"> 
+					<div class="container pb-3">
+						<div class="divider-broward pt-3">
+							<div  class="broward-titles-bg-white">
+								<h1 class="browardNOW-titles">Public Safety</h1>
+							</div>
+						</div>
+
+						<div class="row pt-sm-3">
+						<div class="col-md-12">
+							<div class="overlay">
+						</div>
+
+							<!-- Slider-->
+							
+							<div class="main-carousel" id="publicSafety">
+								{foreach from=$Archives item=Clip}
+									{if $Clip.Location == "Emergency Preparedness" || $Clip.Location == "Public Safety"}
+									{assign var=pub1 value=1}
+								<div class="sliderTile">
+									<a href="{$Clip.MP4Link}" type="button" data-toggle="modal" data-target="#videoModal"><img src="{$Clip.Thumbnail}" /></a>
+									<div class="slideTitle"><h3 class="clipTitle d-none">{$Clip.Name}</h3></div>
+									<p class="clipDesc d-none">{$Clip.Description}</p>
+								</div>
+									{/if}
+								{/foreach}							
+							</div>
+						</div>
+						</div>
+					</div>
+				</section> 
+				<!-- Category 5-->				 
+			<!--Public Safety ends -->
+			<!-- Tourism-->
+				<!-- Category 6-->
+				<section class="videoSec Tourism"> 
+					<div class="container pb-3">
+						<div class="divider-broward pt-3">
+							<div  class="broward-titles-bg-white">
+								<h1 class="browardNOW-titles">Tourism</h1>
+							</div>
+						</div>
+
+						<div class="row pt-sm-3">
+						<div class="col-md-12">
+							<div class="overlay">
+						</div>
+
+							<!-- Slider-->
+							
+							<div class="main-carousel" id="tourism">
+								{foreach from=$Archives item=Clip}
+									{if $Clip.Location == "Tourism"}
+									{assign var=tour value=1}
+								<div class="sliderTile">
+									<a href="{$Clip.MP4Link}" type="button" data-toggle="modal" data-target="#videoModal"><img src="{$Clip.Thumbnail}" /></a>
+									<div class="slideTitle"><h3 class="clipTitle d-none">{$Clip.Name}</h3></div>
+									<p class="clipDesc d-none">{$Clip.Description}</p>
+								</div>
+									{/if}
+								{/foreach}							
+							</div>
+						</div>
+						</div>
+					</div>
+				</section> 
+				<!-- Category 6-->				 
+			<!--Tourism ends -->
+			<!-- Education and History-->
+				<!-- Category 8-->
+				<section class="videoSec EducationandHistory"> 
+					<div class="container pb-3">
+						<div class="divider-broward pt-3">
+							<div  class="broward-titles-bg-white">
+								<h1 class="browardNOW-titles">Education & History</h1>
+							</div>
+						</div>
+
+						<div class="row pt-sm-3">
+						<div class="col-md-12">
+							<div class="overlay">
+						</div>
+
+							<!-- Slider-->
+							
+							<div class="main-carousel" id="educationHistory">
+								{foreach from=$Archives item=Clip}
+									{if $Clip.Location == "Education & History"}
+									{assign var=educ value=1}
+								<div class="sliderTile">
+									<a href="{$Clip.MP4Link}" type="button" data-toggle="modal" data-target="#videoModal"><img src="{$Clip.Thumbnail}" /></a>
+									<div class="slideTitle"><h3 class="clipTitle d-none">{$Clip.Name}</h3></div>
+									<p class="clipDesc d-none">{$Clip.Description}</p>
+								</div>
+									{/if}
+								{/foreach}							
+							</div>
+						</div>
+						</div>
+					</div>
+				</section> 
+				<!-- Category 8-->				 
+			<!--Education and History ends -->
+			<!-- Transportation-->
+				<!-- Category 9-->
+				<section class="videoSec Transportation"> 
+					<div class="container pb-3">
+						<div class="divider-broward pt-3">
+							<div  class="broward-titles-bg-white">
+								<h1 class="browardNOW-titles">Transportation</h1>
+							</div>
+						</div>
+
+						<div class="row pt-sm-3">
+						<div class="col-md-12">
+							<div class="overlay">
+						</div>
+
+							<!-- Slider-->
+							
+							<div class="main-carousel" id="transportation">
+								{foreach from=$Archives item=Clip}
+									{if $Clip.Location == "Transportation"}
+									{assign var=tran value=1}
+								<div class="sliderTile">
+									<a href="{$Clip.MP4Link}" type="button" data-toggle="modal" data-target="#videoModal"><img src="{$Clip.Thumbnail}" /></a>
+									<div class="slideTitle"><h3 class="clipTitle d-none">{$Clip.Name}</h3></div>
+									<p class="clipDesc d-none">{$Clip.Description}</p>
+								</div>
+									{/if}
+								{/foreach}							
+							</div>
+						</div>
+						</div>
+					</div>
+				</section> 
+				<!-- Category 9-->				 
+			<!--Transportation ends -->						
+    </section>
+	<div class="container my-3 text-center" id="accessibleVideos">
+	    <p>For the convenience of those visiting Broward County's website that are using a screen reader for ADA accessibility, all videos are also posted on Broward County Government's <a href="https://www.youtube.com/channel/UCkFUpAuNegNExxOKo_5KJ6w" style="color:blue" target="_blank">YouTube channel</a>, with closed captioning.</p>
+	</div>
+
+    <!--Footer-->
+    <footer class="page-footer broward-BGcolor-darkblue center-on-small-only">
+
+        <!--Footer Links-->
+        <div class="container no-print">
+            <div class="row">
+                <!--First column-->
+                <div class="col-md-4 text-center">
+                    <img alt="Broward County Logo White" src="http://www.broward.org/Style%20Library/V6/img/Broward_logo_white2.png">
+                    <div class="d-flex justify-content-center social">
+                  		<div class="px-3"><a href="https://www.facebook.com/BrowardCountyGovernment/" target="_blank" title="Follow us on Facebook"><i class="fab fa-facebook fa-2x fa-inverse" aria-hidden="true"></i></a></div>
+                  		<div class="px-3"><a href="https://twitter.com/BrowardCounty" target="_blank" title="Follow us on Twitter"><i class="fab fa-twitter fa-2x fa-inverse" aria-hidden="true"></i></a></div>
+                  		<div class="px-3"><a href="https://www.youtube.com/channel/UCkFUpAuNegNExxOKo_5KJ6w/videos" target="_blank" title="Follow us on YouTube"><i class="fab fa-youtube fa-2x fa-inverse" aria-hidden="true"></i></a></div>
+                  		<div class="px-3"><a href="mailto:publicinfo@broward.org" title="Contact Broward County"><i class="fal fa-envelope fa-2x fa-inverse"></i></a></div>
+                    </div>
+                </div>
+                <div class="col-md-4 my-auto">
+                </div>
+                <div class="col-md-4 my-auto">
+					<ul id="MainFooterInclude1">
+                        <li><a href="http://www.broward.org/Pages/PhoneA.aspx">Contact Us</a></li>
+                        <li><a href="http://www.broward.org/Pages/Comments.aspx">Comments and Suggestions</a></li>
+                        <li><a href="http://www.broward.org/ReportAComplaint/Pages/Default.aspx">Report a Complaint</a></li>
+                        <li><a href="http://www.broward.org/StayConnected/Pages/Default.aspx">Subscribe</a></li>
+                        <li><a href="http://www.broward.org/Terms/Pages/Default.aspx">Terms of Use</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container-fluid">
+                Â© 2017 Copyright: <a href="https://www.broward.org">Broward County Government</a>
+            </div>
+      </div>
+    </footer>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://www.broward.org/Style%20Library/V6/js/vendor/mdb/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://www.broward.org/Style%20Library/V6/js/vendor/mdb/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://www.broward.org/Style%20Library/V6/js/vendor/mdb/mdb.min.js"></script> 
+
+<script  type="text/javascript" src="https://vjs.zencdn.net/6.4.0/video.js"></script>
+<script type="text/javascript" src="http://www.broward.org/Style%20Library/V6/VideoNOW/js/masterVideoScript.js"></script>
+<!-- Translator Script-->
+<script defer src="https://www.microsoftTranslator.com/ajax/v3/WidgetV3.ashx?siteData=ueOIGRSKkd965FeEGM5JtQ**" type="text/javascript"></script>
+ <!-- Broward Scripts -->
+<script  type="text/javascript" src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<script defer type="text/javascript" src="http://www.broward.org/Style%20Library/V6/VideoNOW/js/script_1.js"></script>
+<!-- Contrast -->
+<script type="text/javascript" src="https://www.broward.org/Style%20Library/V6/js/broward/contrast.js"></script>
+
+
+
+<!--Page layout Inline Scripts-->    
+</main>
+</body>
+</html>
