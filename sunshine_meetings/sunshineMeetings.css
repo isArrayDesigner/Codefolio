@@ -1,0 +1,121 @@
+.dataTables_length label {
+    margin-right: 1rem;
+    padding-top: 1rem;
+}
+
+.dataTables_filter.md-form {
+    margin-top: .55rem;
+}
+
+.dataTables_filter.md-form input {
+    font-weight: 300;
+}
+
+.dataTables_wrapper .row {
+    margin-bottom: 1.5rem;
+}
+
+div.dataTables_wrapper div.dataTables_info {
+    padding-top: 0;
+    padding-bottom: 1rem;
+}
+
+.dataTables_paginate {
+    float: right;
+}
+
+.dataTables_filter {
+    float: right;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:active,
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button:focus {
+    outline: none !important;
+    border: none;
+    background-color: white !important;
+    background: none !important;
+    box-shadow: 0 0 0 0 !important;
+}
+
+.select-wrapper input.select-dropdown {
+    margin-bottom: 0px;
+    padding-top: 15px;
+}
+
+div.dataTables_wrapper div.dataTables_length label {
+    margin-bottom: 0px;
+    padding-top: 25px;
+}
+
+.select-dropdown {
+    margin-top: 27px;
+}
+
+.select-wrapper span.caret {
+    margin-top: 15px;
+}
+
+#headerRow {
+    background: #1C2A48;
+    color: white
+}
+
+@media only screen and (max-width:768px) {
+    #archiveTable_filter {
+        width: 100%
+    }
+
+    #archiveTable_filter input {
+        width: 100%
+    }
+
+    .dataTables_wrapper .row {
+        margin-bottom: .5rem;
+    }
+}
+
+.pagination .page-link:focus {
+    background-color: #007bff;
+}
+
+@media screen {
+    #printSection {
+        display: none;
+    }
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    .ssk-sticky,
+    .modal-footer {
+        display: none;
+    }
+
+    #printSection,
+    #printSection * {
+        visibility: visible;
+    }
+
+    #printSection {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.1rem;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+    }
+
+    #printSection table td,
+    #printSection table th {
+        font-size: 1.1rem !important;
+    }
+
+}
+
+.progress-bar {
+    background-color: #FFD600;
+}

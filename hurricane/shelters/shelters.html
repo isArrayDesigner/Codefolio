@@ -1,696 +1,97 @@
-﻿<html
-  dir="ltr"
-  xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:mso="urn:schemas-microsoft-com:office:office"
-  xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
->
-  <head>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css"
-    />
-    <script
-      type="text/javascript"
-      src="/Style%20Library/V7/js/vendor/mdb/jquery-3.3.1.min.js"
-    ></script>
-    <style type="text/css">
+﻿<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:mso="urn:schemas-microsoft-com:office:office"
+  xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
 
-      #tableHeadings tr {
-          background: #1C2A48;
-      }
-      #shelterTable.table > tbody > tr > td {
-           vertical-align: middle;
-      }
-      table#shelterTable {
-          width: 100%;
-          border-collapse: collapse !important;
-      }
+<head>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css" />
+  <script type="text/javascript" src="/Style%20Library/V7/js/vendor/mdb/jquery-3.3.1.min.js"></script>
+</head>
 
-      /*#shelterTableBody tr > tr{
-          clear: both;
-          /*border-collapse:collapse;
-          border-bottom: 1px silver solid;
-      }*/
-
-      #shelterTableBody td {
-          padding: 10px 10px !important;
-
-      }
-
-      .sheltIcon {
-          font-size: 1.5rem;
-      }
-
-      #shelterTable,
-      .ms-WPBody td {
-          font-family: Arquette;
-          font-size: 1rem;
-      }
-
-      #shelterTable_wrapper {
-          padding-left: 0px;
-      }
-
-      h2#cityTitle,
-      #hurricaneShelters h4 {
-          font-weight: 700 !important;
-          text-transform: uppercase;
-      }
-
-      .dataTables_length label {
-          margin-right: 1rem;
-          padding-top: 1rem;
-      }
-
-      .dataTables_filter.md-form {
-          margin-top: .55rem;
-      }
-
-      .dataTables_filter.md-form input {
-          font-weight: 300;
-      }
-
-      .dataTables_wrapper .row {
-          margin-bottom: 1.5rem;
-      }
-
-      div.dataTables_wrapper div.dataTables_info {
-          padding-top: 0;
-          padding-bottom: 1rem;
-      }
-
-      .dataTables_paginate {
-          float: right;
-      }
-
-      .dataTables_filter {
-          float: right;
-      }
-
-      .dataTables_wrapper .dataTables_paginate .paginate_button:active,
-      .dataTables_wrapper .dataTables_paginate .paginate_button:hover,
-      .dataTables_wrapper .dataTables_paginate .paginate_button:focus {
-          outline: none !important;
-          border: none;
-          background-color: white !important;
-          background: none !important;
-          box-shadow: 0 0 0 0 !important;
-      }
-
-      .select-wrapper input.select-dropdown {
-          margin-bottom: 0px;
-          padding-top: 15px;
-      }
-
-      div.dataTables_wrapper div.dataTables_length label {
-          margin-bottom: 0px;
-          padding-top: 25px;
-      }
-
-      .select-dropdown {
-          margin-top: 27px;
-      }
-
-      .select-wrapper span.caret {
-          margin-top: 15px;
-      }
-
-      #shelterTable_wrapper>.row {
-          margin-bottom: 0px;
-      }
-
-      #shelterTable #headerRow {
-          background: #1C2A48;
-          color: white
-      }
-
-      .pagination .page-link:focus {
-          background-color: #007bff;
-      }
-
-      #cityNav select {
-          display: none !important;
-      }
-
-      @media (max-width: 767px) {
-      .container{
-      	max-width:767px;
-      }
-          .lineHeight{
-              line-height: 1rem;
-          }
-
-          #shelterTable_filter {
-              width: 100%
-          }
-
-          #shelterTable_filter input {
-              width: 100%
-          }
-
-          .dataTables_wrapper .row {
-              margin-bottom: .5rem;
-          }
-
-          #cityNav {
-              text-align: center;
-          }
-
-          #cityNav ul {
-              display: none;
-          }
-
-          #cityNav select {
-              display: inline-block !important;
-          }
-      }
-
-      #letterNav {
-          text-align: center;
-      }
-
-      #letterNav select {
-          display: inline-block !important;
-      }
-
-      #sheltersEx .shelters .card {
-          border-bottom: 1px #81D4FA solid !important;
-      }
-
-      #sheltersColumn span {
-          position: relative;
-          float: right;
-          margin-bottom: 2.5rem;
-
-      }
-
-      #benefitDetail {
-          font-weight: 300 !important;
-      }
-
-      #faqSearch {
-          border: none !important;
-      }
-
-      #tableHeadings>tr>th {
-          font-size: 1rem !important;
-          font-weight: 500 !important;
-          padding: 5px 10px;
-          color: white;
-      }
-
-      #tableHeadings>tr>th:not(:first-child) {
-          border-left: 2px white solid
-      }
-
-      @media only screen and (min-width:768px) {
-          .lineHeight{
-              line-height: 2rem;
-          }
-
-          #sheltersColumn .lastOne:after {
-              content: "\f0fe";
-              font-family: 'Font Awesome 5 Pro';
-              position: absolute;
-              right: 0;
-              top: -4px;
-              left: 75%;
-              color: #0277BD;
-              display: block;
-              width: 32px;
-              height: 32px;
-              line-height: 32px;
-              vertical-align: top;
-              text-align: center;
-              -webkit-transition: all .35s;
-              -o-transition: all .35s;
-              transition: all .35s;
-          }
-      }
-    </style>
-  </head>
-  <body>
-    <section aria-label="Main Page Content" id="hurricaneShelters">
-      <div class="container py-3">
-        <div class="row">
-          <div class="col">
-            <p>
-              During an emergency, shelters are opened as needed, and not all of
-              the shelters may open. If you live in an evacuation zone, consider
-              all your
-              <a
-                href="https://browardauthor/Hurricane/Pages/ShelterAlternatives.aspx"
-                target="_blank"
-                >alternatives</a
-              >
-              before you decide to go to a shelter. Your first, best choice is
-              to stay with family or friends outside the evacuation zone.
-            </p>
-            <p>
-              Certain shelters are designated as pet-friendly. Pets accepted
-              include dogs, cats, domestic birds, rabbits, gerbils, guinea pigs,
-              mice and hamsters. All pets must be in a carrier/crate and all
-              dogs must have a collar with leash. Residents should be prepared
-              to show proof of rabies certificate for dogs and cats, and their
-              pet’s Broward County Registration Tag. Bring supplies to care for
-              your pet, including food and water, food/water bowls, cat litter
-              and litter box, medicine, cleaning supplies, etc. Service animals
-              are permitted in General Population Shelters so long as the pet
-              meets the requirements under Federal law. Visit
-              <a
-                href="http://www.ada.gov/service_animals_2010.htm"
-                target="_blank"
-                >ADA Requirements for Service Animals</a
-              >
-              for additional information.
-            </p>
-            <p>
-              Call the Emergency Hotline at 311 or 954-831-4000 for more
-              information. Emergency shelters are a service of the Broward
-              County Commission and the Broward County School Board.
-            </p>
-            <p><a id="printVersion" class="d-md-block d-none" href="/Hurricane/Documents/EmergencyShelterMapPrint.pdf" target="_blank"><i class="fal fa-print"></i> Printer Friendly Shelter List</a></p>
-          </div>
+<body>
+  <section aria-label="Main Page Content" id="hurricaneShelters">
+    <div class="container py-3">
+      <div class="row">
+        <div class="col">
+          <p>
+            During an emergency, shelters are opened as needed, and not all of
+            the shelters may open. If you live in an evacuation zone, consider
+            all your
+            <a href="https://browardauthor/Hurricane/Pages/ShelterAlternatives.aspx" target="_blank">alternatives</a>
+            before you decide to go to a shelter. Your first, best choice is
+            to stay with family or friends outside the evacuation zone.
+          </p>
+          <p>
+            Certain shelters are designated as pet-friendly. Pets accepted
+            include dogs, cats, domestic birds, rabbits, gerbils, guinea pigs,
+            mice and hamsters. All pets must be in a carrier/crate and all
+            dogs must have a collar with leash. Residents should be prepared
+            to show proof of rabies certificate for dogs and cats, and their
+            pet’s Broward County Registration Tag. Bring supplies to care for
+            your pet, including food and water, food/water bowls, cat litter
+            and litter box, medicine, cleaning supplies, etc. Service animals
+            are permitted in General Population Shelters so long as the pet
+            meets the requirements under Federal law. Visit
+            <a href="http://www.ada.gov/service_animals_2010.htm" target="_blank">ADA Requirements for Service
+              Animals</a>
+            for additional information.
+          </p>
+          <p>
+            Call the Emergency Hotline at 311 or 954-831-4000 for more
+            information. Emergency shelters are a service of the Broward
+            County Commission and the Broward County School Board.
+          </p>
+          <p><a id="printVersion" class="d-md-block d-none" href="/Hurricane/Documents/EmergencyShelterMapPrint.pdf"
+              target="_blank"><i class="fal fa-print"></i> Printer Friendly Shelter List</a></p>
         </div>
       </div>
-      <div class="container py-3">
-        <div class="row justify-content-center justify-content-md-end my-2">
-          <div class="col-md-4 col-10 pr-1">
-            <div class="z-depth-1 mt-1" style="border-radius:4px;">
-              <input
-                class="form-control pl-3"
-                id="faqSearch"
-                style="border-radius:4px; height:50px"
-                type="text"
-                placeholder="Search City"
-                aria-label="Search"
-                data-search
-              />
-            </div>
-          </div>
-          <div class="col-2 col-md-1 d-flex pl-1 justify-content-end">
-            <button
-              class="btn btn-sm px-4 d-flex justify-content-center"
-              style="height:50px; background-color:#039BE5; margin-top:4px; margin-bottom:16px"
-              type="button"
-              data-search-button
-            >
-              <i class="fal fa-search" style="font-size:24px"></i>
-            </button>
+    </div>
+    <div class="container py-3">
+      <div class="row justify-content-center justify-content-md-end my-2">
+        <div class="col-md-4 col-10 pr-1">
+          <div class="z-depth-1 mt-1" style="border-radius:4px;">
+            <input class="form-control pl-3" id="faqSearch" style="border-radius:4px; height:50px" type="text"
+              placeholder="Search City" aria-label="Search" data-search />
           </div>
         </div>
-        <div class="row justify-content-between">
-          <div class="col-lg-2 col-md-3 col-12 pr-4">
-            <h4
-              class="pb-md-3 font-weight-bold text-center text-md-left text-dark pt-0 d-none d-md-block"
-            >
-              CITIES
-            </h4>
-            <div id="cityNav" class="pb-md-3 py-md-0">
-              <ul
-                class="px-0"
-                id="cityOptions"
-                style="list-style-type:none; border-left:solid medium #eaeaea;"
-              >
-                <!--Options injected here-->
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-10 col-md-9 col-12">
-            <h2
-              id="cityTitle"
-              class="pb-3 text-center text-md-left mt-md-0 mt-3"
-            >
-              All
-            </h2>
-            <div class="d-md-none">** Swipe left for additional columns</div>
-            <!-- Grid row -->
-            <div class="row d-flex justify-content-center">
-              <!-- Grid column -->
-              <div
-                class="col-md-12 pb-5 mr-1 table-responsive"
-                id="sheltersColumn"
-              ></div>
-              <!-- Grid column -->
-            </div>
-            <!-- Grid row -->
-          </div>
+        <div class="col-2 col-md-1 d-flex pl-1 justify-content-end">
+          <button class="btn btn-sm px-4 d-flex justify-content-center"
+            style="height:50px; background-color:#039BE5; margin-top:4px; margin-bottom:16px" type="button"
+            data-search-button>
+            <i class="fal fa-search" style="font-size:24px"></i>
+          </button>
         </div>
       </div>
-    </section>
-    <script
-      type="text/javascript"
-      src="/Style%20Library/V7/js/vendor/mdb/jquery-3.3.1.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="/Style%20Library/V7/js/vendor/moment/moment.min.js"
-    ></script>
-    <script
-      defer
-      src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"
-    ></script>
-    <script
-      defer
-      src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"
-    ></script>
-    <script type="text/javascript">
-      //Webpart Scripts
+      <div class="row justify-content-between">
+        <div class="col-lg-2 col-md-3 col-12 pr-4">
+          <h4 class="pb-md-3 font-weight-bold text-center text-md-left text-dark pt-0 d-none d-md-block">
+            CITIES
+          </h4>
+          <div id="cityNav" class="pb-md-3 py-md-0">
+            <ul class="px-0" id="cityOptions" style="list-style-type:none; border-left:solid medium #eaeaea;">
+              <!--Options injected here-->
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-10 col-md-9 col-12">
+          <h2 id="cityTitle" class="pb-3 text-center text-md-left mt-md-0 mt-3">
+            All
+          </h2>
+          <div class="d-md-none">** Swipe left for additional columns</div>
+          <!-- Grid row -->
+          <div class="row d-flex justify-content-center">
+            <!-- Grid column -->
+            <div class="col-md-12 pb-5 mr-1 table-responsive" id="sheltersColumn"></div>
+            <!-- Grid column -->
+          </div>
+          <!-- Grid row -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <script type="text/javascript" src="/Style%20Library/V7/js/vendor/mdb/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="/Style%20Library/V7/js/vendor/moment/moment.min.js"></script>
+  <script defer src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+  <script defer src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+  <script type="text/javascript" src="/hurricane/publications/publications.js"></script>
+</body>
 
-      var accID = "All";
-      var searchVal = "";
-
-      $(document).ready(function() {
-        $.ajax({
-          url:
-            "/hurricane/_api/web/lists/GetByTitle('shelters')/items?$orderby=Status desc",
-          method: "GET",
-          headers: {
-            Accept: "application/json; odata=verbose"
-          },
-          success: function(data) {
-            var shelterResults = data.d.results;
-
-            console.log(shelterResults);
-
-            function onlyUnique(value, index, self) {
-              return self.indexOf(value) === index;
-            }
-
-            var shelterItems = $.each(shelterResults, function(
-              ind,
-              shelterItems
-            ) {
-              return shelterItems;
-            });
-
-            var allCities = [];
-
-            for (i = 0; i < shelterItems.length; i++) {
-              var filterCities = shelterItems[i];
-              allCities.push(filterCities.City);
-            }
-            allCities.sort();
-
-            var cityList = allCities.filter(onlyUnique);
-
-            for (i = 0; i < cityList.length; i++) {
-              var cityName = cityList[i];
-              $("#cityOptions").append(
-                '<li class="py-1 pl-3"><a href="#" class="text-dark">' +
-                  cityName +
-                  "</a></li>"
-              );
-            }
-            $("#cityOptions").prepend(
-              '<li class="py-1 pl-3"><a href="#" class="text-dark">All</a></li>'
-            );
-
-            var effectIn = function() {
-              $("#cityTitle")
-                .html(accID)
-                .fadeTo(500, 1);
-              return $("#sheltersColumn").fadeTo(500, 1);
-            };
-
-            var effectOut = function() {
-              $("#cityTitle").fadeTo(500, 0);
-              return $("#sheltersColumn").fadeTo(500, 0);
-            };
-            //includes Polyfill
-            if (!String.prototype.includes) {
-              Object.defineProperty(String.prototype, "includes", {
-                value: function(search, start) {
-                  if (typeof start !== "number") {
-                    start = 0;
-                  }
-
-                  if (start + search.length > this.length) {
-                    return false;
-                  } else {
-                    return this.indexOf(search, start) !== -1;
-                  }
-                }
-              });
-            }
-            var buildAcc = function() {
-              var accID2 = accID.replace(/\s/g, "");
-              var bodyBuild =
-                '<table id="shelterTable" class="table"><thead id="tableHeadings"><tr><th scope="col" class="text-center">Status</th><th scope="col">Shelter</th><th scope="col" class="text-center">Map</th><th scope="col">Address</th><th scope="col" class="text-center">Pet Friendly</th></tr></thead><tbody id="shelterTableBody"></tbody></table>';
-              $("#sheltersColumn").append(bodyBuild);
-            };
-            buildAcc();
-
-            function createShelters() {
-              var shelterItems = $.each(shelterResults, function(
-                ind,
-                shelterItems
-              ) {
-                return shelterItems;
-              });
-
-              console.log(accID);
-              if (accID != "Search Results" && accID != "All") {
-                var filterCity = shelterItems.filter(function(e) {
-                  return e.City == accID;
-                });
-              } else if (accID == "All") {
-                var filterCity = shelterItems.filter(function(e) {
-                  return shelterItems;
-                });
-              } else {
-                var filterCity = shelterItems.filter(function(e) {
-                  var address = e.Address.toLowerCase();
-                  return address.includes(searchVal);
-                });
-              }
-
-              var buildCards = function() {
-                if (filterCity.length !== 0) {
-                  for (i = 0; i < filterCity.length; i++) {
-                    var accID2 = accID.replace(/\s/g, ""),
-                      shelterItems = filterCity[i],
-                      cardTitle = shelterItems.Title,
-                      cardBody = shelterItems.Address,
-                      lastUpdated = moment(shelterItems.Modified).format(
-                        "MM/DD/YY, h:mm a"
-                      ),
-                      status = shelterItems.Status
-                        ? '<i class="fas fa-check-circle green-text sheltIcon"></i>'
-                        : '<i class="fas fa-times-circle red-text sheltIcon"></i>',
-                      status2 = shelterItems.Status
-                        ? "<sup>open</sup>"
-                        : "<sup>closed</sup>",
-                      petFriendly = shelterItems.PetFriendly
-                        ? '<i class="fas fa-paw sheltIcon"></i>'
-                        : "";
-
-                    $("#shelterTableBody")
-                      .append(
-                        $('<tr class="align-middle">')
-                          .append(
-                            $(
-                              '<td class="text-center py-2">' +
-                                status +
-                                "<br/>" +
-                                status2 +
-                                "</td>"
-                            )
-                          )
-                          .append(
-                            $(
-                              '<td class="py-2">' + shelterItems.Title + "</td>"
-                            )
-                          )
-                          .append(
-                            $(
-                              '<td class="text-center py-2"><a href="' +
-                                shelterItems.ViewMap.Url +
-                                '" target="_blank"><i class="fas fa-map-marker-alt blue-text sheltIcon"></i></a></td>'
-                            )
-                          )
-                          .append(
-                            $(
-                              '<td class="py-2">' +
-                                shelterItems.Address +
-                                "</td>"
-                            )
-                          )
-                          .append(
-                            $(
-                              '<td class="text-center py-2">' +
-                                petFriendly +
-                                "</td>"
-                            )
-                          )
-                      )
-                      .append(
-                        $(
-                          '<tr style="border-bottom: 1px silver solid; background-color:#f4f4f4"><td class="pl-3 pt-2 pb-0 text-left" colspan="5"><sup>Last Updated: ' +
-                            lastUpdated +
-                            "</sup></td></tr>"
-                        )
-                      );
-                  }
-                } else {
-                  var cardBuild =
-                    "<h4>There are no results matching your search.</div>";
-                  $(".shelters").append(cardBuild);
-                }
-                //shelters Icon Animation
-                $(".shelters > div > div > a").on("click", function() {
-                  $(this)
-                    .find(".rotate")
-                    .toggleClass("down");
-                });
-              };
-              buildCards();
-            }
-            createShelters();
-            $("#cityOptions > li:first-child > a")
-              .parent()
-              .css({
-                borderLeft: "solid medium #039BE5",
-                marginLeft: "-3px"
-              });
-
-            $("#cityOptions > li > a").on("click", function() {
-              event.returnValue = false;
-              accID = this.innerHTML;
-              $("[data-search]")[0].value = "";
-              $("#cityOptions > li").css({
-                borderLeft: "none",
-                marginLeft: "0px"
-              });
-              $(this)
-                .parent()
-                .css({
-                  borderLeft: "solid medium #039BE5",
-                  marginLeft: "-3px"
-                });
-              $.when(effectOut()).done(function() {
-                $("#shelterTableBody tr").remove();
-                createShelters();
-                effectIn();
-              });
-            });
-
-            function cityNav() {
-              // Create the dropdown base
-              $(
-                '<select style="padding-left: 10px; padding-right: 10px; font-family: Arquette;border-radius:3px; border:none; height:50px;" class="browser-default custom-select w-100 z-depth-1" />'
-              ).appendTo("#cityNav");
-              // Create default option "Go to..."
-              $("<option />", {
-                selected: "",
-                value: "Choose a City",
-                text: "Choose a City"
-              }).appendTo("#cityNav select");
-
-              // Populate dropdown with menu items
-              $("#cityNav > ul > li > a").each(function() {
-                var citySelect = $(this);
-                $("<option />", {
-                  value: citySelect.text(),
-                  text: citySelect.text()
-                }).appendTo("#cityNav select");
-              });
-
-              // To make dropdown actually work
-              // To make more unobtrusive: https://css-tricks.com/4064-unobtrusive-page-changer/
-              $("#cityNav select").change(function() {
-                accID = $(this)
-                  .find("option:selected")
-                  .val();
-                $.when(effectOut()).done(function() {
-                  $("#shelterTableBody tr").remove();
-                  createShelters();
-                  effectIn();
-                });
-              });
-            }
-            cityNav();
-
-            //Search Function
-            $("[data-search]").keypress(function(event) {
-              if (event.which == 13) {
-                event.preventDefault();
-                event.returnValue = false;
-                accID = "Search Results";
-                console.log($(this));
-
-                searchVal = $(this)
-                  .val()
-                  .toLowerCase();
-                $.when(effectOut()).done(function() {
-                  $("#cityOptions > li").css({
-                    borderLeft: "none",
-                    marginLeft: "0px"
-                  });
-
-                  $("#shelterTableBody tr").remove();
-                  createShelters();
-                  effectIn();
-                });
-                console.log(searchVal);
-              }
-            });
-
-            $("[data-search-button]").on("click", function(event) {
-              event.preventDefault();
-              event.returnValue = false;
-              accID = "Search Results";
-
-              $("#cityOptions > li").css({
-                borderLeft: "none",
-                marginLeft: "0px"
-              });
-
-              searchVal = $("#faqSearch")
-                .val()
-                .toLowerCase();
-              $.when(effectOut()).done(function() {
-                $("#cityOptions > li").css({
-                  borderLeft: "none",
-                  marginLeft: "0px"
-                });
-
-                $("#shelterTableBody tr").remove();
-                createShelters();
-                effectIn();
-              });
-              console.log(searchVal);
-            });
-            /*          $('#shelterTable').DataTable({
-		        "searching": false,
-		        "lengthChange": false,
-		        "paging": false,
-		        "info": false,
-		        "ordering": false,
-		
-		    });
-		    
-		    $('.dataTables_wrapper').find('label').each(function () {
-		        $(this).parent().append($(this).children());
-		    });
-		    $('.dataTables_filter').find('input').each(function () {
-		        $('input').attr("placeholder", "Search");
-		        $('input').removeClass('form-control-sm');
-		    });
-		    $('.dataTables_length').addClass('d-flex flex-row');
-		    $('.dataTables_filter').addClass('md-form');
-		    $('select').addClass('mdb-select');
-		    $('.mdb-select').material_select();
-		    $('.mdb-select').removeClass('form-control form-control-sm custom-select custom-select-sm');
-		    $('.dataTables_filter').find('label').remove();*/
-          }
-        });
-        $("#hurricaneShelters")
-          .detach()
-          .appendTo("#fullPageContent");
-        $("#fullPageContent > div > div.row.pt-3 > div").hide();
-      });
-    </script>
-  </body>
 </html>

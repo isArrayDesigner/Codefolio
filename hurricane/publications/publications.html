@@ -1,450 +1,65 @@
-﻿<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:mso="urn:schemas-microsoft-com:office:office"xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
-	<head>
-	    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
-	    <script type="text/javascript" src="/Style%20Library/V7/js/vendor/mdb/jquery-3.3.1.min.js"></script>
-	    <style type="text/css">
-	        #filterOptions select, #yearNav select {
-	            border: none;
-	            border-radius: 4px;
-	            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .16), 0 2px 5px 0 rgba(0, 0, 0, .12);
-	            font-family: Arquette;
-	            padding: 13px;
-	        }
-	
-	        #resultBtns .btn {
-	            padding: .85rem 2rem;
-	        }
-	
-	        .tabsTableFade {
-	            color: #333;
-	            font-family: Arquette;
-	        }
-	
-	        .ms-WPBody td {
-	            padding: 1rem .75rem !important;
-	            font-family: Arquette;
-	            font-size: 1rem;
-	        }
-	
-	        .ms-WPBody th {
-	            font-weight: 500;
-	            font-size: .9rem;
-	        }
-	
-	        .dataTables_length label {
-	            margin-right: 1rem;
-	            padding-top: 1rem;
-	        }
-	
-	        .dataTables_filter.md-form {
-	            margin-top: .55rem;
-	        }
-	
-	        .dataTables_filter.md-form input {
-	            font-weight: 300;
-	        }
-	
-	        .dataTables_wrapper .row {
-	            margin-bottom: 1.5rem;
-	        }
-	
-	        div.dataTables_wrapper div.dataTables_info {
-	            padding-top: 0;
-	            padding-bottom: 1rem;
-	        }
-	
-	        .dataTables_paginate {
-	            float: right;
-	        }
-	
-	        .dataTables_filter {
-	            float: right;
-	        }
-	
-	        .dataTables_wrapper .dataTables_paginate .paginate_button:active,
-	        .dataTables_wrapper .dataTables_paginate .paginate_button:hover,
-	        .dataTables_wrapper .dataTables_paginate .paginate_button:focus {
-	            outline: none !important;
-	            border: none;
-	            background-color: white !important;
-	            background: none !important;
-	            box-shadow: 0 0 0 0 !important;
-	        }
-	
-	        .select-wrapper input.select-dropdown {
-	            margin-bottom: 0px;
-	            padding-top: 15px;
-	        }
-	
-	        div.dataTables_wrapper div.dataTables_length label {
-	            margin-bottom: 0px;
-	            padding-top: 25px;
-	        }
-	
-	        .select-dropdown {
-	            margin-top: 27px;
-	        }
-	
-	        .select-wrapper span.caret {
-	            margin-top: 15px;
-	        }
-	
-	        #publicationsTable_wrapper>.row {
-	            margin-bottom: 0px;
-	        }
-	
-	        #publicationsTable #headerRow {
-	            background: #1C2A48;
-	            color: white
-	        }
-			.srchBtn{
-				padding-top:1rem;
-				padding-bottom:1rem;
-			}
-	        @media only screen and (max-width:768px) {
-	            #publicationsTable_filter {
-	                width: 100%
-	            }
-	
-	            #publicationsTable_filter input {
-	                width: 100%
-	            }
-	
-	            .dataTables_wrapper .row {
-	                margin-bottom: .5rem;
-	            }
-	        }
-	
-	        .pagination .page-link:focus {
-	            background-color: #007bff;
-	        }
-	
-	        #publicationsTable_length {
-	            display: none !important;
-	        }
-	    </style>
-	</head>
-	<body>
-	    <section aria-label="Main Page Content" id="IGPublications">
-	        <div class="container tabsTableFade px-0">
-	            <div class="row" id="filterOptions">
-	                <div class="col-12 col-md-4">
-	                    <div class="d-md-block typeOption my-2">
-	                        <select class="browser-default col-12 my-0 mdb-select pubSelect">
-	                            <option value="">Choose Publication Type (Required)</option>
-	                            <option value="Final Reports">Final Reports</option>
-	                            <option value="Closing Memoranda">Closing Memoranda</option>
-	                            <option value="Status Reports">Status Reports</option>
-	                            <option value="Annual Reports">Annual Reports</option>
-	                            <option value="Press Releases">Press Releases</option>
-	                            <option value="Other Publications">Other Publications</option>
-	                            <option value="All">All</option>
-	                        </select>
-	                    </div>
-	                </div>
-	                <div class="col-12 col-md-8">
-	                    <div class="row">
-		                    <div class="col-md-5 col-9 pr-0 pr-md-3">
-				        		<div id="yearNav" class="d-block my-2">
-						        	<ul class="px-0 d-none" id="yearOptions" style="list-style-type:none; border-left:solid medium #eaeaea;">
-						        		<!--Options injected here-->
-						        	</ul>
-					        	</div>
-				        	</div>
-	
-	                        <div class="col-3 col-md-3">
-	                            <button type="button" class="btn btn-info float-md-right float-md-none srchBtn my-2">Search</button>
-	                        </div>
-	                    </div>
-	                </div>
-	            </div>
-	            <div class="row mb-5 px-0">
-	                <div class="col-12 px-0" id="pubSearchResults">
-	                    <table id="publicationsTable" class="table table-responsive browardT pb-5" cellspacing="0"
-	                        width="100%">
-	                        <thead id="tHeader">
-	                        </thead>
-	                        <tbody id="rowItems">
-	                        </tbody>
-	                    </table>
-	                </div>
-	            </div>
-	        </div>
-	    </section>
-	    <script type="text/javascript" src="/Style%20Library/V7/js/vendor/mdb/jquery-3.3.1.min.js"></script>
-	    <script defer src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-	    <script defer src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
-	    <script type="text/javascript">
-	        var tHeader = $("#tHeader"),
-	            rowItems = $("#rowItems"),
-	            searchYr = 0,
-	            searchPub = 0,
-	            selectResults = [],
-	            selectResults1 = [],
-	            searchResults = [],
-	            combinedResults = [];
-	
-	        function getJsonDataAsync(url) {
-	            // returning the $.ajax object is what makes the next part work...
-	            return $.ajax({
-	                url: url,
-	                method: "GET",
-	                contentType: "application/json",
-	                headers: {
-	                    accept: "application/json;odata=verbose"
-	                }
-	            });
-	        }
-	
-	        var requestURI1 = "/InspectorGeneral/_api/web/lists/getbytitle('Publications')/items?$top=300&$orderBy=Title",
-	            requestURI2 = "/InspectorGeneral/_api/web/getfolderbyserverrelativeurl('Publications')/files?&$orderBy=Title";
-	
-	        var req1 = getJsonDataAsync(requestURI1),
-	            req2 = getJsonDataAsync(requestURI2);
-	
-	        // being returned from $.ajax
-	        $.when(req1, req2).done(function (resp1, resp2) {
-	            var data1 = resp1[0];
-	            selectResults.push(data1.d.results)
-	            selectResults = selectResults.length <= 1 ? selectResults["0"] : selectResults[1];
-	            
-	            console.log(selectResults);
-	
-	            var data2 = resp2[0];            
-	            selectResults1.push(data2.d.results);
-	            selectResults1 = selectResults1[0];
-	
-	            for (var i = 0; i < selectResults.length; i++) {
-	                var dataHere = selectResults[i],
-	                    dataThere = selectResults1[i];
-	                    
-	                if (dataHere.Title === dataThere.Title) {
-	                    combinedResults.push({
-	                        category: dataHere.ReportCategory,
-	                        title: dataHere.Title,
-	                        document: dataThere.ServerRelativeUrl,
-	                        year:dataHere.Year,
-	                        issued:dataHere.Issued_x0020_Date
-	                    });
-	                }
-	            };
-	            
-	            //Get 1 of each value to create dropdown for years
-	           	function onlyUnique(value, index, self) {
-	                return self.indexOf(value) === index;
-	            }
-	            
-	            var yearItems = $.each(combinedResults, function (ind, yearItems) {
-	                return yearItems;
-	            });
-	            
-	            var allYears = [];
-	            
-	            for (i = 0; i < yearItems.length; i++) {
-	                var years = yearItems[i];
-	                allYears.push(years.year);
-	            };
-	            
-				//Sort in Desc Order
-	            allYears.sort(function(a, b){return b-a});
-	
-	            var yearList = allYears.filter(onlyUnique);
-	            
-	            for (i = 0; i < yearList.length; i++) {
-	                var year = yearList[i]
-	                $('#yearOptions').append('<li class="py-1 pl-3"><a href="#" class="text-dark">' + year + '</a></li>');
-	            }
-	            
-				function yearNav() {
-				    // Create the dropdown base
-				    $("<select style=\"border:none; height:50px; font-family:Arquette;\" class=\"browser-default w-100 mdb-select yearSelect\" />").appendTo("#yearNav");
-				    
-				    // Create default option "Go to..."
-				    $("<option />", {
-				        "selected": "",
-				        "value": "Choose a Year",
-				        "text": "Choose a Year (Optional)"
-				    }).appendTo("#yearNav select");
-				
-				    // Populate dropdown with menu items
-				    $("#yearNav > ul > li > a").each(function () {
-				        var lettersSelect = $(this);
-				        $("<option />", {
-				            "value": lettersSelect.text(),
-				            "text": lettersSelect.text()
-				        }).appendTo("#yearNav select");
-				    });
-				
-				    // To make dropdown actually work
-				    $("#yearNav select").change(function () {
-				        searchYr = $(this).find("option:selected").val()
-				            });
-				        }
-				yearNav();
-	           
-	        });
-	
-	        //Cleaning Functions
-	        var clearFields = function () {
-	            searchYr = 0
-	            searchPub = 0
-	            $("select").each(function () {
-	                this.selectedIndex = 0
-	            });
-	        };
-	
-	        var removeDivs = function () {
-	            $('#finalFilterResults').remove();
-	            $('#resultTitle').remove();
-	            $("#headerRow").remove();
-	            $("#rowItems").empty();
-	        };
-	
-			var searchFor = function () {
-			    //clear previous results
-			    searchResults = [];
-			    console.log('searchPub = ' + searchPub,'searchYr = ' + searchYr );
-			    console.log(combinedResults);
-			    if (searchPub !== 0 && searchYr == 0) {
-			        //filter by Publications ONLY
-			        if (searchPub === 'All') {
-			            searchResults.push(combinedResults);
-			        } else {
-			            var filterPub = combinedResults.filter(function (item) {
-			                return item.category === searchPub;
-			            });
-			            searchResults.push(filterPub);
-			        }
-		        	buildResults();
-		            clearFields();
-			    } else if (searchPub !== 0 && searchYr !== 0) {
-			        //filter by Publications & Year
-			        if (searchPub === 'All') {
-			            var filterYear = combinedResults.filter(function (item) {
-			                return item.year == searchYr;
-			            });
-			            searchResults.push(filterYear);
-			        } else {
-			        console.log(combinedResults);
-			            var filterBoth = combinedResults.filter(function (item) {
-			                return item.category === searchPub && item.year == searchYr;
-			            });
-			           	searchResults.push(filterBoth);	
-			           	console.log(searchResults);            								
-			        }
-		        	buildResults();
-		            clearFields();
-			    } else if (searchPub == 0 && searchYr !== 0) {
-			        //filter by Year ONLY
-			        var filterYear = combinedResults.filter(function (item) {
-			            return item.year == searchYr;
-			        });
-			        searchResults.push(filterYear);
-			
-			        buildResults();
-			        clearFields();
-			    };
-			};
-			
-	        //Build Results        
-	        var buildResults = function () {
-	        	console.log(searchPub, searchYr);
-	            if (searchPub !== 0 && searchYr !== 0) {
-	                var resultTitle = searchPub + " in " + searchYr
-	            }else if (searchPub <=0 && searchYr !== 0){
-	            	var resultTitle = "All Publications in " + searchYr
-	            }else if(searchPub !== 0 && searchYr <= 0){
-	            	var resultTitle = searchPub
-	            };
-	            
-	            $('#pubSearchResults').append($('<div class="row" id="finalFilterResults"></div>'))
-	            $('#pubSearchResults').prepend($(
-	                '<div id="resultTitle" class="text-center text-md-left px-3"><h4 class="fw-500 text-dark"><span style="font-weight:700">Results for:</span> ' +
-	                resultTitle + '</h4></div>'));
-	
-	            //Header & Footer Titles
-	            tHeader.append($('<tr id="headerRow">'));
-	
-	            // Proposed Table Headers
-	            var tHeaderRow = $("#headerRow");
-	            tHeaderRow.append($('<th>Title</th><th>Publication Type</th><th>Year</th><th>Issued</th><th>PDF</th>'));
-	
-	
-	            if (searchResults[0].length > 0) {
-	                $.each(searchResults[0], function (index, resultItems) {
-	                console.log(resultItems);
-	                    $("#rowItems")
-	                        .append($('<tr>')
-	                            .append($('<td class="align-middle"><a href="' + resultItems.document + '">' + resultItems.title + '</a></td>'))
-	                            .append($('<td class="align-middle">' + resultItems.category + '</td>'))
-	                            .append($('<td class="align-middle">' + resultItems.year + '</td>'))
-	                            .append($('<td class="align-middle">' + resultItems.issued + '</td>'))
-	                            .append($('<td class="align-middle"><a href="' + resultItems.document +'"><i class="fal fa-file-pdf fa-2x broward-color-blue"></i></a></td>'))
-	                        );
-	                });
-	
-	            }            
-	         	initTable();
-	        };
-	
-	        //Get Dropdown Selection
-	        $('.pubSelect').on('change', function () {
-	            searchPub = $(this).val();
-	        });
-	        
-	
-	        $('.srchBtn').on('click', function () {
-	            if ($.fn.DataTable.isDataTable("#publicationsTable")) {
-	                $('#publicationsTable').DataTable().clear().destroy();
-	            };
-	            removeDivs();
-	            searchFor();
-	        });
-	
-	        var initTable = function () {
-	            $('#publicationsTable').DataTable({
-	            	"order":[
-	            		[2, 'desc'],
-	            		[3, 'desc']
-	            	],
-	                "columns": [
-	                    null,
-	                    null,
-	                    null,
-	                    null,
-	                    {
-	                        "orderable": false
-	                    }
-	                ],
-	                "columnDefs":[
-		                {
-		                	"targets":[3],
-		                	"visible":false,
-		                	"searchable":false
-		                }
-	                ]
-	            });
-	            $('.dataTables_wrapper').find('label').each(function () {
-	                $(this).parent().append($(this).children());
-	            });
-	            $('.dataTables_filter').find('input').each(function () {
-	                $('input').attr("placeholder", "Search");
-	                $('input').removeClass('form-control-sm');
-	            });
-	            $('.dataTables_length').addClass('d-flex flex-row');
-	            $('.dataTables_filter').addClass('md-form');
-	            $('select').addClass('mdb-select');
-	            $('.mdb-select').material_select();
-	            $('.mdb-select').removeClass('form-control form-control-sm custom-select custom-select-sm');
-	            $('.dataTables_filter').find('label').remove();
-	        };
-	        $(document).ready(function () {
-	        
-			webpartMove = $("#IGPublications")
-		    webpartMove.detach();
-		    webpartMove.appendTo("#fullPageContent");
-			$("#fullPageContent > div > div.row.pt-3.mb-r").removeClass('mb-r pt-3');
-		});
-	    </script>
-	</body>
+﻿<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:mso="urn:schemas-microsoft-com:office:office"
+	xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+
+<head>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" type="text/css" href="/hurricane/publications/publications.css">
+	<script type="text/javascript" src="/Style%20Library/V7/js/vendor/mdb/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+	<section aria-label="Main Page Content" id="IGPublications">
+		<div class="container tabsTableFade px-0">
+			<div class="row" id="filterOptions">
+				<div class="col-12 col-md-4">
+					<div class="d-md-block typeOption my-2">
+						<select class="browser-default col-12 my-0 mdb-select pubSelect">
+							<option value="">Choose Publication Type (Required)</option>
+							<option value="Final Reports">Final Reports</option>
+							<option value="Closing Memoranda">Closing Memoranda</option>
+							<option value="Status Reports">Status Reports</option>
+							<option value="Annual Reports">Annual Reports</option>
+							<option value="Press Releases">Press Releases</option>
+							<option value="Other Publications">Other Publications</option>
+							<option value="All">All</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-12 col-md-8">
+					<div class="row">
+						<div class="col-md-5 col-9 pr-0 pr-md-3">
+							<div id="yearNav" class="d-block my-2">
+								<ul class="px-0 d-none" id="yearOptions"
+									style="list-style-type:none; border-left:solid medium #eaeaea;">
+									<!--Options injected here-->
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-3 col-md-3">
+							<button type="button"
+								class="btn btn-info float-md-right float-md-none srchBtn my-2">Search</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row mb-5 px-0">
+				<div class="col-12 px-0" id="pubSearchResults">
+					<table id="publicationsTable" class="table table-responsive browardT pb-5" cellspacing="0"
+						width="100%">
+						<thead id="tHeader">
+						</thead>
+						<tbody id="rowItems">
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script type="text/javascript" src="/Style%20Library/V7/js/vendor/mdb/jquery-3.3.1.min.js"></script>
+	<script defer src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+	<script defer src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+	<script type="text/javascript" src="/hurricane/publications/publications.js"></script>
+</body>
+
 </html>

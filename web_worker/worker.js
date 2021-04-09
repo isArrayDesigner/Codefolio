@@ -27,7 +27,7 @@
       httpRequest.setRequestHeader('Accept', 'application/json; odata=verbose')
       httpRequest.send()
 
-      function resultContents () {
+      function resultContents() {
         if (httpRequest.readyState == 4 && httpRequest.status == 200) {
           let response = JSON.parse(httpRequest.responseText)
           documentResults = response.d.results
@@ -48,7 +48,7 @@
     }
 
     let getMeetings = function () {
-       //console.log('Get Meetings Function')
+      //console.log('Get Meetings Function')
       let httpRequest
       let url =
         "https://sunshineauthor/_api/web/lists/GetByTitle('Sunshine Form')/items?$select=Id,Title,Notes,Project,Project_x0020_Number,Location,Vendor,Attending_x0020_Commissioners,Meeting_x0020_Cancelled,MeetingID,Contact_x0020_Name,Contact_x0020_Phone,Agency,Purpose,Room_x002f_Suite_x0020_Number,Committee_x002f_Board,Meeting_x0020_Date,Meeting_x0020_Time,Superseded,SunshineADApproval,Superseded,Modified"
@@ -64,7 +64,7 @@
       httpRequest.setRequestHeader('Accept', 'application/json; odata=verbose')
       httpRequest.send()
 
-      function resultContents () {
+      function resultContents() {
         if (httpRequest.readyState == 4 && httpRequest.status == 200) {
           let response = JSON.parse(httpRequest.responseText)
           staticResults = response.d.results
@@ -81,7 +81,7 @@
         }
       }
     }
-    
+
     let getMeetingHistory = function () {
       // console.log('Get Meetings Function')
       let httpRequest
@@ -99,7 +99,7 @@
       httpRequest.setRequestHeader('Accept', 'application/json; odata=verbose')
       httpRequest.send()
 
-      function resultContents () {
+      function resultContents() {
         if (httpRequest.readyState == 4 && httpRequest.status == 200) {
           let response = JSON.parse(httpRequest.responseText)
           historyResults = response.d.results
@@ -108,15 +108,15 @@
             resultItems = historyResults[j]
             historyResultsArray.push(resultItems)
           }
-		 mergeDocsAndMeetings()
+          mergeDocsAndMeetings()
         } else {
           //console.log('There was a problem with the request.')
         }
       }
     }
-	
+
     let mergeDocsAndMeetings = function () {
-       //console.log('Merge Docs Function')
+      //console.log('Merge Docs Function')
       for (let i = 0; i < documentResultsArray.length; i++) {
         staticArray.forEach(function (result) {
           if (result.MeetingID == documentResultsArray[i].ItemID) {
@@ -125,9 +125,9 @@
         })
       }
       for (let i = 0; i < historyResultsArray.length; i++) {
-          staticArray.forEach(function (result) {
-          if (result.MeetingID == historyResultsArray[i].MeetingID){
-          	result.History.push(historyResultsArray[i])
+        staticArray.forEach(function (result) {
+          if (result.MeetingID == historyResultsArray[i].MeetingID) {
+            result.History.push(historyResultsArray[i])
           }
         })
       }

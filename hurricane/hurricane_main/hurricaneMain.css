@@ -1,0 +1,111 @@
+.media-body p {
+    font-weight: 500;
+}
+
+.fa-hurricane {
+    font-size: 2.5rem;
+    color: #039BE5;
+}
+
+.browardBlue {
+    background-color: #039BE5
+}
+
+.broward-titles {
+    font-size: 1.8rem !important;
+}
+
+.media {
+    height: 50px;
+    padding-left: 15px;
+}
+
+.badge {
+    position: absolute;
+    top: 5%;
+    left: 84.5%;
+}
+
+.newItems {
+    background-color: #FF9802;
+}
+
+@media only screen and (max-width: 796px) {
+
+    .media-body p {
+        font-size: .8rem;
+    }
+
+    #navCards .card-title {
+        font-size: 1rem !important;
+    }
+
+    .fa-hurricane {
+        font-size: 2rem;
+        color: #039BE5;
+    }
+
+    .media {
+        height: 50px;
+        padding-left: 15px;
+    }
+
+    .badge {
+        position: absolute;
+        top: 5%;
+        left: 80%;
+    }
+}
+
+/*Styles for Announcements*/
+#hurricane_announcement button {
+    min-width: 0px !important;
+    background-color: transparent;
+    background: transparent;
+}
+
+#hurricane_announcement .flickity-button-icon {
+    color: white;
+    width: 30%;
+    height: 30%;
+    top: 30%;
+}
+
+#hurricane_announcement_carousel {
+    position: absolute;
+    top: 12%;
+    left: 315px;
+}
+
+.hurricane_announcement_carousel .carousel-cell {
+    max-height: 400px;
+    width: 100%;
+}
+
+.hurricane_announcement_carousel .flickity-page-dots {
+    position: relative;
+    bottom: 0;
+}
+
+.hurricane_announcement_carousel .flickity-page-dots .dot {
+    background: white;
+}
+
+.hurricane_announcement_carousel a:link,
+.hurricane_announcement_carousel a:visited {
+    color: white !important;
+    text-decoration: underline;
+}
+
+/* media queries */
+@media only screen and (min-width: 992px) {
+    #navCards .card {
+        min-height: 210px;
+    }
+}
+
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+    #navCards .card {
+        min-height: 250px;
+    }
+}

@@ -1,424 +1,159 @@
-﻿<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+﻿<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:mso="urn:schemas-microsoft-com:office:office"
+    xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
 
 <head>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css"/>	
-<script type="text/javascript" src="/Style%20Library/V6/js/vendor/mdb/jquery-3.2.1.min.js"></script>
-<style>
-.media-body p{
-	font-weight:500;
-}
-.fa-hurricane{
-	font-size:2.5rem;
-	color:#039BE5;
-}
-.browardBlue{
-	background-color:#039BE5
-}
-.broward-titles{
-	font-size:1.8rem!important;
-}
-.media{
-	height:50px;
-	padding-left:15px;
-}
-.badge{
-	position:absolute;
-	top:5%;
-	left:84.5%;		
-}
-.newItems{
-	background-color:#FF9802;
-}
-@media only screen and (max-width: 796px){	
-	
-	.media-body p{
-		font-size:.8rem;
-	}
-	#navCards .card-title{
-		font-size:1rem!important;
-	}
-	.fa-hurricane{
-		font-size:2rem;
-		color:#039BE5;
-	}
-	.media{
-		height:50px;
-		padding-left:15px;
-	}
-	.badge{
-		position:absolute;
-		top:5%;
-		left:80%;		
-	}
-}
-
-/*Styles for Announcements*/
-#hurricane_announcement button{
-    min-width:0px!important;
-    background-color:transparent;
-    background:transparent;
-}
-
-#hurricane_announcement .flickity-button-icon{
-	color:white;
-	width:30%;
-	height:30%;
-	top:30%;
-}
-#hurricane_announcement_carousel{
-	position: absolute;
-    top: 12%;
-    left: 315px;
-}
-.hurricane_announcement_carousel .carousel-cell {
-    max-height: 400px;
-    width: 100%;
-}
-
-.hurricane_announcement_carousel .flickity-page-dots{
-	position:relative;
-	bottom:0;
-}
-.hurricane_announcement_carousel .flickity-page-dots .dot{
-	background:white;
-}
-
-.hurricane_announcement_carousel a:link, .hurricane_announcement_carousel a:visited{
-	color:white!important;
-	text-decoration:underline;
-}
-/* media queries */
-@media only screen and (min-width: 992px) {
-	#navCards .card{
-		min-height:210px;
-	}
-}
-@media only screen and (max-width: 991px) and (min-width: 768px){
-	#navCards .card{
-		min-height:250px;
-	}
-}
-
-</style>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css" />
+    <link rel="stylesheet" type="text/css" href="/hurricane/hurricane_main/hurricaneMain.css" />
+    <script type="text/javascript" src="/Style%20Library/V6/js/vendor/mdb/jquery-3.2.1.min.js"></script>
 </head>
+
 <body>
-<div id="tableToMove" class="container">
-  
-  <!-- Section: Block Content -->
-  <section id="videoLiveSection" class="my-sm-3 mt-4 mb-2">
+    <div id="tableToMove" class="container">
 
-    <!--Grid row-->
-    <div class="row" id="videoLive">
+        <!-- Section: Block Content -->
+        <section id="videoLiveSection" class="my-sm-3 mt-4 mb-2">
 
-    </div>
-    <!--Grid row-->
+            <!--Grid row-->
+            <div class="row" id="videoLive">
 
-  </section>
-  <!-- Section: Block Content -->
-  	
-	<section id="navCards">
-	
-		<div class="row">
-		  <div class="col-sm-4 col-6 my-2">
-		  <a href="/Hurricane/Pages/abouthurricane.aspx">
-		    <div class="card text-center">
-		      <div class="card-body p-md-4 p-1">
-				<i class="fal fa-hurricane py-2"></i>		        
-				<h5 class="card-title">About Hurricanes</h5>
-		        <p class="card-text d-none d-md-block">Brush up on your hurricane knowledge. From what defines a storm category to storm surges find out what you need to know here.</p>
-		      </div>
-		    </div>
-		    </a>
-		  </div>
-		  	<div class="col-sm-4 col-6 my-2">
-		  	<a href="/Hurricane/Pages/Evacuations.aspx">
-		    <div class="card text-center">
-		      <div class="card-body p-md-4 p-1">
-		      	<i class="fal fa-hurricane py-2"></i>
-		        <h5 class="card-title">Evacuations</h5>
-		        <p class="card-text d-none d-md-block">Learn how to prepare for an evacuation, as well as what to do and where to go.</p>
-		      </div>
-		    </div>
-		    </a>
-		  </div>
-		  <div class="col-sm-4 col-6 my-2">
-		  <a href="/Hurricane/Pages/GetReady.aspx">
-		    <div class="card text-center">
-		      <div class="card-body p-md-4 p-1">
-		        <i class="fal fa-hurricane py-2"></i>
-		        <h5 class="card-title">Get Ready</h5>
-		        <p class="card-text d-none d-md-block">Useful information and guides to help you prepare for and recover from an emergency, such as a hurricane.</p>
-		      </div>
-		    </div>
-		    </a>
-		  </div>
-		  <div class="col-sm-4 col-6 my-2">
-		  <a href="/Hurricane/Pages/registrations.aspx">
-		    <div class="card text-center">
-		      <div class="card-body p-md-4 p-1">
-		      	<i class="fal fa-hurricane py-2"></i>
-		        <h5 class="card-title">Registrations</h5>
-		        <p class="card-text d-none d-md-block">Make arrangements, in advance, for sheltering and evacuation transportation as well as sign up for alerts and updates.</p>
-		      </div>
-		    </div>
-		    </a>
-		  </div>
-		  <div class="col-sm-4 col-6 my-2">
-		  <a href="/AtRisk/Pages/default.aspx">
-		    <div class="card text-center">
-		      <div class="card-body p-md-4 p-1">
-		      	<i class="fal fa-hurricane py-2"></i>
-		      	
-		        <h5 class="card-title">Residents at Risk</h5>
-		        <p class="card-text d-none d-md-block">Emergency preparedness resources for residents at risk.</p>
-		      </div>
-		    </div>
-		    </a>
-		  </div>
-
-		  <div class="col-sm-4 col-6 my-2">
-		  <a href="/Hurricane/Pages/Shelters.aspx">
-		    <div class="card text-center">
-		      <div class="card-body p-md-4 p-1">
-		      	<i class="fal fa-hurricane py-2"></i>
-		        <h5 class="card-title">Shelters</h5>
-		        <p class="card-text d-none d-md-block">All the information you will need regarding emergency shelters in Broward County.</p>
-		      </div>
-		    </div>
-		    </a>
-		  </div>
-		</div>
-	
-	</section>
-	
-  <!-- Section: Block Content -->
-  <section id="important" class="my-sm-3 mt-4 mb-2">
-  	<div class="divider-broward py-4 mt-3">
-        <div class="broward-titles-bg-white">
-            <!-- Broward Titles-->
-            <div class="broward-titles">
-                Important Information
             </div>
+            <!--Grid row-->
+
+        </section>
+        <!-- Section: Block Content -->
+
+        <section id="navCards">
+
+            <div class="row">
+                <div class="col-sm-4 col-6 my-2">
+                    <a href="/Hurricane/Pages/abouthurricane.aspx">
+                        <div class="card text-center">
+                            <div class="card-body p-md-4 p-1">
+                                <i class="fal fa-hurricane py-2"></i>
+                                <h5 class="card-title">About Hurricanes</h5>
+                                <p class="card-text d-none d-md-block">Brush up on your hurricane knowledge. From what
+                                    defines a storm category to storm surges find out what you need to know here.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-4 col-6 my-2">
+                    <a href="/Hurricane/Pages/Evacuations.aspx">
+                        <div class="card text-center">
+                            <div class="card-body p-md-4 p-1">
+                                <i class="fal fa-hurricane py-2"></i>
+                                <h5 class="card-title">Evacuations</h5>
+                                <p class="card-text d-none d-md-block">Learn how to prepare for an evacuation, as well
+                                    as what to do and where to go.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-4 col-6 my-2">
+                    <a href="/Hurricane/Pages/GetReady.aspx">
+                        <div class="card text-center">
+                            <div class="card-body p-md-4 p-1">
+                                <i class="fal fa-hurricane py-2"></i>
+                                <h5 class="card-title">Get Ready</h5>
+                                <p class="card-text d-none d-md-block">Useful information and guides to help you prepare
+                                    for and recover from an emergency, such as a hurricane.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-4 col-6 my-2">
+                    <a href="/Hurricane/Pages/registrations.aspx">
+                        <div class="card text-center">
+                            <div class="card-body p-md-4 p-1">
+                                <i class="fal fa-hurricane py-2"></i>
+                                <h5 class="card-title">Registrations</h5>
+                                <p class="card-text d-none d-md-block">Make arrangements, in advance, for sheltering and
+                                    evacuation transportation as well as sign up for alerts and updates.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-4 col-6 my-2">
+                    <a href="/AtRisk/Pages/default.aspx">
+                        <div class="card text-center">
+                            <div class="card-body p-md-4 p-1">
+                                <i class="fal fa-hurricane py-2"></i>
+
+                                <h5 class="card-title">Residents at Risk</h5>
+                                <p class="card-text d-none d-md-block">Emergency preparedness resources for residents at
+                                    risk.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-sm-4 col-6 my-2">
+                    <a href="/Hurricane/Pages/Shelters.aspx">
+                        <div class="card text-center">
+                            <div class="card-body p-md-4 p-1">
+                                <i class="fal fa-hurricane py-2"></i>
+                                <h5 class="card-title">Shelters</h5>
+                                <p class="card-text d-none d-md-block">All the information you will need regarding
+                                    emergency shelters in Broward County.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Section: Block Content -->
+        <section id="important" class="my-sm-3 mt-4 mb-2">
+            <div class="divider-broward py-4 mt-3">
+                <div class="broward-titles-bg-white">
+                    <!-- Broward Titles-->
+                    <div class="broward-titles">
+                        Important Information
+                    </div>
+                </div>
+            </div>
+
+            <!--Grid row-->
+            <div class="row" id="importantItems">
+
+            </div>
+            <!--Grid row-->
+
+        </section>
+        <!-- Section: Block Content -->
+    </div>
+    <!-- Section: Block Content -->
+    <section id="videoSection" class="py-sm-4 mt-4 px-0" style="background-color:#eaeaea">
+        <div class="container">
+            <div class="divider-broward py-3">
+                <div class="broward-titles-bg-grey">
+                    <!-- Broward Titles-->
+                    <div class="broward-titles">
+                        Watch Videos & Press Conferences
+                    </div>
+                </div>
+            </div>
+
+            <!--Grid row-->
+            <div class="row" id="videos">
+
+                <div class="col-12 text-right my-4"><a href="">View previous press conferences..</a></div>
+            </div>
+            <!--Grid row-->
+
         </div>
-    </div>
+    </section>
+    <!-- Section: Block Content -->
 
-    <!--Grid row-->
-    <div class="row" id="importantItems">
+    <script type="text/javascript" src="/Style%20Library/V6/js/vendor/mdb/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/Style%20Library/V7/js/vendor/mdb/mdb.min.js"></script>
+    <script defer type="text/javascript" src="/Style%20Library/Haylee-Dev/js/broward/Library/moment.min.js"></script>
+    <script type="text/javascript" src="/Style Library/V7/WebParts/Hurricane/announcements.js"></script>
 
-    </div>
-    <!--Grid row-->
-
-  </section>
-  <!-- Section: Block Content -->
-</div>
-  <!-- Section: Block Content -->
-<section id="videoSection" class="py-sm-4 mt-4 px-0" style="background-color:#eaeaea">
-<div class="container">
-<div class="divider-broward py-3">
-    <div class="broward-titles-bg-grey">
-        <!-- Broward Titles-->
-        <div class="broward-titles">
-            Watch Videos & Press Conferences
-        </div>
-    </div>
-</div>
-
-<!--Grid row-->
-<div class="row" id="videos">
-
-<div class="col-12 text-right my-4"><a href="">View previous press conferences..</a></div>
-</div>
-<!--Grid row-->
-
-</div>
-</section>
-  <!-- Section: Block Content -->
-
-<script type="text/javascript" src="/Style%20Library/V6/js/vendor/mdb/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="/Style%20Library/V7/js/vendor/mdb/mdb.min.js"></script>
-<script defer type="text/javascript" src="/Style%20Library/Haylee-Dev/js/broward/Library/moment.min.js"></script>
-<script type="text/javascript" src="/Style Library/V7/WebParts/Hurricane/announcements.js"></script>
-
- <!--Page layout Inline Scripts-->
-<script type="text/javascript">
-
-
-$(function () {
-    let lists
-    let listInfo = []
-    let results
-    let activation = false
-
-    $('#siteInfo > div.row.d-flex.justify-content-end.mr-md-1')
-        .removeClass('d-flex')
-        .hide()
-    $('#siteNavBar').hide()
-    $('#fullPageContent > div > div.row.pt-3 > div > div:nth-child(1)').hide()
-    $('#quickLinks').hide()
-
-    $.ajax({
-        url:
-            "/hurricane/_api/web/lists/GetByTitle('HurricaneVideos')/items",
-        method: 'GET',
-        headers: { Accept: 'application/json; odata=verbose' },
-        success: function (data) {
-            videos = data.d.results
-            console.log(videos)
-            if (videos.length == 0) {
-                $('#videoSection').hide()
-            }
-        },
-        complete: function () {
-            $.each(videos, function (i, item) {
-                let vimeoLink = item.vimeoLink.Url.replace('https://vimeo.com/', 'https://player.vimeo.com/video/')
-                let videoDiv = $('<div class="col embed-responsive embed-responsive-16by9 mx-3">' +
-                    '<iframe src="' + vimeoLink + '" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>' +
-                    '</div>')
-
-                let liveVideoDiv = $('<div class="divider-broward py-3 mt-3 mx-3">' +
-                    '<div class="broward-titles-bg-white">' +
-                    '<div class="broward-titles">LIVE Press Conference</div>' +
-                    '</div>' +
-                    '</div>' +
-                    '<div class="col-6">' +
-                    '<h3>' + item.Title + '</h3>' +
-                    '<p>' + item.Info + '</p>' +
-                    '</div><div class="col-6 embed-responsive embed-responsive-16by9">' +
-                    '<iframe src="' + vimeoLink + '" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>' +
-                    '</div>')
-
-                if (item.Live) {
-                    $('#videoLive').append(liveVideoDiv)
-                } else if (!item.Live) {
-                    $('#videos').prepend(videoDiv)
-                }
-            })
-        }
-    });
-
-    $.ajax({
-        url:
-            "/hurricane/_api/web/lists/GetByTitle('Hurricane')/items",
-        method: 'GET',
-        async: false,
-        headers: { Accept: 'application/json; odata=verbose' },
-        success: function (data) {
-            /*Get hurricane lists */
-            lists = data.d.results
-            console.log(lists)
-            $.each(lists, function (i, item) {
-                item.listItems = []
-                item.listUpdated = []
-                $.ajax({
-                    url: item.ListUrl,
-                    method: 'GET',
-                    async: false,
-                    headers: { Accept: 'application/json; odata=verbose' },
-                    success: function (data) {
-                        results = data.d.results
-                        //console.log(results)
-                    },
-                    complete: function () {
-                        /*return items in hurricane list item in order to check if an item has been recently added or updated*/
-                        for (j = 0; j < results.length; j++) {
-                            let resultItems = results[j]
-                            item.listItems.push(resultItems)
-                            let modifiedDate = moment(resultItems.Modified).format('LL')
-                            let today = moment().format('LL')
-
-                            if (moment(modifiedDate).isSame(today)) {
-                                item.listUpdated.push({ updated: 'true' })
-                            }
-                        }
-                        /*Check if the activation status has changed */
-                        if (item.ActivationStatus === 'During and After Storm') {
-                            activation = true
-                        }
-                        /*Build important information buttons */
-                        if (item.listItems.length > 0 && item.listUpdated.length == 0) {
-                            let pageURL = item.PageUrl
-                                ? item.PageUrl.Url
-                                : '/hurricane/default.aspx'
-                            let listCategory = $(
-                                '<div class="col-lg-3 col-6 mb-4">' +
-                                '<a href="' +
-                                pageURL +
-                                '" target="_blank"><div class="media browardBlue z-depth-1 rounded">' +
-                                '<div class="media-body my-auto">' +
-                                '<p class="text-uppercase text-white mb-1">' +
-                                item.Title +
-                                '</p>' +
-                                ' </div>' +
-                                ' </div></a>' +
-                                '</div>'
-                            )
-                            $('#importantItems').append(listCategory)
-                        } else if (
-                            item.listItems.length > 0 &&
-                            item.listUpdated.length > 0
-                        ) {
-                            let pageURL = item.PageUrl
-                            ? item.PageUrl.Url
-                            : '/hurricane/default.aspx'
-
-                            let listCategory = $(
-                                '<div class="col-lg-3 col-6 mb-4">' +
-                                '<a href="' +
-                                pageURL +
-                                '" target="_blank"><div class="media browardBlue z-depth-1 rounded newItems">' +
-                                '<div class="media-body my-auto"><span class="badge badge-pill badge-danger ml-2">' +
-                                item.listUpdated.length +
-                                '</span>' +
-                                '<p class="text-uppercase text-white mb-1">' +
-                                item.Title +
-                                '</p>' +
-                                ' </div>' +
-                                ' </div></a>' +
-                                '</div>'
-                            )
-                            $('#importantItems').append(listCategory)
-                        }
-                        if (activation) {
-                            $('#important').show()
-                            let cardsDetach = $('#navCards')
-                            cardsDetach.detach()
-                            cardsDetach.insertAfter('#importantItems')
-
-                            let titleMain = $('#fullPageContent > div > div.divider-broward.py-3.mt-3')
-                            titleMain.addClass('mainTitle')
-                            titleDetach = $('.mainTitle')
-                            titleDetach.detach()
-                            titleDetach.insertBefore('#navCards')
-                        } else {
-                            $('#important').hide()
-                        }
-                    }
-                })
-            })
-            console.log(lists)
-        }
-    })
-
-    $('#videoPlayer').remove()
-    $('#fullPageContent > div:nth-child(3) > div').remove()
-
-    let reattach = $('#videoSection')
-    $('#videoSection').detach()
-    reattach.insertAfter('#DeltaPlaceHolderMain > section.section.magazine-section.container-fluid')
-
-    let tableToMove = $('#tableToMove')
-    tableToMove.detach()
-    tableToMove.prependTo('#fullPageContent')
-
-    let titleToMove = $('#fullPageContent > div:nth-child(2) > div.divider-broward.py-3.mt-3')
-    titleToMove.detach()
-    titleToMove.insertBefore('#navCards')
-
-    let reattachLive = $('#videoLiveSection')
-    reattachLive.detach()
-    reattachLive.prependTo('#tableToMove')
-
-})
-	</script>
+    <!--Page layout Inline Scripts-->
+    <script type="text/javascript" src="/hurricane/hurricane_main/hurricaneMain.js"></script>
 </body>
+
 </html>

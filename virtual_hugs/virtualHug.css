@@ -1,0 +1,206 @@
+.ms-comm-forumContainer,
+.ms-comm-postSubjectColumn {
+    max-width: 1200px !important;
+}
+
+.broward-color-blue {
+    color: #0277BD;
+}
+
+#CategoryNav select {
+    display: none !important;
+}
+
+@media (max-width: 767px) {
+    #CategoryNav {
+        text-align: center;
+    }
+
+    #CategoryNav ul {
+        display: none;
+    }
+
+    #CategoryNav select {
+        display: inline-block !important;
+    }
+
+    .grid-sizer,
+    .grid-item {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .smPost {
+        font-size: 1.25rem;
+        text-align: center;
+    }
+
+}
+
+::placeholder {
+    /* Firefox, Chrome, Opera */
+    color: #ababab !important;
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #ababab !important;
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #ababab !important;
+}
+
+.swapSearch {
+    box-sizing: content-box !important;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.grid:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.grid-sizer,
+.grid-item {
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+.card-img-top {
+    width: 100%;
+}
+
+.card {
+    display: block;
+}
+
+#titleMain {
+    font-size: 4rem;
+    color: #1c2a48;
+    font-weight: 900;
+    font-family: 'Roboto', sans-serif;
+}
+
+h3 {
+    font-family: 'Roboto', sans-serif;
+}
+
+.bounce {
+    display: inline-block;
+    position: relative;
+    -moz-animation: bounce 0.5s infinite linear;
+    -o-animation: bounce 0.5s infinite linear;
+    -webkit-animation: bounce 0.5s infinite linear;
+    animation: bounce 0.5s infinite linear;
+    colr: 000;
+}
+
+.fa-chevron-circle-down {
+    color: white;
+    font-size: 50px;
+    margin: 20px;
+}
+
+@-webkit-keyframes bounce {
+    0% {
+        top: 0;
+    }
+
+    50% {
+        top: -0.4em;
+    }
+
+    70% {
+        top: -0.5em;
+    }
+
+    100% {
+        top: 0;
+    }
+}
+
+@-moz-keyframes bounce {
+    0% {
+        top: 0;
+    }
+
+    50% {
+        top: -0.4em;
+    }
+
+    70% {
+        top: -0.5em;
+    }
+
+    100% {
+        top: 0;
+    }
+}
+
+@-o-keyframes bounce {
+    0% {
+        top: 0;
+    }
+
+    50% {
+        top: -0.4em;
+    }
+
+    70% {
+        top: -0.5em;
+    }
+
+    100% {
+        top: 0;
+    }
+}
+
+@-ms-keyframes bounce {
+    0% {
+        top: 0;
+    }
+
+    50% {
+        top: -0.4em;
+    }
+
+    70% {
+        top: -0.5em;
+    }
+
+    100% {
+        top: 0;
+    }
+}
+
+@keyframes bounce {
+    0% {
+        top: 0;
+    }
+
+    50% {
+        top: -0.4em;
+    }
+
+    70% {
+        top: -0.5em;
+    }
+
+    100% {
+        top: 0;
+    }
+}
+
+#huggers {
+    background: rgb(255, 255, 255);
+    background: -moz-linear-gradient(180deg, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0.6839110644257703) 45%, rgba(255, 255, 255, 0.7063200280112045) 61%, rgba(255, 255, 255, 0.6811099439775911) 92%, rgba(255, 255, 255, 0) 100%);
+    background: -webkit-linear-gradient(180deg, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0.6839110644257703) 45%, rgba(255, 255, 255, 0.7063200280112045) 61%, rgba(255, 255, 255, 0.6811099439775911) 92%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0.6839110644257703) 45%, rgba(255, 255, 255, 0.7063200280112045) 61%, rgba(255, 255, 255, 0.6811099439775911) 92%, rgba(255, 255, 255, 0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#ffffff", GradientType=1)
+}

@@ -1,0 +1,122 @@
+#filterOptions select,
+#yearNav select {
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .16), 0 2px 5px 0 rgba(0, 0, 0, .12);
+    font-family: Arquette;
+    padding: 13px;
+}
+
+#resultBtns .btn {
+    padding: .85rem 2rem;
+}
+
+.tabsTableFade {
+    color: #333;
+    font-family: Arquette;
+}
+
+.ms-WPBody td {
+    padding: 1rem .75rem !important;
+    font-family: Arquette;
+    font-size: 1rem;
+}
+
+.ms-WPBody th {
+    font-weight: 500;
+    font-size: .9rem;
+}
+
+.dataTables_length label {
+    margin-right: 1rem;
+    padding-top: 1rem;
+}
+
+.dataTables_filter.md-form {
+    margin-top: .55rem;
+}
+
+.dataTables_filter.md-form input {
+    font-weight: 300;
+}
+
+.dataTables_wrapper .row {
+    margin-bottom: 1.5rem;
+}
+
+div.dataTables_wrapper div.dataTables_info {
+    padding-top: 0;
+    padding-bottom: 1rem;
+}
+
+.dataTables_paginate {
+    float: right;
+}
+
+.dataTables_filter {
+    float: right;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:active,
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button:focus {
+    outline: none !important;
+    border: none;
+    background-color: white !important;
+    background: none !important;
+    box-shadow: 0 0 0 0 !important;
+}
+
+.select-wrapper input.select-dropdown {
+    margin-bottom: 0px;
+    padding-top: 15px;
+}
+
+div.dataTables_wrapper div.dataTables_length label {
+    margin-bottom: 0px;
+    padding-top: 25px;
+}
+
+.select-dropdown {
+    margin-top: 27px;
+}
+
+.select-wrapper span.caret {
+    margin-top: 15px;
+}
+
+#publicationsTable_wrapper>.row {
+    margin-bottom: 0px;
+}
+
+#publicationsTable #headerRow {
+    background: #1C2A48;
+    color: white
+}
+
+.srchBtn {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+@media only screen and (max-width:768px) {
+    #publicationsTable_filter {
+        width: 100%
+    }
+
+    #publicationsTable_filter input {
+        width: 100%
+    }
+
+    .dataTables_wrapper .row {
+        margin-bottom: .5rem;
+    }
+}
+
+.pagination .page-link:focus {
+    background-color: #007bff;
+}
+
+#publicationsTable_length {
+    display: none !important;
+}

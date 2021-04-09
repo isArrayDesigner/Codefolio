@@ -1,0 +1,76 @@
+.broward-color-blue {
+    color: #0277BD;
+}
+
+#CategoryNav select {
+    display: none !important;
+}
+
+@media (max-width: 767px) {
+    #CategoryNav {
+        text-align: center;
+    }
+
+    #CategoryNav ul {
+        display: none;
+    }
+
+    #CategoryNav select {
+        display: inline-block !important;
+    }
+
+    .grid-sizer,
+    .grid-item {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .smPost {
+        font-size: 1.25rem;
+        text-align: center;
+    }
+
+}
+
+::placeholder {
+    /* Firefox, Chrome, Opera */
+    color: #ababab !important;
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #ababab !important;
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #ababab !important;
+}
+
+.swapSearch {
+    box-sizing: content-box !important;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.grid:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.grid-sizer,
+.grid-item {
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+.card-img-top {
+    width: 100%;
+}
+
+.card {
+    display: block;
+}

@@ -1,0 +1,93 @@
+h4.tier {
+    font-weight: bold !important;
+    font-size: 1.25rem !important
+}
+
+h5.cost {
+    font-weight: normal !important
+}
+
+h5.active,
+h4.active {
+    color: white !important;
+}
+
+.active-card {
+    background: #0277BD
+}
+
+.card {
+    cursor: pointer;
+    border-radius: 0px !important
+}
+
+.columnTitle,
+.rowTitle {
+    font-weight: 500;
+    font-size: 1.05rem;
+}
+
+.columnTitle {
+    border-top: none !important;
+    border-bottom: none;
+}
+
+.rowTitle {
+    vertical-align: baseline !important;
+    background: #1C2A48;
+    color: white;
+    border-top: thin #eaeaea solid !important;
+    border-right: thin #eaeaea solid;
+    border-left: thin #eaeaea solid;
+    border-top-right-radius: 6px !important;
+    border-top-left-radius: 6px !important;
+}
+
+.subtotal,
+.total,
+.normalCell {
+    border-right: thin #eaeaea solid;
+    border-left: thin #eaeaea solid;
+    border-bottom: none !important;
+    border-top: none !important;
+    width: 140px;
+}
+
+.subtotal,
+.total {
+    font-weight: 500;
+}
+
+.subtotal {
+    font-size: 1.1rem;
+    background: #81D4FA;
+}
+
+.total {
+    font-size: 1.15rem;
+    background: #0277BD;
+    color: white;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+.normalCell {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.nostyle {
+    border: none !important
+}
+
+table {
+    border-collapse: separate !important;
+}
+
+@media only screen and (max-width: 992px) {}
+
+input[type="checkbox"] {
+    position: static !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}

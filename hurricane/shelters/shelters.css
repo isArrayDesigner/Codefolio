@@ -1,0 +1,215 @@
+#tableHeadings tr {
+    background: #1C2A48;
+}
+
+#shelterTable.table>tbody>tr>td {
+    vertical-align: middle;
+}
+
+table#shelterTable {
+    width: 100%;
+    border-collapse: collapse !important;
+}
+
+/*#shelterTableBody tr > tr{
+        clear: both;
+        /*border-collapse:collapse;
+        border-bottom: 1px silver solid;
+    }*/
+
+#shelterTableBody td {
+    padding: 10px 10px !important;
+
+}
+
+.sheltIcon {
+    font-size: 1.5rem;
+}
+
+#shelterTable,
+.ms-WPBody td {
+    font-family: Arquette;
+    font-size: 1rem;
+}
+
+#shelterTable_wrapper {
+    padding-left: 0px;
+}
+
+h2#cityTitle,
+#hurricaneShelters h4 {
+    font-weight: 700 !important;
+    text-transform: uppercase;
+}
+
+.dataTables_length label {
+    margin-right: 1rem;
+    padding-top: 1rem;
+}
+
+.dataTables_filter.md-form {
+    margin-top: .55rem;
+}
+
+.dataTables_filter.md-form input {
+    font-weight: 300;
+}
+
+.dataTables_wrapper .row {
+    margin-bottom: 1.5rem;
+}
+
+div.dataTables_wrapper div.dataTables_info {
+    padding-top: 0;
+    padding-bottom: 1rem;
+}
+
+.dataTables_paginate {
+    float: right;
+}
+
+.dataTables_filter {
+    float: right;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:active,
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button:focus {
+    outline: none !important;
+    border: none;
+    background-color: white !important;
+    background: none !important;
+    box-shadow: 0 0 0 0 !important;
+}
+
+.select-wrapper input.select-dropdown {
+    margin-bottom: 0px;
+    padding-top: 15px;
+}
+
+div.dataTables_wrapper div.dataTables_length label {
+    margin-bottom: 0px;
+    padding-top: 25px;
+}
+
+.select-dropdown {
+    margin-top: 27px;
+}
+
+.select-wrapper span.caret {
+    margin-top: 15px;
+}
+
+#shelterTable_wrapper>.row {
+    margin-bottom: 0px;
+}
+
+#shelterTable #headerRow {
+    background: #1C2A48;
+    color: white
+}
+
+.pagination .page-link:focus {
+    background-color: #007bff;
+}
+
+#cityNav select {
+    display: none !important;
+}
+
+@media (max-width: 767px) {
+    .container {
+        max-width: 767px;
+    }
+
+    .lineHeight {
+        line-height: 1rem;
+    }
+
+    #shelterTable_filter {
+        width: 100%
+    }
+
+    #shelterTable_filter input {
+        width: 100%
+    }
+
+    .dataTables_wrapper .row {
+        margin-bottom: .5rem;
+    }
+
+    #cityNav {
+        text-align: center;
+    }
+
+    #cityNav ul {
+        display: none;
+    }
+
+    #cityNav select {
+        display: inline-block !important;
+    }
+}
+
+#letterNav {
+    text-align: center;
+}
+
+#letterNav select {
+    display: inline-block !important;
+}
+
+#sheltersEx .shelters .card {
+    border-bottom: 1px #81D4FA solid !important;
+}
+
+#sheltersColumn span {
+    position: relative;
+    float: right;
+    margin-bottom: 2.5rem;
+
+}
+
+#benefitDetail {
+    font-weight: 300 !important;
+}
+
+#faqSearch {
+    border: none !important;
+}
+
+#tableHeadings>tr>th {
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    padding: 5px 10px;
+    color: white;
+}
+
+#tableHeadings>tr>th:not(:first-child) {
+    border-left: 2px white solid
+}
+
+@media only screen and (min-width:768px) {
+    .lineHeight {
+        line-height: 2rem;
+    }
+
+    #sheltersColumn .lastOne:after {
+        content: "\f0fe";
+        font-family: 'Font Awesome 5 Pro';
+        position: absolute;
+        right: 0;
+        top: -4px;
+        left: 75%;
+        color: #0277BD;
+        display: block;
+        width: 32px;
+        height: 32px;
+        line-height: 32px;
+        vertical-align: top;
+        text-align: center;
+        -webkit-transition: all .35s;
+        -o-transition: all .35s;
+        transition: all .35s;
+    }
+}
