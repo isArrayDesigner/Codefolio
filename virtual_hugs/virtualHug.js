@@ -6,9 +6,7 @@ $(document).ready(function () {
 
 $('#hugs').simpleLoadMore({
   item: '.hug-item',
-  count: 5,
-  // itemsToLoad: 10,
-  // btnHTML: '<a href="#" class="load-more__btn">View More <i class="fas fa-angle-down"></i></a>'
+  count: 5
 });
 
 $('#s4-bodyContainer').css({"margin-bottom":"0", "background-image":"url('http://bc-net/PublishingImages/Virtual-Hug.png?csf=1&amp;e=GHzAiz')","background-repeat": "no-repeat","background-attachment": "fixed", "background-size": "cover", "background-position": "center top"})
@@ -32,7 +30,6 @@ SP.UI.ModalDialog.showModalDialog( options );
 })
 
 let getUsers = function () {
-    console.log('Get Users Function')
     let httpRequest
     let url =
       "/_api/web/SiteUsers"
@@ -153,13 +150,5 @@ let getUsers = function () {
  	$('#huggers').fadeTo('slow', 1)
   }
   getUsers()
-  
-  
-   	webpartMove = $("#swapHeader")
-    webpartMove.detach();
-    webpartMove.prependTo("#DeltaPlaceHolderMain");
-    $('#layout1Container').css('margin-top','0');
-   	$('#layout1Container > section.magazine-section.my-3 > div > hr').hide();
-   	$('#agencyInfo').hide();  
 
 });
