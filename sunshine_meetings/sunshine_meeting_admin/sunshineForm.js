@@ -46,7 +46,7 @@ label:not(.form-check-label):not(.aRadio):not(.lRadio){
 }
 </style>
 
-<!---- this is the main element that contains your form. do not remove this element -->
+<!---- this is the main element that contains the form. do not remove this element -->
 <div class="container">
 <div class="row justify-content-start">
 <div class="col-9 p-5 border">
