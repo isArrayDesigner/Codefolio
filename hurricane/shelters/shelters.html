@@ -1,4 +1,4 @@
-<html
+﻿<html
   dir="ltr"
   xmlns="http://www.w3.org/1999/xhtml"
   xmlns:mso="urn:schemas-microsoft-com:office:office"
@@ -576,4 +576,121 @@
               });
             });
 
+            function cityNav() {
+              // Create the dropdown base
+              $(
+                '<select style="padding-left: 10px; padding-right: 10px; font-family: Arquette;border-radius:3px; border:none; height:50px;" class="browser-default custom-select w-100 z-depth-1" />'
+              ).appendTo("#cityNav");
+              // Create default option "Go to..."
+              $("<option />", {
+                selected: "",
+                value: "Choose a City",
+                text: "Choose a City"
+              }).appendTo("#cityNav select");
+
+              // Populate dropdown with menu items
+              $("#cityNav > ul > li > a").each(function() {
+                var citySelect = $(this);
+                $("<option />", {
+                  value: citySelect.text(),
+                  text: citySelect.text()
+                }).appendTo("#cityNav select");
+              });
+
+              // To make dropdown actually work
+              // To make more unobtrusive: https://css-tricks.com/4064-unobtrusive-page-changer/
+              $("#cityNav select").change(function() {
+                accID = $(this)
+                  .find("option:selected")
+                  .val();
+                $.when(effectOut()).done(function() {
+                  $("#shelterTableBody tr").remove();
+                  createShelters();
+                  effectIn();
+                });
+              });
+            }
+            cityNav();
+
+            //Search Function
+            $("[data-search]").keypress(function(event) {
+              if (event.which == 13) {
+                event.preventDefault();
+                event.returnValue = false;
+                accID = "Search Results";
+                console.log($(this));
+
+                searchVal = $(this)
+                  .val()
+                  .toLowerCase();
+                $.when(effectOut()).done(function() {
+                  $("#cityOptions > li").css({
+                    borderLeft: "none",
+                    marginLeft: "0px"
+                  });
+
+                  $("#shelterTableBody tr").remove();
+                  createShelters();
+                  effectIn();
+                });
+                console.log(searchVal);
+              }
+            });
+
+            $("[data-search-button]").on("click", function(event) {
+              event.preventDefault();
+              event.returnValue = false;
+              accID = "Search Results";
+
+              $("#cityOptions > li").css({
+                borderLeft: "none",
+                marginLeft: "0px"
+              });
+
+              searchVal = $("#faqSearch")
+                .val()
+                .toLowerCase();
+              $.when(effectOut()).done(function() {
+                $("#cityOptions > li").css({
+                  borderLeft: "none",
+                  marginLeft: "0px"
+                });
+
+                $("#shelterTableBody tr").remove();
+                createShelters();
+                effectIn();
+              });
+              console.log(searchVal);
+            });
+            /*          $('#shelterTable').DataTable({
+		        "searching": false,
+		        "lengthChange": false,
+		        "paging": false,
+		        "info": false,
+		        "ordering": false,
+		
+		    });
+		    
+		    $('.dataTables_wrapper').find('label').each(function () {
+		        $(this).parent().append($(this).children());
+		    });
+		    $('.dataTables_filter').find('input').each(function () {
+		        $('input').attr("placeholder", "Search");
+		        $('input').removeClass('form-control-sm');
+		    });
+		    $('.dataTables_length').addClass('d-flex flex-row');
+		    $('.dataTables_filter').addClass('md-form');
+		    $('select').addClass('mdb-select');
+		    $('.mdb-select').material_select();
+		    $('.mdb-select').removeClass('form-control form-control-sm custom-select custom-select-sm');
+		    $('.dataTables_filter').find('label').remove();*/
+          }
+        });
+        $("#hurricaneShelters")
+          .detach()
+          .appendTo("#fullPageContent");
+        $("#fullPageContent > div > div.row.pt-3 > div").hide();
+      });
+    </script>
+  </body>
 </html>
