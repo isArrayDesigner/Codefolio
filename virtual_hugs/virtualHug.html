@@ -1,352 +1,54 @@
-﻿<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+﻿<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:mso="urn:schemas-microsoft-com:office:office"
+	xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
 
 <head>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
-<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
-<script src="/Style Library/V7/plugins/LoadMore/jquery.simpleLoadMore.min.js"></script>
-
-	
-<style type="text/css">
-	.ms-comm-forumContainer, .ms-comm-postSubjectColumn{
-		max-width:1200px!important;
-	}
-	.broward-color-blue{
-		color:#0277BD;
-	}
-	#CategoryNav select{
-		display: none!important;
-	}
-	
-	@media (max-width: 767px) {
-		#CategoryNav{
-			text-align:center;
-		}
-		#CategoryNav ul {
-			display: none;
-		}
-		#CategoryNav select {
-			display: inline-block!important;
-		}
-		.grid-sizer,.grid-item {
-		  width: 100%;
-		  margin-bottom:10px;
-		}
-		.smPost{
-			font-size:1.25rem;
-			text-align:center;
-		}
-
-	}
-	::placeholder { /* Firefox, Chrome, Opera */ 
-    	color: #ababab!important; 
-	} 
-	  
-	:-ms-input-placeholder { /* Internet Explorer 10-11 */ 
-	    color: #ababab!important; 
-	} 
-	  
-	::-ms-input-placeholder { /* Microsoft Edge */ 
-	    color: #ababab!important; 
-	}
-	.swapSearch{
-		box-sizing: content-box!important;
-	}
-	
-	* { box-sizing: border-box; }
-
-	.grid:after {
-	  content: '';
-	  display: block;
-	  clear: both;
-	}
-	
-	.grid-sizer,.grid-item {
-	  width: 30%;
-	  margin-bottom:20px;
-	}
-	.card-img-top {
-		width: 100%;
-	}
-	.card {
-    	display: block;
-	}
-	#titleMain{
-	font-size: 4rem;
-	color:#1c2a48;
-	font-weight:900;
-	font-family: 'Roboto', sans-serif;
-}
-h3{
-	font-family: 'Roboto', sans-serif;
-}
-.bounce {
-  display: inline-block;
-  position: relative;
-  -moz-animation: bounce 0.5s infinite linear;
-  -o-animation: bounce 0.5s infinite linear;
-  -webkit-animation: bounce 0.5s infinite linear;
-  animation: bounce 0.5s infinite linear;
-  colr:000;
-}
-	.fa-chevron-circle-down{
-		color: white;
-	  font-size: 50px;
-	  margin: 20px;
-	}
-	@-webkit-keyframes bounce {
-	    0% { top: 0; }
-	    50% { top: -0.4em; }
-	    70% { top: -0.5em; }
-	    100% { top: 0; }
-	}
-	@-moz-keyframes bounce {
-	    0% { top: 0; }
-	    50% { top: -0.4em; }
-	    70% { top: -0.5em; }
-	    100% { top: 0; }
-	}
-	@-o-keyframes bounce {
-	    0% { top: 0; }
-	    50% { top: -0.4em; }
-	    70% { top: -0.5em; }
-	    100% { top: 0; }
-	}
-	@-ms-keyframes bounce {
-	    0% { top: 0; }
-	    50% { top: -0.4em; }
-	    70% { top: -0.5em; }
-	    100% { top: 0; }
-	}
-	@keyframes bounce {
-	    0% { top: 0; }
-	    50% { top: -0.4em; }
-	    70% { top: -0.5em; }
-	    100% { top: 0; }
-	}
-
-	#huggers,{
-background: rgb(255,255,255);
-background: -moz-linear-gradient(180deg, rgba(255,255,255,0) 30%, rgba(255,255,255,0.6839110644257703) 45%, rgba(255,255,255,0.7063200280112045) 61%, rgba(255,255,255,0.6811099439775911) 92%, rgba(255,255,255,0) 100%);
-background: -webkit-linear-gradient(180deg, rgba(255,255,255,0) 30%, rgba(255,255,255,0.6839110644257703) 45%, rgba(255,255,255,0.7063200280112045) 61%, rgba(255,255,255,0.6811099439775911) 92%, rgba(255,255,255,0) 100%);
-background: linear-gradient(180deg, rgba(255,255,255,0) 30%, rgba(255,255,255,0.6839110644257703) 45%, rgba(255,255,255,0.7063200280112045) 61%, rgba(255,255,255,0.6811099439775911) 92%, rgba(255,255,255,0) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#ffffff",GradientType=1);</style>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+	<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+	<link href="/virtual_hugs/virtualHug.css" rel="stylesheet">
+	<script src="/Style Library/V7/plugins/LoadMore/jquery.simpleLoadMore.min.js"></script>
+	</style>
 </head>
+
 <body>
+	<section aria-label="Main Page Content" id="heading">
+		<div class="container px-0" id="swapHeader" style="margin-top:4.65rem">
+			<div class="row justify-content-center my-2 pt-5 ">
+				<div class="col-md-10 col-12 pr-1 text-center">
+					<div>
+						<h1 id="titleMain">Give a Virtual Hug</h1>
+						<h3>As we continue to highlight some of the contributions of County employees throughout this crisis, you
+							will
+							be proud of your co-workers. We want to provide the opportunity for you to reach out and give someone or
+							an
+							agency a hug, and now you can to do that – virtually!</h3>
+						<a href="#huggers"><i class="far fa-chevron-circle-down bounce pt-3"></i></a>
+					</div>
+					<div id="loading" style="position:absolute; bottom:-400px; left:40%; opacity:1">
+						<h3 class="font-weight-bold" style="color:#1c2a48">HUGS ARE LOADING....</h3>
+					</div>
+				</div>
+			</div>
 
+			<div class="container px-0 pb-5" id="huggers" style="padding-top:450px; opacity:0;">
+				<div class="row justify-content-center">
+					<div class="col-md-10 col-12">
+						<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+						<button class="btn btn-unique btn-sm my-0" type="submit">Search</button>
 
-<section aria-label="Main Page Content" id="heading">
-  <div class="container px-0" id="swapHeader" style="margin-top:4.65rem">
-    <div class="row justify-content-center my-2 pt-5 ">
-      <div class="col-md-10 col-12 pr-1 text-center">
-        <div>
-          <h1 id="titleMain">Give a Virtual Hug</h1>
-          <h3>As we continue to highlight some of the contributions of County employees throughout this crisis, you will
-            be proud of your co-workers. We want to provide the opportunity for you to reach out and give someone or an
-            agency a hug, and now you can to do that – virtually!</h3>
-          <a href="#huggers"><i class="far fa-chevron-circle-down bounce pt-3"></i></a>
-        </div>
-        <div id="loading" style="position:absolute; bottom:-400px; left:40%; opacity:1">
-          <h3 class="font-weight-bold" style="color:#1c2a48">HUGS ARE LOADING....</h3>
-        </div>
-      </div>
-    </div>
+						<a target="_blank" class="btn btn-lg float-right text-white" id="sendAHug"
+							style="background-color:#ff9802">Send A Hug! +</a></div>
+				</div>
+				<div class="row justify-content-center">
+					<div id="hugs" class="col-md-10 col-12"></div>
+				</div>
+			</div>
 
-      <div class="container px-0 pb-5" id="huggers" style="padding-top:450px; opacity:0;">
-        <div class="row justify-content-center">
-          <div class="col-md-10 col-12">
-		  	<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-		  	<button class="btn btn-unique btn-sm my-0" type="submit">Search</button>
-
-          <a target="_blank" class="btn btn-lg float-right text-white" id="sendAHug" style="background-color:#ff9802">Send A Hug! +</a></div>
-        </div>
-        <div class="row justify-content-center">
-          <div id="hugs" class="col-md-10 col-12"></div>
-        </div>
-      </div>
-
-  </div>
-</section>
-<script type="text/javascript" src="/Style%20Library/V7/js/vendor/mdb_update/js/jquery-3.4.0.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.25.3/moment.min.js"></script>
-<script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=es6%2Ces5%2Ces7"></script>
-
-<script type="text/javascript">
-
-let staticArray = []
-let userResultsArray = []
-let discussionResultsArray = []
-
-$(document).ready(function () {
-
-$('#hugs').simpleLoadMore({
-  item: '.hug-item',
-  count: 5,
-  // itemsToLoad: 10,
-  // btnHTML: '<a href="#" class="load-more__btn">View More <i class="fas fa-angle-down"></i></a>'
-});
-
-$('#s4-bodyContainer').css({"margin-bottom":"0", "background-image":"url('http://bc-net/PublishingImages/Virtual-Hug.png?csf=1&amp;e=GHzAiz')","background-repeat": "no-repeat","background-attachment": "fixed", "background-size": "cover", "background-position": "center top"})
-$('#v-1').css('margin-top','30rem');
-
-//$('#DeltaPlaceHolderMain > div.container').hide()
-//$('#DeltaPlaceHolderMain > div.container > section.magazine-section.my-3 > div > div:nth-child(1)').hide()
-//$('#DeltaPlaceHolderMain > div.container > section.magazine-section.my-3 > div > div.breadCrumb.d-none.d-md-block').removeClass('d-md-block')
-//$('#DeltaPlaceHolderMain > div.container > section.magazine-section.my-3 > div > hr').hide()
-//$('.ms-core-defaultFont .ms-comm-forumContainer, .ms-comm-postMainContainer .ms-comm-postSubjectColumn').css('max-width','1200px')
-//$('.ms-listviewtable').css('max-width',"1200px")
-//$('#WebPartWPQ2 > table').addClass('table')
-//$('#js-listviewthead-WPQ2 tr').css('background-color','white')
-
-var options = {
-    title: "Virtual Hugs",
-    url: "../Lists/Virtual%20Hugs/NewForm.aspx",
-    dialogReturnValueCallback: function(result){
-    if (result == SP.UI.DialogResult.OK) {
-        window.location.reload();
-    }
-    if (result == SP.UI.DialogResult.cancel) {
-        //do nothing, modal was closed
-    }
-}
-};
-$('#sendAHug').on('click', function(){
-    
-SP.UI.ModalDialog.showModalDialog( options );
-})
-
-let getUsers = function () {
-    console.log('Get Users Function')
-    let httpRequest
-    let url =
-      "/_api/web/SiteUsers"
-
-    httpRequest = new XMLHttpRequest()
-
-    if (!httpRequest) {
-      //console.log('Giving up :( Cannot create an XMLHTTP instance')
-      return false
-    }
-    httpRequest.onreadystatechange = resultContents
-    httpRequest.open('GET', url)
-    httpRequest.setRequestHeader('Accept', 'application/json; odata=verbose')
-    httpRequest.send()
-
-    function resultContents () {
-      if (httpRequest.readyState == 4 && httpRequest.status == 200) {
-        let response = JSON.parse(httpRequest.responseText)
-        userResults = response.d.results
-
-        for (let i = 0; i < userResults.length; i++) {
-          resultItems = userResults[i]
-          userArray = {}
-          userArray['UserID'] = resultItems.Id
-          userArray['Title'] = resultItems.Title
-          userResultsArray.push(userArray)
-        }
-        console.log(userResultsArray)
-        getDiscussion()
-      } else {
-        //console.log('There was a problem with the request.')
-      }
-    }
-  }
-
-  let getDiscussion = function () {
-     console.log('Get Discussion Function')
-    let httpRequest
-    let url =
-      "/_api/web/lists/GetByTitle('Virtual Hugs')/items?top=1000&?orderby=Created asc"
-
-    httpRequest = new XMLHttpRequest()
-
-    if (!httpRequest) {
-      //console.log('Giving up :( Cannot create an XMLHTTP instance')
-      return false
-    }
-    httpRequest.onreadystatechange = resultContents
-    httpRequest.open('GET', url)
-    httpRequest.setRequestHeader('Accept', 'application/json; odata=verbose')
-    httpRequest.send()
-
-    function resultContents () {
-      if (httpRequest.readyState == 4 && httpRequest.status == 200) {
-        let response = JSON.parse(httpRequest.responseText)
-        staticResults = response.d.results
-        // console.log(results)
-        for (let j = 0; j < staticResults.length; j++) {
-          resultItems = staticResults[j]
-          staticArray.push(resultItems)
-          resultItems.User = []
-          resultItems.Person = []
-        }        
-        	mergeUsersAndDisc()
-      } else {
-        //console.log('There was a problem with the request.')
-      }
-    }
-  }
-
-  let mergeUsersAndDisc = function () {
-    console.log('Merge Function')
-     for (let i = 0; i < userResultsArray.length; i++) {
-      staticArray.forEach(function (result) {
-        if (result.EditorId == userResultsArray[i].UserID) {
-          result.User.push(userResultsArray[i])
-        }
-        if (result.PersonId == userResultsArray[i].UserID) {
-          result.Person.push(userResultsArray[i])
-        }
-
-      })
-    }   
-     staticArray.sort(function (a, b) {
-  		return a.ID > b.ID ? -1 : 1;
-	});
-
-	  for (let i = 0; i < staticArray.length; i++) {
-	  	let userItems = staticArray[i]
-	  	let userBody = userItems.Body ? userItems.Body : ''
-	  	let hugged
-	  	
-		if(userItems.Person.length > 0 && !userItems.Hug_x0020_an_x0020_Agency){
-			hugged =  '<a href="/_layouts/15/userdisp.aspx?ID='+userItems.PersonId+'" target="_blank">' + userItems.Person[0].Title
-		}else if(userItems.Person.length == 0 && userItems.Hug_x0020_an_x0020_Agency){
-			hugged =  userItems.Hug_x0020_an_x0020_Agency
-		}else{
-			hugged =  userItems.Hug_x0020_an_x0020_Agency +' and <a href="/_layouts/15/userdisp.aspx?ID='+userItems.PersonId+'" target="_blank">' + userItems.Person[0].Title		
-			} 
-			
-	  	let cardBody = '<div class="row ">'+
-	  					'<div class="col-2"><div class="userImg"><img src="http://bc-net/PublishingImages/userIcon.png?csf=1&e=whHltV" style="width:75px"></div></div>'+
-	  					'<div class="col-10">'+
-	  					'<h4><a href="/_layouts/15/userdisp.aspx?ID='+userItems.EditorId+'" target="_blank">'+ userItems.User[0].Title + '</a> sent a hug to...'+ hugged +'</a></h4>'+
-	  					'<h6 class="mb-2">'+ moment(userItems.Created).format('LL') + '</h6>'+
-	  					'<p><span class="font-weight-bold">'+ userItems.Title+ '</span></br>'+ userBody +'<p>'+
-	  					'</div>'+
-	  					'</div>'
-	  					
-	  					
-	  	let userHug = $('<div class="card my-3 p-2 hug-item">'+
-	  						'<div class="card-body">'+ cardBody +
-	  						'</div>'+
-						'</div>')
-	  	$('#hugs').append(userHug)
-	  }
-	$('#loading').fadeTo('slow', 0)  
- 	$('#huggers').fadeTo('slow', 1)
-  }
-  getUsers()
-  
-  
-   	webpartMove = $("#swapHeader")
-    webpartMove.detach();
-    webpartMove.prependTo("#DeltaPlaceHolderMain");
-    $('#layout1Container').css('margin-top','0');
-   	$('#layout1Container > section.magazine-section.my-3 > div > hr').hide();
-   	$('#agencyInfo').hide();  
-
-});
-
-</script>
+		</div>
+	</section>
+	<script type="text/javascript" src="/Style%20Library/V7/js/vendor/mdb_update/js/jquery-3.4.0.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.25.3/moment.min.js"></script>
+	<script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=es6%2Ces5%2Ces7"></script>
+	<script type="text/javascript" src="/virtual_hugs/virtualHug.js"></script>
 </body>
+
 </html>
