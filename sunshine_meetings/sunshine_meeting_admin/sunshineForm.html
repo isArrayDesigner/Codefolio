@@ -1,0 +1,504 @@
+<!--submission success modal-->
+
+<!-- Modal -->
+<div class="modal fade" id="successSubmit" tabindex="-1" role="dialog" aria-labelledby="successSubmitTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                    <!--<h5 class="modal-title" id="successSubmitLongTitle">Modal title</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>-->
+            </div>
+            <div class="modal-body text-center">
+                    <!-- injected modal success message-->
+            </div>
+            <div class="modal-footer justify-content-center p-2">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Begin Field Agency Name -->
+<h2 class="text-center">SUNSHINE AD FORM</h2>
+<p class="text-center mb-4 font-weight-bold">Sunshine Ads should be submitted at least five (5) business days prior to
+        the meeting. Please consult your agency's Attorney(s) for guidance if submitting within this
+        timeframe.<br /><br /> Asterisks(<font color="red">*</font>) indicate required fields.</p>
+<p class="font-weight-bold pt-4">Agency Name <font color="red">*</font>
+</p>
+<div class="alert alert-warning d-none agencyAlert" role="alert">
+        This field is required.
+</div>
+<div class="mb-4">
+    <div class="agencyRadios">
+        <div id="agencyListRadio">
+            <label class="aRadio">
+                    <input type="radio" name="agencyRadios" id="optionsRadios1" value="option1"
+                            class="agencyRadio font-weight-normal" checked>
+                    Choose Agency from List
+            </label>
+        </div>
+        <div id="agencyList" class="mb-3 pl-3">
+            <!--<label for="agencyName">Agency <font color="red">*</font></label>-->
+            <select id="agencyName" placeholder="Agency Name" listFieldName="Agency"
+                    class="py-2 custom-select"
+                    data-StratusFormsLookup="{listName:'Agencies',firstOption:'Select Agency',fieldName:'Title'}"
+                    required></select>
+        </div>
+
+        <div id="otherAgencyRadio">
+            <label class="aRadio">
+                    <input type="radio" name="agencyRadios" id="optionsRadios2" value="option2"
+                            class="agencyRadio font-weight-normal">
+                    Enter Agency
+            </label>
+        </div>
+        <div id="otherAgencyInput" class="d-none mb-3 pl-3">
+            <!--<label for="otherAgency">Other Agency <font color="red">*</font></label>-->
+            <input id="otherAgency" class="py-2 form-control" type="text">
+        </div>
+    </div>
+</div>
+
+
+<!-- Begin Field Contact Name & Phone -->
+<div class="my-4">
+    <label for="ContactName">Contact Name <font color="red">*</font></label>
+    <input id="ContactName" name="contactName" placeholder="Name" class="py-2 form-control"
+            listFieldName="Contact_x0020_Name" type="text" required>
+</div>
+
+<div class="my-4">
+    <label for="ContactPhone">Contact Phone <font color="red">*</font></label>
+    <input id="ContactPhone" placeholder="Phone" class="py-2 form-control" listFieldName="Contact_x0020_Phone"
+            type="text" required>
+</div>
+<!-- End Field Contact Name & Phone -->
+
+
+<!-- Begin Field Committee/Board -->
+<div class="mt-2 mb-4">
+    <label for="CommitteeBoard">Committee/Board</label>
+    <input id="CommitteeBoard" placeholder="Committee/Board" class="py-2 form-control" listFieldName="Committee_x002f_Board" type="text">
+
+    <!--<select id="CommitteeBoard" class="py-2 custom-select" listFieldName="Committee_x002f_Board"
+            data-StratusFormsLookup="{listName:'Committees and Boards',firstOption:'',fieldName:'Title'}">
+    </select>-->
+</div>
+<!-- End Field Committee/Board -->
+
+
+<!-- Begin Field Project Number RLI/RFP/RFQ -->
+<div class="my-4">
+    <label for="ProjectNumberRLIRFPRFQ">Project Type</label>
+    <select id="ProjectNumberRLIRFPRFQ" class="py-2 custom-select" listFieldName="Project">
+            <option default disabled selected value=""></option>
+            <option value="RLI">RLI</option>
+            <option value="RFP">RFP</option>
+            <option value="RFQ">RFQ</option>
+    </select>
+</div>
+<div class="my-4">
+    <label for="ProjectNumberRLIRFPRFQ">Project Number</label>
+    <input id="ProjectNumber" placeholder="Number" listFieldName="Project_x0020_Number" class="py-2 form-control" type="text">
+</div>
+<!-- End Field Project Number RLI/RFP/RFQ -->
+
+
+<!-- Begin Field Meeting Date/Time -->
+<div class="mt-2 mb-4">
+    <label for="MeetingDate">Meeting Date and Time <font color="red">*</font></label>
+    <div class="alert alert-warning d-none dateTimeAlert" role="alert">
+            This field is required.
+    </div>
+
+    <div class="row" id="MeetingDateTime1">
+        <div class="col-6">
+                <input id="MeetingDate" autocomplete="off" placeholder="Select Date on Calendar"
+                        onkeydown="event.preventDefault()" listFieldName="Meeting_x0020_Date"
+                        class="py-2 form-control" type="text" required>
+        </div>
+        <div class="col-6">
+                <input id="MeetingTime" autocomplete="off" placeholder="Choose time using clock"
+                        listFieldName="Meeting_x0020_Time" class="py-2 form-control" type="text" required>
+        </div>
+    </div>
+</div>
+<!-- End Field Meeting Date/Time -->
+
+
+<!-- Begin Field Meeting Location -->
+<div class="mt-2 mb-4">
+</div>
+<!-- End Field Meeting Location -->
+
+<p class="font-weight-bold">Meeting Location <font color="red">*</font>
+</p>
+
+<div class="mb-4">
+    <div class="locationRadios">
+        <div id="locationListRadio">
+            <label class="lRadio">
+                    <input type="radio" name="locationRadios" id="locationRadios1" value="option1"
+                            class="locationRadio font-weight-normal" checked>
+                    Choose Location from List
+            </label>
+        </div>
+        <div id="locationList" class="mb-3 pl-3">
+            <!--<label for="meetingLocation">Meeting Location <font color="red">*</font></label>-->
+            <select id="meetingLocation" class="py-2 custom-select" listFieldName="Location"
+                    data-StratusFormsLookup="{listName:'Meeting Locations',firstOption:'Select a Meeting Location',fieldName:'Title'}"
+                    required></select>
+        </div>
+        <div id="locationInputRadio">
+            <label class="lRadio">
+                    <input type="radio" name="locationRadios" id="locationRadios2" value="option2"
+                            class="locationRadio font-weight-normal">
+                    Enter Location
+            </label>
+        </div>
+        <div id="locationInput" class="d-none pl-3">
+            <!--<label for="locationInput">Other Location <font color="red">*</font></label>-->
+            <input id="otherLocation" class="py-2 form-control" type="text">
+        </div>
+    </div>
+</div>
+
+<!-- Begin Field Room/Suite Number -->
+<div class="mt-2 mb-4">
+    <label for="RoomSuiteNumber">Room/Suite Number</label>
+    <input id="RoomSuiteNumber" placeholder="Number" listFieldName="Room_x002f_Suite_x0020_Number" class="py-2 form-control" type="text">
+</div>
+<!-- End Field Room/Suite Number -->
+
+
+<!-- Begin Field Purpose -->
+<div class="mt-2 mb-4">
+    <label for="Purpose">Purpose <font color="red">*</font></label>
+    <textarea id="Purpose" class="form-control border p-2" maxlength="255" placeholder="Character limit 255" listFieldName="Purpose"
+            style="height:75px" required></textarea>
+                <div id="charNum"></div>
+</div>
+<!-- End Field Purpose -->
+
+
+<!-- Begin Field Vendor -->
+<div class="mt-2 mb-4">
+    <label for="Vendor">Vendor</label>
+    <input id="Vendor" placeholder="Vendor" class="py-2 form-control" listFieldName="Vendor" type="text">
+</div>
+<!-- End Field Vendor -->
+
+
+<!-- Begin Field Notes -->
+<div class="mt-2 mb-4">
+    <label for="Notes">Notes</label>
+    <textarea id="Notes" class="form-control border p-2" listFieldName="Notes"
+            style="height:75px" ></textarea>
+</div>
+<!-- End Field Notes -->
+
+
+<!-- Begin Field Attending Commissioners -->
+<div class="row" id="attendingCommissioners">
+        <p class="col-12 font-weight-bold">Attending Commissioners</p>
+        <div class="col-6">
+            <div class="form-check my-3 py-2">
+                <input id="AttendingCommissioners" value="All Commissioners" type="checkbox">
+                <label class="form-check-label" for="AttendingCommissioners">
+                        All Commissioners
+                </label>
+            </div>
+
+            <div class="form-check my-3 py-2">
+                <input id="AttendingCommissioner1" value="Commissioner Rich" type="checkbox"
+                        class="commissioners">
+                <label class="form-check-label" for="AttendingCommissioner1">
+                       Rich – Commission District 1
+                </label>
+            </div>
+
+            <div class="form-check my-3 py-2">
+                <input id="AttendingCommissioner2" value="Commissioner Bogen" type="checkbox"
+                        class="commissioners">
+                <label class="form-check-label" for="AttendingCommissioner2">
+                       Bogen – Commission District 2
+                </label>
+            </div>
+
+            <div class="form-check my-3 py-2">
+                <input id="AttendingCommissioner3" value="Commissioner Udine" type="checkbox"
+                        class="commissioners">
+                <label class="form-check-label" for="AttendingCommissioner3">
+                        Udine – Commission District 3
+                </label>
+            </div>
+
+            <div class="form-check my-3 py-2">
+                <input id="AttendingCommissioner4" value="Commissioner Fisher" type="checkbox"
+                        class="commissioners">
+                <label class="form-check-label" for="AttendingCommissioner4">
+                        Fisher – Commission District 4
+                </label>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-check my-3 py-2">
+                <input id="AttendingCommissioner5" value="Commissioner Geller" type="checkbox"
+                        class="commissioners">
+                <label class="form-check-label" for="AttendingCommissioner5">
+                        Geller – Commission District 5
+                </label>
+            </div>
+            <div class="form-check my-3 py-2">
+                <input id="AttendingCommissioner6" value="Commissioner Furr" type="checkbox"
+                        class="commissioners">
+                <label class="form-check-label" for="AttendingCommissioner6">
+                        Furr – Commission District 6
+                </label>
+            </div>
+            <div class="form-check my-3 py-2">
+                <input id="AttendingCommissioner7" value="Commissioner Ryan" type="checkbox"
+                        class="commissioners">
+                <label class="form-check-label" for="AttendingCommissioner7">
+                        Ryan – Commission District 7
+                </label>
+            </div>
+            <div class="form-check my-3 py-2">
+                <input id="AttendingCommissioner8" value="Commissioner Sharief" type="checkbox"
+                        class="commissioners">
+                <label class="form-check-label" for="AttendingCommissioner8">
+                        Sharief – Commission District 8
+                </label>
+            </div>
+            <div class="form-check my-3 py-2">
+                <input id="AttendingCommissioner9" value="Commissioner Holness" type="checkbox"
+                        class="commissioners">
+                <label class="form-check-label" for="AttendingCommissioner9">
+                        Holness – Commission District 9
+                </label>
+            </div>
+            <input id="attendingCommissionerResult" listFieldName="Attending_x0020_Commissioners" type="text"
+                    class="d-none">
+        </div>
+</div>
+<!-- End Field Attending Commissioners -->
+<hr>
+<!--<div class="SFDontSave" id="files" data-StratusFormsType="File"
+        data-StratusFormsFileOptions="{libraryName:'Sunshine Meetings Documents', lookupField:'DocMeetingId', displayOnly:false}">
+</div>-->
+<div class="row">
+    <div class="col-12 text-center">
+        <input class="w-100 ml-0 submitFormBtn" type="button" value="Add/Update Entry">
+        <div class="alert alert-warning d-none generalAlert w-100 mt-2" role="alert">
+                There are 1 or more required fields which require your attention. Please complete and resubmit.
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=Number.parseInt%2CElement.prototype.remove%2CArray.prototype.filter%2CArray.prototype.find%2CArray.prototype.findIndex%2CArray.prototype.flat%2CArray.prototype.flatMap%2CArray.prototype.forEach%2CArray.prototype.includes%2CArray.prototype.indexOf%2CArray.prototype.keys%2CArray.prototype.map%2CArray.prototype.reduce%2CArray.prototype.reduceRight%2CArray.prototype.some%2CArray.prototype.values%2CArray.prototype.lastIndexOf%2CHTMLDocument%2Ces5
+"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script type="text/javascript">
+$('#Purpose').keyup(function () {
+  var max = 255;
+  var len = $(this).val().length;
+  if (len >= max) {
+    $('#charNum').removeClass('text-success').addClass('text-danger').text(' You have reached the limit.')
+  } else {
+    var char = max - len;
+    $('#charNum').removeClass('text-danger').addClass('text-success').text(char + ' characters left')
+  }
+});
+$(document).ready(function () {
+if(_spPageContextInfo.userId){
+$('#s4-titlerow, #titleAreaBox, #titleAreaRow, #siteIcon, #sideNavBox, #DeltaPageStatusBar,#s4-ribbonrow').hide()
+//AGENCY NAME: ENABLE CHOICE BETWEEN LIST DRIVEN DROPDOWN OR MANUALLY ENTERED INPUT
+  $('.agencyRadio').on('change', function () {
+    if ($(this)[0].id == 'optionsRadios1') {
+      $('#optionsRadios1').attr('checked', 'checked')
+      $('#optionsRadios2').removeAttr('checked')
+      $('#agencyList').removeClass('d-none')
+      $('#otherAgencyInput').addClass('d-none')
+      $('#agencyName')
+        .attr({ required: 'required', listFieldName: "Agency" })
+     required.push($('#agencyName')[0])
+     required = required.filter(function(index, item){
+      	console.log(item.id)
+      	return item.id !== 'otherAgency'
+      })
+      $('#otherAgency')
+        .removeAttr('required')
+        .removeAttr('listFieldName')
+    } else {
+      $('#optionsRadios1').removeAttr('checked')
+      $('#optionsRadios2').attr('checked', 'checked')
+      $('#agencyList').addClass('d-none')
+      $('#otherAgencyInput').removeClass('d-none')
+      $('#otherAgency')
+        .attr({ required: 'required', listFieldName: "Agency" })
+      required.push($('#otherAgency')[0])
+     required = required.filter(function(index, item){
+      	console.log(item.id)
+      	return item.id !== 'agencyName'
+      })
+      console.log(required)
+      $('#agencyName')
+        .removeAttr('required')
+        .removeAttr('listFieldName')
+    }
+  })
+
+//LOCATION NAME: ENABLE CHOICE BETWEEN LIST DRIVEN DROPDOWN OR MANUALLY ENTERED INPUT  
+  $('.locationRadio').on('change', function () {
+    if ($(this)[0].id == 'locationRadios1') {
+      $('#locationRadios1').attr('checked', 'checked')
+      $('#locationRadios2').removeAttr('checked')
+      $('#locationList').removeClass('d-none')
+      $('#locationInput').addClass('d-none')
+      $('#meetingLocation')
+        .attr({ required: 'required', listFieldName: 'Location' })
+     required.push($('#meetingLocation')[0])
+     required = required.filter(function(index, item){
+      	console.log(item.id)
+      	return item.id !== 'otherLocation'
+      })
+
+      $('#otherLocation')
+        .removeAttr('required')
+        .removeAttr('listFieldName')
+    } else {
+      $('#locationRadios1').removeAttr('checked')
+      $('#locationRadios2').attr('checked', 'checked')
+      $('#locationList').addClass('d-none')
+      $('#locationInput').removeClass('d-none')
+      $('#otherLocation')
+        .attr({ required: 'required', listFieldName: 'Location' })
+     required.push($('#otherLocation')[0])
+     required = required.filter(function(index, item){
+      	console.log(item.id)
+      	return item.id !== 'meetingLocation'
+      })
+
+      $('#meetingLocation')
+        .removeAttr('required')
+        .removeAttr('listFieldName')
+    }
+  })
+
+  let today = new Date(
+    new Date().getFullYear(),
+    new Date().getMonth(),
+    new Date().getDate()+1
+  )
+  
+  $('#SFForm').bootstrapMaterialDesign()
+
+  $('#MeetingDate').datepicker({
+  	format:'yyyy-mm-dd',
+  	minDate: today,
+  	disableDaysOfWeek: [0, 6]
+  	
+  })
+  $('#MeetingTime').timepicker({
+  	mode:'ampm',
+  	format:'h:MM tt',
+  	})
+  	
+  /*$('#ContactPhone').on('blur', function(){
+    let phoneNumber = $(this).val()
+    
+  	function formatPhoneNumber(phoneNumberString) {
+  		var cleaned = ('' + phoneNumberString).replace(/\D/g, '')
+  		var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/)
+  		if (match) {
+			    return '(' + match[1] + ') ' + match[2] + '-' + match[3]
+			  }
+			  return null
+			}
+			$(this).val(formatPhoneNumber(phoneNumber))
+		})*/
+  
+  $('.gj-datepicker button').removeClass('btn-outline-secondary border-left-0')
+  $('#attendingCommissioners').on('click', function () {
+    let attending = []
+    $("#attendingCommissioners input[type='checkbox']").each(function () {
+      if (this.checked && $(this).val() == 'All Commissioners') {
+        $('.commissioners')
+          .prop('checked', false)
+          .attr('disabled', 'disabled')
+      } else if (
+        !$(this).is(':checked') &&
+        $(this).val() == 'All Commissioners'
+      ) {
+        $('.commissioners').removeAttr('disabled')
+      }
+      attending += this.checked ? $(this).val() + ';#' : ''
+      $('#attendingCommissionerResult').attr('value', attending)
+    })
+    console.log(attending)
+  })
+  }else{
+  window.location.href = 'https://sunshineauthor/_layouts/15/Authenticate.aspx?Source=%2FPages%2FStratusForms%2Easpx'
+  }
+})
+
+
+let required = $('[required]')
+let requireditems = required.length
+let valid = false
+
+function validateForm () {
+  requireditems = required.length - 1
+  for (let i = 0; i < required.length; i++) {
+    let requiredItem = required[i]
+    console.log(requireditems +' '+ requiredItem +' '+ requiredItem.value +' ' + requiredItem.value.length)
+    if (requireditems > 0) {
+      if (requiredItem.value == 0) {
+        $(requiredItem)
+          .parent()
+          .append(
+            '<div class="alert alert-warning formAlerts mt-1" role="alert">This field is required.</div>'
+          )
+        $('.generalAlert').removeClass('d-none')
+      } else {
+        requireditems--
+      }
+    } else {
+      valid = true
+    }
+  }
+}
+$('.submitFormBtn').on('click', function () {
+
+function stripHTML(text){
+   var regex = /(<([^>]+)>)/ig;
+   return text.replace(regex, "").replace("&amp;amp;", "&").replace("quot;", '"');
+}
+
+let purposeVal = $('#Purpose').val()
+//$('#Purpose').val(stripHTML(purposeVal))
+
+
+console.log('Alert')
+
+  $('.generalAlert').addClass('d-none')
+  $('.formAlerts').remove()
+  validateForm()
+  console.log(valid)
+  if (valid == true && _spPageContextInfo.userId > 0) {
+    $(this).prop('disabled', true);
+      let now = moment();
+    let newMoment = $('#MeetingDate').val()
+    let thisInput = moment(newMoment);
+    console.log(now,thisInput)
+    let dateValidate = (now >= thisInput.subtract(5, 'days'))
+      console.log(dateValidate)
+      SubmitForm(dateValidate)
+    if(!_spPageContextInfo.userId){
+    alert('Your session has timed out. You will now be redirected to sign in.')
+      window.location.href = 'https://sunshineauthor/_layouts/15/Authenticate.aspx?Source=%2FPages%2FStratusForms%2Easpx'
+    }
+  }
+})
+</script>
