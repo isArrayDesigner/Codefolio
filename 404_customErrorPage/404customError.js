@@ -1,16 +1,16 @@
 // SVG Responsive
 
 function resize_svg() {
-  var screen_width = window.innerWidth
-  var screen_height = window.innerHeight
-  var svg_height = $("#main-error").height()
-  var svg_width = $("#main-error").width()
+    let screen_width = window.innerWidth
+    let screen_height = window.innerHeight
+    let svg_height = $("#main-error").height()
+    let svg_width = $("#main-error").width()
 
-  var width_difference = screen_width - svg_width
-  var width_change = width_difference / 2
+    let width_difference = screen_width - svg_width
+    let width_change = width_difference / 2
 
-  var height_difference = screen_height - svg_height
-    var height_change = height_difference / 2
+    let height_difference = screen_height - svg_height
+    let height_change = height_difference / 2
 
     $("#main-error").css({
         "position": "fixed",
@@ -34,7 +34,7 @@ $(window).resize(function () {
 
 // SVG Opacity
 
-var svgfade2 = $("#main-error")
+let svgfade2 = $("#main-error")
 TweenMax
     .fromTo(svgfade2[0], 1, {
         opacity: 0
@@ -42,7 +42,7 @@ TweenMax
         opacity: 1
     })
 
-var footerfade = $("#site-footer")
+let footerfade = $("#site-footer")
 TweenMax
     .fromTo(footerfade[0], 1, {
         opacity: 0
@@ -52,7 +52,7 @@ TweenMax
 
 // Airplane Animation
 
-var airplane = $("#airplane-with-banner")
+let airplane = $("#airplane-with-banner")
 TweenMax
     .fromTo(airplane[0], 5.5, {
         x: "250%",
@@ -80,7 +80,7 @@ function bobAirplane() {
 
 // 404 Animation
 
-var error_404 = $("#error-404")
+let error_404 = $("#error-404")
 TweenMax
     .fromTo(error_404[0], 3, {
         y: "60%",
@@ -106,7 +106,7 @@ function bob() {
 
 // Trees Sway
 
-var treeLeftSway = $("#tree-left-leaves-group")
+let treeLeftSway = $("#tree-left-leaves-group")
 TweenMax
     .fromTo(treeLeftSway[0], 2, {
         x: "0%"
@@ -119,7 +119,7 @@ TweenMax
         transformOrigin: "bottom right"
     })
 
-var treeRightSway = $("#tree-right-leaves-group")
+let treeRightSway = $("#tree-right-leaves-group")
 TweenMax
     .fromTo(treeRightSway[0], 2, {
         x: "0%"
@@ -136,9 +136,9 @@ TweenMax
 // Crab Animation
 
 
-var crab = $("#crab")
+let crab = $("#crab")
 
-var crab_swivel = TweenMax.to(crab[0], 0.1, {
+let crab_swivel = TweenMax.to(crab[0], 0.1, {
     rotation: 8,
     repeat: -1,
     yoyo: true,
@@ -161,7 +161,7 @@ TweenMax.fromTo(crab[0], 3, {
 
 //Banner Animation
 
-var banner_front = $("#banner-front_1_")
+let banner_front = $("#banner-front_1_")
 TweenMax.fromTo(banner_front[0], 1.3, {
     rotation: -1.7,
     scale: 0.99,
@@ -179,7 +179,7 @@ TweenMax.fromTo(banner_front[0], 1.3, {
 })
 
 // Clouds Animation
-var cloud1 = $("#cloud-1")
+let cloud1 = $("#cloud-1")
 TweenMax
     .fromTo(cloud1[0], 100, {
         x: "0%",
@@ -188,7 +188,7 @@ TweenMax
         x: "600%"
     })
 
-var cloud2 = $("#cloud-2")
+let cloud2 = $("#cloud-2")
 TweenMax
     .fromTo(cloud2[0], 200, {
         x: "0%",
@@ -197,7 +197,7 @@ TweenMax
         x: "1000%"
     })
 
-var cloud3 = $("#cloud-3")
+let cloud3 = $("#cloud-3")
 TweenMax
     .fromTo(cloud3[0], 100, {
         x: "0%",
@@ -206,7 +206,7 @@ TweenMax
         x: "1000%"
     })
 
-var cloud4 = $("#cloud-4")
+let cloud4 = $("#cloud-4")
 TweenMax
     .fromTo(cloud4[0], 80, {
         x: "0%",
@@ -215,7 +215,7 @@ TweenMax
         x: "600%"
     })
 
-var cloud5 = $("#cloud-5")
+let cloud5 = $("#cloud-5")
 TweenMax
     .fromTo(cloud5[0], 95, {
         x: "0%",
@@ -226,7 +226,7 @@ TweenMax
 
 
 // Beachball Animation
-var beachball = $("#beachball")
+let beachball = $("#beachball")
 TweenMax
     .to(beachball[0], 4, {
         x: "-80%",
