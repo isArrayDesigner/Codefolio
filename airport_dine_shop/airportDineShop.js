@@ -166,11 +166,6 @@ $(document).ready(function () {
                 searchTerm = $(this).val()
                 searchTermStorage.push(searchTerm)
             })
-            /* $('.airSelect').on('change', function () {
-                    //get security option
-                    searchAir = $(this).val();
-                    console.log(searchSecurity);
-                }); */
 
             $('.secSelect').on('change', function () {
                 searchSecStorage = []

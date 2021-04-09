@@ -1,0 +1,170 @@
+﻿#topicNav select {
+    display: none !important;
+}
+
+.divider-broward .broward-titles {
+    font-size: 2.5rem !important
+}
+
+#siteNavBar {
+    display: none;
+    margin-top: 18px;
+}
+
+.mobileBtn {
+    display: none;
+}
+
+#letterNav {
+    text-align: center;
+}
+
+#letterNav select {
+    display: inline-block !important;
+}
+
+#accordionEx .accordion .card {
+    border-bottom: 1px #81D4FA solid !important;
+}
+
+#accordionColumn span {
+    position: relative;
+    float: right;
+    margin-bottom: 2.5rem;
+
+}
+
+#benefitDetail {
+    font-weight: 300 !important;
+}
+
+#faqSearch {
+    border: none !important;
+}
+
+.navText {
+    font-size: 1.75rem;
+    line-height: 1.75rem;
+}
+
+#caresNavDiv,
+#topicNav {
+    position: fixed;
+    width: 100%;
+    top: 5.6rem;
+    background-color: white;
+    box-shadow: -3px 3px 3px rgba(0, 0, 0, 0.1);
+    z-index: 98;
+}
+
+#caresNavDiv li {
+    list-style: none;
+}
+
+.selectActive {
+    font-weight: 400;
+    border-bottom: medium solid #0277bc;
+}
+
+.anchor {
+    padding-top: 175px;
+}
+
+.anchor.noAlert {
+    padding-top: 150px;
+}
+
+.boldText {
+    font-weight: 500;
+}
+
+@media print {
+
+    #forPrinting,
+    #forPrinting *,
+    #faqTopicTitle {
+        visibility: visible;
+    }
+
+    #forPrinting {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.1rem;
+        position: absolute;
+        left: 0;
+        right: 0;
+    }
+
+    .fa-square::before {
+        content: "\f0fe";
+        font-family: 'Font Awesome 5 Pro';
+
+    }
+
+    #printVersion {
+        visibility: hidden;
+    }
+}
+
+@media only screen and (min-width:768px) {
+    #accordionColumn .lastOne:after {
+        content: "\f0fe";
+        font-family: 'Font Awesome 5 Pro';
+        position: absolute;
+        right: 0;
+        top: -4px;
+        left: 75%;
+        color: #0277BD;
+        display: block;
+        width: 32px;
+        height: 32px;
+        line-height: 32px;
+        vertical-align: top;
+        text-align: center;
+        -webkit-transition: all .35s;
+        -o-transition: all .35s;
+        transition: all .35s;
+    }
+
+    .printableArea:before {
+        content: "\f02f";
+        font-family: 'Font Awesome 5 Pro';
+        position: relative;
+        color: #0277BD;
+        display: contents;
+        width: 32px;
+        height: 32px;
+        line-height: 32px;
+        vertical-align: top;
+        text-align: center;
+        -webkit-transition: all .35s;
+        -o-transition: all .35s;
+        transition: all .35s;
+    }
+}
+
+@media (max-width: 767px) {
+    #topicNav {
+        text-align: center;
+    }
+
+    #topicNav ul {
+        display: none;
+    }
+
+    #topicNav select {
+        display: inline-block !important;
+    }
+
+    #fullPageContent.divider-broward.py-3 {
+        padding-bottom: 2rem !important;
+    }
+
+    .anchor {
+        padding-top: 220px;
+    }
+
+    .anchor.noAlert {
+        padding-top: 130px;
+    }
+
+}
