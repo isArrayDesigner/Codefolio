@@ -1,4 +1,4 @@
-var worker = new Worker('/Style%20Library/V7/WebParts/SunshineMeetings/js/worker.js')
+﻿var worker = new Worker('/Style%20Library/V7/WebParts/SunshineMeetings/js/worker.js')
 var allResults
 
 worker.onmessage = function (e) {
@@ -358,13 +358,13 @@ $('body').on('click', '.fullNotice', function () {
                       '</td>'
                   )
                 )
-              )
             )
-          }
+          )
         }
       }
     }
-  })
+  }
+})
 
   $('#fullPageContent > div > div.row.pt-3.mb-r').removeClass('mb-r')
   $('#fullPageContent > div > div.row.pt-3').removeClass('pt-3')
