@@ -1,1 +1,1 @@
-![GitHub Logo](/img/virtual_hugs_img1.png)
+![Virtual Hugs](https://github.com/isArrayDesigner/Codefolio/blob/main/virtual_hugs/img/virtual_hugs_img1.png)
